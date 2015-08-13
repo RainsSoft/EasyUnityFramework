@@ -1,0 +1,114 @@
+{
+	"11651":
+	{
+		"id": "11651",
+		"name": "fencing",
+		"icon": "ui_icon_interest_fencing.png",
+		"skill_feature": "11172"
+	},
+	"11652":
+	{
+		"id": "11652",
+		"name": "boxing",
+		"icon": "ui_icon_interest_boxing.png",
+		"skill_feature": "11187"
+	},	
+	"11653":
+	{
+		"id": "11653",
+		"name": "mountaineering",
+		"icon": "ui_icon_interest_mountaineering.png",
+		"skill_feature": "11173"
+	},
+	"11654":
+	{
+		"id": "11654",
+		"name": "reading",
+		"icon": "ui_icon_interest_reading.png",
+		"skill_feature": "11174"
+	},
+	"11655":
+	{
+		"id": "11655",
+		"name": "recipe",
+		"icon": "ui_icon_interest_recipe.png",
+		"skill_feature": "11175"
+	},
+	"11656":
+	{
+		"id": "11656",
+		"name": "wine",
+		"icon": "ui_icon_interest_wine.png",
+		"skill_feature": "11176"
+	},
+	"11657":
+	{
+		"id": "11657",
+		"name": "smoking",
+		"icon": "ui_icon_interest_smoking.png",
+		"skill_feature": "11177"
+	},
+	"11658":
+	{
+		"id": "11658",
+		"name": "rugby",
+		"icon": "ui_icon_interest_rugby.png",
+		"skill_feature": "11178"
+	},
+	"11659":
+	{
+		"id": "11659",
+		"name": "karate",
+		"icon": "ui_icon_interest_karate.png",
+		"skill_feature": "11179"
+	},
+	"11660":
+	{
+		"id": "11660",
+		"name": "parkour",
+		"icon": "ui_icon_interest_parkour.png",
+		"skill_feature": "11180"
+	},
+	"11661":
+	{
+		"id": "11661",
+		"name": "stroll",
+		"icon": "ui_icon_interest_stroll.png",
+		"skill_feature": "11181"
+	},
+	"11662":
+	{
+		"id": "11662",
+		"name": "chess",
+		"icon": "ui_icon_interest_chess.png",
+		"skill_feature": "11182"
+	},
+	"11663":
+	{
+		"id": "11663",
+		"name": "fish",
+		"icon": "ui_icon_interest_fish.png",
+		"skill_feature": "11183"
+	},
+	"11664":
+	{
+		"id": "11664",
+		"name": "hunt",
+		"icon": "ui_icon_interest_hunt.png",
+		"skill_feature": "11184"
+	},
+	"11665":
+	{
+		"id": "11665",
+		"name": "photograph",
+		"icon": "ui_icon_interest_photograph.png",
+		"skill_feature": "11185"
+	},
+	"11666":
+	{
+		"id": "11666",
+		"name": "football",
+		"icon": "ui_icon_interest_football.png",
+		"skill_feature": "11186"
+	}
+}

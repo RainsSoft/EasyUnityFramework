@@ -1,0 +1,290 @@
+{
+    "10051": 
+	{
+		"id": "10051",
+		"name": "farmer",
+		"icon": "ui_icon_job_farmer.png",
+		"skill_feature": "11151",
+		"skill_normal": [
+			"10157",
+			"10151"
+		],
+		"interest": [
+			"11651",
+			"11657",
+			"11656"
+		]
+	},
+	"10052":
+	{
+		"id": "10052",
+		"name": "police",
+		"icon": "ui_icon_job_police.png",
+		"skill_feature": "11152",
+		"skill_normal": [
+			"10151",
+			"10153"
+		],
+		"interest": [
+			"11657",
+			"11662",
+			"11658"
+		]
+	},
+	"10053":
+	{
+		"id": "10053",
+		"name": "poacher",
+		"icon": "ui_icon_job_poacher.png",
+		"skill_feature": "11153",
+		"skill_normal": [
+			"10151",
+			"10161"
+		],
+		"interest": [
+			"11664",
+			"11659",
+			"11657"
+		]
+	},
+	"10054":
+	{
+		"id": "10054",
+		"name": "pizza delivery man",
+		"icon": "ui_icon_job_pizza_delivery_man.png",
+		"skill_feature": "11154",
+		"skill_normal": [
+			"10161",
+			"10162"
+		],
+		"interest": [
+			"11654",
+			"11661",
+			"11660"
+		]
+	},
+	"10055":
+	{
+		"id": "10055",
+		"name": "thief",
+		"icon": "ui_icon_job_thief.png",
+		"skill_feature": "11155",
+		"skill_normal": [
+			"10159",
+			"10161"
+		],
+		"interest": [
+			"11661",
+			"11651",
+			"11660"
+		]
+	},
+	"10056":
+	{
+		"id": "10056",
+		"name": "mechanical engineer",
+		"icon": "ui_icon_job_mechanical_engineer.png",
+		"skill_feature": "11156",
+		"skill_normal": [
+			"10154",
+			"10158"
+		],
+		"interest": [
+			"11654",
+			"11657",
+			"11662"
+		]
+	},
+	"10057":
+	{
+		"id": "10057",
+		"name": "taxi driver",
+		"icon": "ui_icon_job_taxi_driver.png",
+		"skill_feature": "11157",
+		"skill_normal": [
+			"10153",
+			"10162"
+		],
+		"interest": [
+			"11657",
+			"11658",
+			"11662"
+		]
+	},
+	"10058":
+	{
+		"id": "10058",
+		"name": "guard",
+		"icon": "ui_icon_job_guard.png",
+		"skill_feature": "11158",
+		"skill_normal": [
+			"10153",
+			"10159"
+		],
+		"interest": [
+			"11666",
+			"11657",
+			"11659"
+		]
+	},
+	"10059":
+	{
+		"id": "10059",
+		"name": "college student",
+		"icon": "ui_icon_job_college_student.png",
+		"skill_feature": "11159",
+		"skill_normal": [
+			"10156",
+			"10157"
+		],
+		"interest": [
+			"11665",
+			"11654",
+			"11660"
+		]
+	},
+	"10060":
+	{
+		"id": "10060",
+		"name": "fire police",
+		"icon": "ui_icon_job_fire_police.png",
+		"skill_feature": "11160",
+		"skill_normal": [
+			"10159",
+			"10153"
+		],
+		"interest": [
+			"11666",
+			"11657",
+			"11658"
+		]
+	},
+	"10061":
+	{
+		"id": "10061",
+		"name": "forest ranger",
+		"icon": "ui_icon_job_forest_ranger.png",
+		"skill_feature": "11161",
+		"skill_normal": [
+			"10159",
+			"10153"
+		],
+		"interest": [
+			"11653",
+			"11664",
+			"11665"
+		]
+	},
+	"10062":
+	{
+		"id": "10062",
+		"name": "druggist",
+		"icon": "ui_icon_job_druggist.png",
+		"skill_feature": "11162",
+		"skill_normal": [
+			"10156",
+			"10157"
+		],
+		"interest": [
+			"11654",
+			"11657",
+			"11662"
+		]
+	},
+	"10063":
+	{
+		"id": "10063",
+		"name": "cook",
+		"icon": "ui_icon_job_cook.png",
+		"skill_feature": "11163",
+		"skill_normal": [
+			"10160",
+			"10157"
+		],
+		"interest": [
+			"11655",
+			"11656",
+			"11659"
+		]
+	},
+	"10064":
+	{
+		"id": "10064",
+		"name": "scavenger",
+		"icon": "ui_icon_job_scavenger.png",
+		"skill_feature": "11164",
+		"skill_normal": [
+			"10159",
+			"10161"
+		],
+		"interest": [
+			"11657",
+			"11664",
+			"11661"
+		]
+	},
+	"10065":
+	{
+		"id": "10065",
+		"name": "carpenter",
+		"icon": "ui_icon_job_carpenter.png",
+		"skill_feature": "11165",
+		"skill_normal": [
+			"10155",
+			"10158"	
+		],
+		"interest": [
+			"11656",
+			"11663",
+			"11652"
+		]
+	},
+	"10066":
+	{
+		"id": "10066",
+		"name": "structure manager",
+		"icon": "ui_icon_job_structure_manager.png",
+		"skill_feature": "11166",
+		"skill_normal": [
+			"10155",
+			"10158"
+		],
+		"interest": [
+			"11662",
+			"11654",
+			"11657"
+		]
+	},
+	"10067":
+	{
+		"id": "10067",
+		"name": "electric welder",
+		"icon": "ui_icon_job_electric_welder.png",
+		"skill_feature": "11167",
+		"skill_normal": [
+			"10158",
+			"10154"
+		],
+		"interest": [
+			"11664",
+			"11663",
+			"11657"
+		]
+	},
+	"10068":
+	{
+		"id": "10068",
+		"name": "baseball player",
+		"icon": "ui_icon_job_baseball_player.png",
+		"skill_feature": "11168",
+		"skill_normal": [
+			"10153",
+			"10152"
+		],
+		"interest": [
+			"11652",
+			"11653",
+			"11656"
+		]
+	}
+}

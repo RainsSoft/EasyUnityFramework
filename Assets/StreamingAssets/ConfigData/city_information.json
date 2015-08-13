@@ -1,0 +1,12 @@
+{
+	"male":
+	{
+        "id": "male",
+		"city": "19860",
+		"camera_height": "100",
+		"xmax": "2453",
+		"xmin": "814",
+		"zmax": "1338",
+		"zmin": "287"
+	}
+}

@@ -1,0 +1,182 @@
+{
+    "10151" : 
+    {
+        "id":"10151" ,   
+        "name":"gun" , 
+        "icon":"ui_icon_skill_normal_gun.png",   
+        "describe":"11753",     
+        "max_level":"5",     
+        "detail": [    
+            "13253", 
+            "13254", 
+            "13255", 
+            "13256", 
+            "13257" 
+        ] 
+    }, 
+    "10152" : 
+    {
+        "id":"10152" ,   
+        "name":"throwing_weapon" , 
+        "icon":"ui_icon_skill_normal_throwing_weapon.png",   
+        "describe":"11754",     
+        "max_level":"5",     
+        "detail": [    
+            "13258", 
+            "13259", 
+            "13260", 
+            "13261", 
+            "13262" 
+        ] 
+    }, 
+    "10153" : 
+    {
+        "id":"10153" ,   
+        "name":"boxing_blunt" , 
+        "icon":"ui_icon_skill_normal_boxing_blunt.png",   
+        "describe":"11755",     
+        "max_level":"5",     
+        "detail": [    
+            "13263", 
+            "13264", 
+            "13265", 
+            "13266", 
+            "13267" 
+        ] 
+    }, 
+    "10154" : 
+    {
+        "id":"10154" ,   
+        "name":"weapon_ammo_craft" , 
+        "icon":"ui_icon_skill_normal_weapon_ammo_craft.png",   
+        "describe":"11756",     
+        "max_level":"5",     
+        "detail": [    
+            "13268", 
+            "13269", 
+            "13270", 
+            "13271", 
+            "13272" 
+        ] 
+    }, 
+    "10155" : 
+    {
+        "id":"10155" ,   
+        "name":"architecture" , 
+        "icon":"ui_icon_skill_normal_architecture.png",   
+        "describe":"11757",     
+        "max_level":"5",     
+        "detail": [    
+            "13273", 
+            "13274", 
+            "13275", 
+            "13276", 
+            "13277" 
+        ] 
+    }, 
+    "10156" : 
+    {
+        "id":"10156" ,   
+        "name":"pharmacy" , 
+        "icon":"ui_icon_skill_normal_pharmacy.png",   
+        "describe":"11758",     
+        "max_level":"5",     
+        "detail": [    
+            "13278", 
+            "13279", 
+            "13280", 
+            "13281", 
+            "13282" 
+        ] 
+    }, 
+    "10157" : 
+    {
+        "id":"10157" ,   
+        "name":"plant" , 
+        "icon":"ui_icon_skill_normal_plant.png",   
+        "describe":"11759",     
+        "max_level":"5",     
+        "detail": [    
+            "13283", 
+            "13284", 
+            "13285", 
+            "13286", 
+            "13287" 
+        ] 
+    }, 
+    "10158" : 
+    {
+        "id":"10158" ,   
+        "name":"facilities_construction" , 
+        "icon":"ui_icon_skill_normal_facilities_construction.png",   
+        "describe":"11760",     
+        "max_level":"5",     
+        "detail": [    
+            "13288", 
+            "13289", 
+            "13290", 
+            "13291", 
+            "13292" 
+        ] 
+    }, 
+    "10159" : 
+    {
+        "id":"10159" ,   
+        "name":"climb" , 
+        "icon":"ui_icon_skill_normal_climb.png",   
+        "describe":"11761",     
+        "max_level":"5",     
+        "detail": [    
+            "13293", 
+            "13294", 
+            "13295", 
+            "13296", 
+            "13297" 
+        ] 
+    }, 
+    "10160" : 
+    {
+        "id":"10160" ,   
+        "name":"cook" , 
+        "icon":"ui_icon_skill_normal_cook.png",   
+        "describe":"11762",     
+        "max_level":"5",     
+        "detail": [    
+            "13298", 
+            "13299", 
+            "13300", 
+            "13301", 
+            "13302" 
+        ] 
+    }, 
+    "10161" : 
+    {
+        "id":"10161" ,   
+        "name":"explore" , 
+        "icon":"ui_icon_skill_normal_explore.png",   
+        "describe":"11763",     
+        "max_level":"5",     
+        "detail": [    
+            "13303", 
+            "13304", 
+            "13305", 
+            "13306", 
+            "13307" 
+        ] 
+    }, 
+    "10162" : 
+    {
+        "id":"10162" ,   
+        "name":"drive" , 
+        "icon":"ui_icon_skill_normal_drive.png",   
+        "describe":"11764",     
+        "max_level":"5",     
+        "detail": [    
+            "13308", 
+            "13309", 
+            "13310", 
+            "13311", 
+            "13312" 
+        ] 
+    }    
+}    

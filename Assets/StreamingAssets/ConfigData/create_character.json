@@ -1,0 +1,113 @@
+{
+    "Create": [
+        {
+            "type": "gender",
+            "contain": [
+                {
+                    "name": "male",
+                    "image": "LoginProperty/male"
+                },
+                {
+                    "name": "female",
+                    "image": "LoginProperty/female"
+                }
+            ]
+        },
+        {
+            "type": "age",
+            "contain": [
+                {
+                    "type": 24,
+                    "image": "LoginProperty/24",
+                    "job": [
+                        {
+                            "name": "student",
+                            "image": "LoginProperty/student"
+                        },
+                        {
+                            "name": "repairman",
+                            "image": "LoginProperty/repairman"
+                        },
+                        {
+                            "name": "carpenter",
+                            "image": "LoginProperty/carpenter"
+                        },
+                        {
+                            "name": "volunteer",
+                            "image": "LoginProperty/volunteer"
+                        }
+                    ]
+                },
+                {
+                    "type": 38,
+                    "image": "LoginProperty/38",
+                    "job": [
+                        {
+                            "name": "taxi_driver",
+                            "image": "LoginProperty/taxi_driver"
+                        },
+                        {
+                            "name": "carpenter",
+                            "image": "LoginProperty/carpenter"
+                        },
+                        {
+                            "name": "manager",
+                            "image": "LoginProperty/manager"
+                        },
+                        {
+                            "name": "doctor",
+                            "image": "LoginProperty/doctor"
+                        }
+                    ]
+                },
+                {
+                    "type": 50,
+                    "image": "LoginProperty/50",
+                    "job": [
+                        {
+                            "name": "taxi_driver",
+                            "image": "LoginProperty/taxi_driver"
+                        },
+                        {
+                            "name": "manager",
+                            "image": "LoginProperty/manager"
+                        },
+                        {
+                            "name": "doctor",
+                            "image": "LoginProperty/doctor"
+                        },
+                        {
+                            "name": "engineer",
+                            "image": "LoginProperty/engineer"
+                        }
+                    ]
+                }               
+            ]
+        },
+        {
+            "type": "interest",
+            "contain": [
+                {
+                    "name": "wine",
+                    "image": "LoginProperty/wine"
+                },
+                {
+                    "name": "food",
+                    "image": "LoginProperty/food"
+                },
+                {
+                    "name": "sport",
+                    "image": "LoginProperty/sport"
+                },
+                {
+                    "name": "read",
+                    "image": "LoginProperty/read"
+                },
+                {
+                    "name": "coffee",
+                    "image": "LoginProperty/coffee"
+                }
+            ]
+        }
+    ]
+}
