@@ -65,7 +65,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void GameStart()
     {
-        Facade.GetPanelManager().PushPanel(UINames.Sample);
+        Facade.GetPanelManager().PushPanel(PanelNames.Sample);
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public class GameController : MonoBehaviour
 
     private void RegistUI()
     {
-        Facade.GetPanelManager().RegistLogic(UINames.Sample, typeof(SampleLogic));
+        Facade.GetPanelManager().RegistLogic(PanelNames.Sample, typeof(SampleLogic));
     }
 
 	public void LoadAssetbundleManifest()

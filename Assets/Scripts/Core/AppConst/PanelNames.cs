@@ -1,5 +1,5 @@
 ﻿
-class UINames
+class PanelNames
 {
     public const string Sample = "SamplePanel";
 }

@@ -10,7 +10,7 @@ public class SampleLogic : UILogic
     public override void StartUp(Transform parent)
     {
         base.StartUp(parent);
-        ResName = UINames.Sample;
+        ResName = PanelNames.Sample;
         UIGenerator.Instance.CreateUI(ResName, parent, OnCreated);
     }
 
@@ -51,6 +51,7 @@ public class SampleLogic : UILogic
     bool OnOk()
     {
         DebugConsole.Log("you click on [OK]");
+        WaitingLayer.Show();
         return false;
     }
 

@@ -28,7 +28,9 @@ public class AppConst
     public static string ABConfigPath = "Editor/AssetbundlePackage";            //Assetsbudle包的配置文件路径
     public static string ABConfigName = "assetbundle_entries";                  //Assetsbudle包的配置文件名
 
-    public static float TweenAnimationDuration = 1.0f;   
+    public static float TweenAnimationDuration = 1.0f;
+
+    public static Vector2 ReferenceResolution = new Vector2(1280, 720);
 
 }
 

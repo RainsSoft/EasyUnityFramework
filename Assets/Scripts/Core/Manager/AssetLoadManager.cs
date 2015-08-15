@@ -69,6 +69,8 @@ public class AssetLoadManager : MonoBehaviour
     {
         if (assetname.Contains(".png"))
             assetname = assetname.Replace(".png", string.Empty);
+        if (assetname.Contains(".tga"))
+            assetname = assetname.Replace(".tga", string.Empty);
         this.LoadAsset<Sprite>("textures", assetname, func);
     }
 
