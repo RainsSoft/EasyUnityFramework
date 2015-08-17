@@ -18,7 +18,6 @@ public class CroutineManager : MonoBehaviour
 	{
         public bool Running { get { return running; } }
 
-		
 		public bool Paused { get { return paused; } }
 
         public bool Stopped { get { return stopped; } }
