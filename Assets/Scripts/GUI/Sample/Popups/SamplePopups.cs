@@ -20,6 +20,14 @@ public class SamplePopups : BasePopups
     
     }
 
-    
-    
+
+    public override void OnAnimateInEnd()
+    {
+        DebugConsole.Log("OnAnimateInEnd");
+    }
+
+    public override void OnAnimateOutEnd()
+    {
+        DebugConsole.Log("OnAnimateOutEnd");
+    }
 }

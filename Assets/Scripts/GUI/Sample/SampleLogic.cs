@@ -58,16 +58,24 @@ public class SampleLogic : UILogic
 
     void OnClearCache()
     {
-        DialogBox.Templates.ClearCache();
-        ModleLayer.Templates.ClearCache();
-        PopupWindow.Templates.ClearCache();
-
+       // DialogBox.Templates.ClearCache();
+       // ModleLayer.Templates.ClearCache();
+       // PopupWindow.Templates.ClearCache();
+       //popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
+      // popup.Show(modal: true);
     }
 
     void OnOpenPopups()
     {
-        popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
-        popup.Show(modal: true);
+      //  popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
+       // popup.Show(modal: true);
+
+        //GameObject go = Util.Peer(view.gameObject, "Progressbar");
+        //go.GetComponent<Progressbar>().Play();
+
+        Facade.GetPanelManager().PopPanel();
+       // popup.Hide();
+
     }
 
     public override void OnMessage(string cmd, object message)
@@ -75,5 +83,14 @@ public class SampleLogic : UILogic
 
     }
 
+    public override void OnAnimateInEnd()
+    {
+        DebugConsole.Log("OnAnimateInEnd");
+    }
+
+    public override void OnAnimateOutEnd()
+    {
+        DebugConsole.Log("OnAnimateOutEnd");
+    }
 }
 

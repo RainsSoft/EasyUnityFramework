@@ -70,7 +70,6 @@ public class Loading : MonoBehaviour
                 func();
             }
         }
-
     }
 
 }

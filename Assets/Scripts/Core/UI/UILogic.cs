@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-
+using DG.Tweening;
 public class UILogic
 {
     public string ResName { get; set; }
@@ -19,12 +19,28 @@ public class UILogic
     {
         if (!Prefab) return;
         Prefab.SetActive(true);
+        Sequence s = Prefab.GetComponent<UIView>().OnAnimateIn();
+        if (s != null) s.OnComplete(OnAnimateInEnd);
+        else DebugConsole.LogError("Tweener is null");
+
     }
 
     public virtual void Disable()
     {
         if (!Prefab) return;
-        Prefab.SetActive(false);
+        Sequence s = Prefab.GetComponent<UIView>().OnAnimateOut();
+        if (s != null)
+        {
+            s.OnComplete(() =>
+            {
+                OnAnimateOutEnd();
+                Prefab.SetActive(false);
+            });
+        }
+        else
+        {
+            Prefab.SetActive(false);
+        }
     }
     
     public virtual void Free() 
@@ -33,5 +49,7 @@ public class UILogic
         Util.SafeDestroyObject(Prefab);
     }
 
+    public virtual void OnAnimateInEnd() { }
+    public virtual void OnAnimateOutEnd() { }
     public virtual void OnMessage(string cmd, object message) { }
 }

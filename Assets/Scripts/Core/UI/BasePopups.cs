@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 
 public class BasePopups : MonoBehaviour , ITemplatable
 {
@@ -14,6 +15,10 @@ public class BasePopups : MonoBehaviour , ITemplatable
     public string TemplateName { get; set; }
 
     int? modalKey;
+
+    public virtual void OnAnimateInEnd() { }
+    public virtual void OnAnimateOutEnd() { }
+    public virtual void ResetParametres() { }
 
     public void Show(bool modal = false,
                     Sprite modalSprite = null,
@@ -35,7 +40,9 @@ public class BasePopups : MonoBehaviour , ITemplatable
         transform.SetAsLastSibling();
 
         transform.localPosition = (Vector3)position;
+        transform.localScale = new Vector3(0.1f, 0.1f, 1.0f);
         gameObject.SetActive(true);
+        AnimateIn();
     }
 
     public void Hide()
@@ -45,16 +52,29 @@ public class BasePopups : MonoBehaviour , ITemplatable
             ModleLayer.Close((int)modalKey);
         }
 
-        Return();
+        AnimateOut();
     }
+
+    void AnimateIn()
+    {
+        transform.DOScale(1.0f, 0.5f).OnComplete(OnAnimateInEnd);
+    }
+
+    void AnimateOut()
+    {
+        transform.DOScale(0.1f, 0.5f).OnComplete(()=>
+        {
+            OnAnimateOutEnd();
+            Return();
+        });
+    }
+
 
     void Return()
     {
         PopupWindow.Templates.ReturnCache(this);
         ResetParametres();
     }
-
-    public virtual void ResetParametres() { }
 
     void Awake()
     {
