@@ -146,20 +146,20 @@ public class PanelManager : MonoBehaviour
     {
         if (element == null) return;
 
-        Queue<UILogic> tempQueue = new Queue<UILogic>();
+        Stack<UILogic> tempStack = new Stack<UILogic>();
 
         while (_panelStack.Count > 0)
         {
             if (_panelStack.Peek() != element)
-                tempQueue.Enqueue(_panelStack.Pop());
+                tempStack.Push(_panelStack.Pop());
             else _panelStack.Pop();
         }
-
+       
         _panelStack.Clear();
 
-        while (tempQueue.Count > 0)
+        while (tempStack.Count > 0)
         {
-            _panelStack.Push(tempQueue.Dequeue());
+            _panelStack.Push(tempStack.Pop());
         }
 
         _panelStack.Push(element);

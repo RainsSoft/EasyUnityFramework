@@ -19,10 +19,9 @@ public class UILogic
     {
         if (!Prefab) return;
         Prefab.SetActive(true);
+        Prefab.GetComponent<RectTransform>().SetAsLastSibling();
         Sequence s = Prefab.GetComponent<UIView>().OnAnimateIn();
         if (s != null) s.OnComplete(OnAnimateInEnd);
-        else DebugConsole.LogError("Tweener is null");
-
     }
 
     public virtual void Disable()
