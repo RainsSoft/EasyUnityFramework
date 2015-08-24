@@ -4,6 +4,8 @@ using System.IO;
 using System.Collections.Generic;
 //using SimpleJSON;
 
+using JsonFx.Json;
+
 /// <summary>
 /// 资源打包的辅助类
 /// </summary>
