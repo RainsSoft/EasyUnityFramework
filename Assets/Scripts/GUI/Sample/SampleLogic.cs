@@ -63,6 +63,7 @@ public class SampleLogic : UILogic
        // PopupWindow.Templates.ClearCache();
        //popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
       // popup.Show(modal: true);
+        Facade.GetSceneManager().EnterScene(SceneNames.Test);
     }
 
     void OnOpenPopups()
