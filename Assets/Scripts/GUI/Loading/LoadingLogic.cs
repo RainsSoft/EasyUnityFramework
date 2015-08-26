@@ -3,9 +3,9 @@ using System.Collections;
 
 public class LoadingLogic : UILogic
 {
+
     private LoadingView view;
 
-    public AsyncOperation async;
 
     public override void StartUp(Transform parent)
     {
@@ -29,13 +29,7 @@ public class LoadingLogic : UILogic
         Prefab = go;
         view = Prefab.AddComponent<LoadingView>();
         view.Logic = this;
+        IsCreated = true;
         Enable();
     }
-
-    IEnumerator LoadScene()
-    {
-        async = Application.LoadLevelAsync(SceneNames.Test);
-        yield return async;
-    }
-
 }

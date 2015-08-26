@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LoadingView : UIView, IGetComponentReference 
+public class LoadingView : UIView
 {
     public Progressbar progressbar = null;
 
@@ -12,14 +12,17 @@ public class LoadingView : UIView, IGetComponentReference
 
     public void GetComponentReference()
     {
-        progressbar = Util.Get<Progressbar>(this.gameObject, "Progressbar");
+        progressbar = Resources.FindObjectsOfTypeAll<Progressbar>()[0];
     }
 
-    public void Update()
+    void Update()
     {
-        progressbar.Value = (int)(((LoadingLogic)Logic).async.progress * 100);
+        if (progressbar == null) return;
+
+        if (Facade.GetSceneManager().async == null) return;
+
+        progressbar.Value = (int)(Facade.GetSceneManager().async.progress * 100);
     }
 
-    
 
 }

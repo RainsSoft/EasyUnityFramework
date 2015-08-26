@@ -27,9 +27,6 @@ public class SampleView : UIView, IGetComponentReference
         Debug.Log("OnAnimateIn");
         Sequence mySequence = DOTween.Sequence();
         mySequence.Join(transform.DOMoveX(10.0f, 1.0f));
-        mySequence.Join(btnOpenDialog.transform.DORotate(new Vector3(0, 180, 0), 1));
-        mySequence.Join(btnOpenPopups.transform.DOScale(new Vector3(3, 3, 3), 1));
-
         return mySequence.Play();
     }
 
@@ -37,11 +34,7 @@ public class SampleView : UIView, IGetComponentReference
     {
         Debug.Log("OnAnimateOut");
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Append(transform.DOMoveX(-10.0f, 1.0f));
-        mySequence.Append(btnOpenDialog.transform.DORotate(new Vector3(0, 180, 0), 1));
-        mySequence.PrependInterval(1);
-        mySequence.Insert(0, transform.DOScale(new Vector3(3, 3, 3), mySequence.Duration()));
-
+        mySequence.Join(transform.DOMoveX(-10.0f, 1.0f));
         return mySequence.Play();
     }
 }

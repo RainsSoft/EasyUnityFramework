@@ -17,6 +17,10 @@ public class PanelManager : MonoBehaviour
         }
     }
 
+    public UILogic PanelFocus
+    {
+        get { return panelCur; }
+    }
 
     private Stack<UILogic> _panelStack = new Stack<UILogic>();
     private Dict<string, System.Type> _registTable = new Dict<string, System.Type>();

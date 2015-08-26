@@ -29,6 +29,8 @@ public class SampleLogic : UILogic
         Prefab = go;
         view = Prefab.AddComponent<SampleView>();
         view.Logic = this;
+        IsCreated = true;
+        //
         view.btnOpenDialog.onClick.AddListener(OnOpenDialog);
         view.btnClearCache.onClick.AddListener(OnClearCache);
         view.btnOpenPopups.onClick.AddListener(OnOpenPopups);
@@ -63,7 +65,11 @@ public class SampleLogic : UILogic
        // PopupWindow.Templates.ClearCache();
        //popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
       // popup.Show(modal: true);
-        Facade.GetSceneManager().EnterScene(SceneNames.Test);
+        Facade.GetSceneManager().EnterScene(SceneNames.Test, () =>
+            {
+
+                //Facade.GetPanelManager().PushPanel(PanelNames.Sample);
+            });
     }
 
     void OnOpenPopups()

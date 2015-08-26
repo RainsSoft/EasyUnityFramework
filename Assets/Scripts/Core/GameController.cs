@@ -80,6 +80,7 @@ public class GameController : MonoBehaviour
     private void RegistUI()
     {
         Facade.GetPanelManager().RegistLogic(PanelNames.Sample, typeof(SampleLogic));
+        Facade.GetPanelManager().RegistLogic(PanelNames.Loading, typeof(LoadingLogic));
     }
 
 	public void LoadAssetbundleManifest()

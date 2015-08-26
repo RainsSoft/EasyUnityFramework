@@ -7,8 +7,11 @@ using DG.Tweening;
 public class UILogic
 {
     public string ResName { get; set; }
+    public bool IsCreated { get; set; }
+
     protected GameObject Prefab { get; set; }
     protected Transform Parent { get; set; }
+
 
     public virtual void StartUp(Transform parent)
     {
