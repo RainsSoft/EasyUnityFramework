@@ -18,9 +18,7 @@ public class LoadingView : UIView
     void Update()
     {
         if (progressbar == null) return;
-
         if (Facade.GetSceneManager().async == null) return;
-
         progressbar.Value = (int)(Facade.GetSceneManager().async.progress * 100);
     }
 
