@@ -5,6 +5,8 @@ public class LoadingLogic : UILogic
 {
 
     private LoadingView view;
+
+
     public override void StartUp(Transform parent)
     {
         base.StartUp(parent);

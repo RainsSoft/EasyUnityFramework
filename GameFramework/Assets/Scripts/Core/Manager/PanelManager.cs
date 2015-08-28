@@ -17,7 +17,7 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    public UILogic PanelFocused
+    public UILogic PanelFocus
     {
         get { return panelCur; }
     }

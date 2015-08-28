@@ -8,7 +8,6 @@ public class SceneManager : MonoBehaviour
     Action _onLoadComplete = null;
 
     public AsyncOperation async = null;
-    public bool IsLoading { get; set; }
 
     public void EnterScene(string sceneName, Action onLoadComplete = null)
     {
@@ -25,24 +24,21 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator LoadSceneInternal()
     {
-        if (Facade.GetPanelManager().PanelFocused.IsCreated != true)
+        if (Facade.GetPanelManager().PanelFocus.IsCreated != true)
             yield return null;
 
         async = Application.LoadLevelAsync(_loadSceneName);
-        IsLoading = true;
         yield return async;
         if (async.isDone)
         {
             Facade.GetPanelManager().ClearStack();
-            _loadSceneName = null;
 
             if (_onLoadComplete != null)
             {
                 _onLoadComplete();
                 _onLoadComplete = null;
+                _loadSceneName = null;
             }
-
-            IsLoading = false;
         }
     }
 
