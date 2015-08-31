@@ -26,7 +26,8 @@ public class SampleView : UIView, IGetComponentReference
     {
         Debug.Log("OnAnimateIn");
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Join(transform.DOMoveX(10.0f, 1.0f));
+        transform.localScale = Vector3.zero;
+        mySequence.Join(transform.DOScale(1.0f, 0.5f));
         return mySequence.Play();
     }
 
@@ -34,7 +35,7 @@ public class SampleView : UIView, IGetComponentReference
     {
         Debug.Log("OnAnimateOut");
         Sequence mySequence = DOTween.Sequence();
-        mySequence.Join(transform.DOMoveX(-10.0f, 1.0f));
+        mySequence.Join(transform.DOScale(0.0f, 0.5f));
         return mySequence.Play();
     }
 }
