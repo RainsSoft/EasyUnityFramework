@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using SimpleJSON;
-
 
 public class Util : MonoBehaviour
 {
@@ -353,23 +351,6 @@ public class Util : MonoBehaviour
             }
             return path;
         }
-    }
-
-    /// <summary>
-    /// 获取多语言表的中Text
-    /// </summary>
-    /// <param name="strGsid">多语言表中的ID</param>
-    /// <returns></returns>
-    public static string GetGsText(string strGsid)
-    {
-        string reteurnStr = null;
-        JSONNode newjsNode = ConfigDataManager.Instance.GetConfig("gs_cn.json");
-        newjsNode.Childs.ForEach((newNode, index) =>
-        {
-            if (newNode["id"].Value.Equals(strGsid))
-                reteurnStr = newNode["text"].Value;
-        });
-        return reteurnStr;
     }
 
 }

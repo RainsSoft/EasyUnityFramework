@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using SimpleJSON;
+/*
 public class ConfigDataManager : TSingleton<ConfigDataManager>
 {
     private ConfigDataManager()
@@ -51,3 +51,4 @@ public class ConfigDataManager : TSingleton<ConfigDataManager>
         return _configDataPool[fileName];
     }
 }
+ * */

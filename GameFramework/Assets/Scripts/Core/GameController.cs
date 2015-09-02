@@ -7,7 +7,6 @@ using System.Text;
 using System;
 using DG.Tweening;
 using UnityEngine.Events;
-using SimpleJSON;
 
 public class GameController : MonoBehaviour 
 {
