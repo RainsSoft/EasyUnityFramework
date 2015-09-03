@@ -25,12 +25,19 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator LoadSceneInternal()
     {
-        if (Facade.GetPanelManager().PanelFocused.IsCreated != true)
-            yield return null;
+        while (true)
+        {
+            UILogic focus = Facade.GetPanelManager().PanelFocused;
+            if(focus == null || focus.IsCreated == false)
+                yield return null;
+            else
+                break;
+        }
 
         async = Application.LoadLevelAsync(_loadSceneName);
         IsLoading = true;
         yield return async;
+
         if (async.isDone)
         {
             Facade.GetPanelManager().ClearStack();

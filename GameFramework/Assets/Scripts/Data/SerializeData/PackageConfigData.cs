@@ -28,5 +28,5 @@ public class ABConfig
 [System.Serializable] 
 public class PackageConfigData
 {
-    public ABConfig[] abConfigs;
+    public ABConfig[] packageConfig;
 }

@@ -1,5 +1,5 @@
 {
-	"abConfigs": [{
+	"packageConfig": [{
 		"name": "textures",
 		"variant": "unity3d",
 		"assetPath": "Assets/OriginalRes/Textures",

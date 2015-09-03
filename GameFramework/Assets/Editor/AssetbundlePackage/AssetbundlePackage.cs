@@ -80,11 +80,10 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         string path = Application.dataPath + "/" + AppConst.ABConfigPath + "/" + AppConst.ABConfigName + ".txt";
         string str = File.ReadAllText(path);
 
-
         Dict<string, ABEntry> abEntries = new Dict<string, ABEntry>();
         PackageConfigData a = JsonReader.Deserialize<PackageConfigData>(str);
 
-        ABConfig[] configs = a.abConfigs;
+        ABConfig[] configs = a.packageConfig;
 
         for (int i = 0; i < configs.Length; i++)
         {
@@ -111,7 +110,6 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
 
         public AssetBundleBuild[] ToABBuild()
         {
-            //Debug.LogError(this.assetResPath);
             switch (abConfig.packageType)
             {
                 case "Dir_Dir":

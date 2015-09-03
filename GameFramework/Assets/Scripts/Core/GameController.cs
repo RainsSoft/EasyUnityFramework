@@ -64,7 +64,10 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void GameStart()
     {
-        Facade.GetPanelManager().PushPanel(PanelNames.Sample);
+        Facade.GetSceneManager().EnterScene(SceneNames.Game, () =>
+        {
+            Facade.GetPanelManager().PushPanel(PanelNames.Sample);
+        });
     }
 
     /// <summary>
