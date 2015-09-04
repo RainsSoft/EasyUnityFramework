@@ -353,4 +353,88 @@ public class Util : MonoBehaviour
         }
     }
 
+
+
+    //数学
+
+
+    /// <summary>
+    /// 判断两条直线是否相交.
+    /// </summary>
+    public bool lineIntersectLine(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
+    {
+        float s1_x, s1_y, s2_x, s2_y;
+		s1_x = end1.x - start1.x;
+		s1_y = end1.y - start1.y;
+
+		s2_x = end2.x - start2.x;
+		s2_y = end2.y - start2.y;
+
+		var s = (-s1_y * (start1.x - start2.x) + s1_x * (start1.y - start2.y)) / (-s2_x * s1_y + s1_x * s2_y);
+		var t = ( s2_x * (start1.y - start2.y) - s2_y * (start1.x - start2.x)) / (-s2_x * s1_y + s1_x * s2_y);
+
+		return (s >= 0 && s <= 1 && t >= 0 && t <= 1);
+    }
+
+
+     //判断直线和圆是否相交.
+
+    public bool lineIntersectCircle(Vector2 start, Vector2 end, Vector2 circlePoint, float circleRadius)
+    {
+        var squaredDistance = pointToLineDistanceSqr(circlePoint, start, end);
+        return circleRadius * circleRadius >= squaredDistance;
+    }
+
+    //判断直线是否和矩形相交
+    public bool lineIntersectRect(Vector2 start, Vector2 end, Rect rect)
+    {
+        var p1 = new Vector2(rect.x, rect.y);
+		var p2 = new Vector2(rect.x + rect.width, rect.y);
+		var p3 = new Vector2(rect.x + rect.width, rect.y + rect.height);
+		var p4 = new Vector2(rect.x, rect.y + rect.height);
+       
+        Vector2[,] lines = new Vector2[4, 2]{
+        {p1,p2},
+        {p2,p3},
+        {p3,p4},
+        {p4,p1}};
+
+        for (var i=0; i < lines.Length; i++)
+        {
+			if (lineIntersectLine(start, end, lines[i, 0], lines[i, 1]))
+                return true;
+		}
+
+		return false;
+    }
+
+
+     // 计算点到直线的距离的平方.
+    public float pointToLineDistanceSqr(Vector2 point, Vector2 start, Vector2 end)
+    {
+        float l2 = DistanceSqr(start, end);
+        if (l2 == 0) return DistanceSqr(point, start);
+        var t = ((point.x - start.x) * (end.x - start.x) + (point.y - start.y) * (end.y - start.y)) / l2;
+        if (t < 0) return DistanceSqr(point, start);
+        if (t > 1) return DistanceSqr(point, end);
+        return this.DistanceSqr(point, new Vector2(
+            (start.x + t * (end.x - start.x)),
+            (start.y + t * (end.y - start.y))
+            ));
+    }
+
+    //两点距离的平方
+    public float DistanceSqr(Vector2 one, Vector2 two)
+    {
+        float distance = Vector2.Distance(one, two);
+        return distance * distance;
+    }
+
+
+
+    public double RadianToDegree(float radian)
+    {
+        return radian * (180 /  Math.PI);
+    }
+
 }

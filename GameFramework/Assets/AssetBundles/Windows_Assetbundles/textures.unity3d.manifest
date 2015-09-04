@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 96938373
+CRC: 2307766793
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9a9328b11f0c916ca079132ddc1a46c4
+    Hash: 3e5cb6ed0962fb6016d72aedaf0140b2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 75957c18d05791510cbdd301a328d69f
@@ -14,9 +14,12 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_0.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/input_input.png
 - Assets/OriginalRes/Textures/Test/NewSample/dialog_border.png
 - Assets/OriginalRes/Textures/Test/NewSample/progressbar_texture.png
+- Assets/OriginalRes/Textures/Chop/Player/c_player.png
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_2.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/progressbar_border.png
 - Assets/OriginalRes/Textures/Test/NewSample/progressbar_mask.png
 - Assets/OriginalRes/Textures/Test/NewSample/button_mask.png
@@ -24,6 +27,7 @@ Assets:
 - Assets/OriginalRes/Textures/Test/NewSample/tab_inactive_texture.png
 - Assets/OriginalRes/Textures/Test/NewSample/dialog_background.png
 - Assets/OriginalRes/Textures/Test/NewSample/dialog_mask.png
+- Assets/OriginalRes/Textures/Chop/creatures.png
 - Assets/OriginalRes/Textures/Test/NewSample/listview_mask.png
 - Assets/OriginalRes/Textures/Test/NewSample/listview_selected.png
 - Assets/OriginalRes/Textures/Test/NewSample/Flags/uk.png
@@ -33,11 +37,15 @@ Assets:
 - Assets/OriginalRes/Textures/Test/NewSample/button_texture.png
 - Assets/OriginalRes/Textures/Test/NewSample/tab_active_border.png
 - Assets/OriginalRes/Textures/Test/NewSample/input_background.png
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_4.jpg
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_5.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/tab_inactive_border.png
 - Assets/OriginalRes/Textures/Test/NewSample/progressbar_background_01.png
 - Assets/OriginalRes/Textures/Test/NewSample/spinner_down.png
 - Assets/OriginalRes/Textures/Test/NewSample/canvas_background.png
 - Assets/OriginalRes/Textures/Test/NewSample/listview_background.png
+- Assets/OriginalRes/Textures/Chop/big/shop_bg.png
+- Assets/OriginalRes/Textures/Chop/big/home_bg.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/scrollbar_handle.png
 - Assets/OriginalRes/Textures/Test/NewSample/spinner_up.png
 - Assets/OriginalRes/Textures/Test/NewSample/dialog_icon.png
@@ -46,11 +54,14 @@ Assets:
 - Assets/OriginalRes/Textures/Test/NewSample/tab_active_mask.png
 - Assets/OriginalRes/Textures/Test/NewSample/iprogressbar_border.png
 - Assets/OriginalRes/Textures/Test/NewSample/Flags/ch.png
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_3.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/notify_background.png
 - Assets/OriginalRes/Textures/Test/NewSample/Flags/de.png
 - Assets/OriginalRes/Textures/Test/NewSample/Flags/ko.png
 - Assets/OriginalRes/Textures/Test/NewSample/Flags/jp.png
 - Assets/OriginalRes/Textures/Test/NewSample/scrollbar_background.png
+- Assets/OriginalRes/Textures/Chop/big/ba_hurt.png
+- Assets/OriginalRes/Textures/Chop/big/ba_bg_1.jpg
 - Assets/OriginalRes/Textures/Test/u=1909832230,2037310828&fm=11&gp=0.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/progressbar_background_02.png
 - Assets/OriginalRes/Textures/Test/ui_wating.tga
@@ -58,6 +69,7 @@ Assets:
 - Assets/OriginalRes/Textures/Test/NewSample/listview_hover.png
 - Assets/OriginalRes/Textures/Test/1435425474wn4y.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/tab_active_texture.png
+- Assets/OriginalRes/Textures/Chop/big/over_bg.jpg
 - Assets/OriginalRes/Textures/Test/NewSample/notify_close.png
 - Assets/OriginalRes/Textures/Test/NewSample/dialog_delimiter.png
 - Assets/OriginalRes/Textures/Test/NewSample/tab_inactive_mask.png
