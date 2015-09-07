@@ -1,21 +1,17 @@
 ManifestFileVersion: 0
-CRC: 1765789189
+CRC: 4136774452
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2633a219f6418977b2845d213c981f7f
+    Hash: 864b092ca8364a6e39574c295939435c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: de5fb9a35219db5d2481b95fab484b0f
+    Hash: bf732cc7a37d4152b1732a2d1d89e283
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
-- Class: 21
-  Script: {instanceID: 0}
 - Class: 28
-  Script: {instanceID: 0}
-- Class: 48
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
@@ -28,12 +24,10 @@ ClassTypes:
 - Class: 114
   Script: {fileID: -1200242548, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 - Class: 114
-  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 29443e368da11e94b9f86fc83843faf7, type: 3}
 - Class: 115
   Script: {instanceID: 0}
-- Class: 128
+- Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
@@ -41,4 +35,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/OriginalRes/Prefabs/GUI/Widgets/Tabs.prefab
-Dependencies: []
+Dependencies:
+- D:/Milu/GameFramework/Assets/AssetBundles/Windows_Assetbundles/textures.unity3d
