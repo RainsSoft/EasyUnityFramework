@@ -14,7 +14,6 @@ public class PackgeBuld : TSingleton<PackgeBuld>
         //1:得到路径
         //2:找到路径下面的.unity3d 的文件 将其加载到一个字符串数组中
 
-        // getPath();
         string pasth = Application.dataPath + "/Scene/";  //Application.dataPath +
         List<string> levels = new List<string>();
         DirectoryInfo pathinfo = new DirectoryInfo(pasth);
