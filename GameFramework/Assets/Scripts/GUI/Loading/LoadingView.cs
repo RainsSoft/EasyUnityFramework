@@ -23,6 +23,4 @@ public class LoadingView : UIView
 
         progressbar.Value = (int)(Facade.GetSceneManager().async.progress * 100);
     }
-
-
 }

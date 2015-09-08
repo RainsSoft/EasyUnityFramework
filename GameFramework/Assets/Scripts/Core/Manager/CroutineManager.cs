@@ -6,13 +6,13 @@ public class CroutineManager : MonoBehaviour
 {
     public void Initialize() { }
 
-    public Task StartTask(IEnumerator coroutine, bool autoStart = true, UnityAction finishedHandle = null)  
-	{
+    public Task StartTask(IEnumerator coroutine, bool autoStart = true, UnityAction finishedHandle = null)
+    {
         var r = new Task(coroutine);
         r.FinishedHandle = finishedHandle;
         if (autoStart) r.Start();
-        return new Task(coroutine);  
-	}  
+        return new Task(coroutine);
+    }  
 
 	public class Task  
 	{
