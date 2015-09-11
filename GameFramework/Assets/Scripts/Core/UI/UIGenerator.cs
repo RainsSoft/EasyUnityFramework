@@ -9,7 +9,7 @@ public class UIGenerator : TSingleton<UIGenerator>
     /// </summary>
     public void CreateUI(string pfbName, Transform parent, Action<GameObject> func)
     {
-        Facade.GetAssetLoadManager().LoadGUI(pfbName, (prefab) =>
+        gate.GetAssetLoadManager().LoadGUI(pfbName, (prefab) =>
         {
             GameObject go = GameObject.Instantiate(prefab) as GameObject;
             if (go == null) return;

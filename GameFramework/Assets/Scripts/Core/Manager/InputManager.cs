@@ -8,7 +8,6 @@ public class InputCarrier
 {
     public float AxisX = 0.0f;
     public float AxisY = 0.0f;
-    public Vector3 Vpositon = new Vector3();
     public bool isMove = false;//是否移动（鼠标输入的时候要判断是否是在鼠标左键按下的状态）
 }
 
@@ -52,7 +51,6 @@ public class InputManager : MonoBehaviour
             inputCarrier.AxisX = Input.GetAxis("Mouse X");
 
             inputCarrier.AxisY = Input.GetAxis("Mouse Y");
-            inputCarrier.Vpositon = Camera.main.transform.position;
         }
         else
         {

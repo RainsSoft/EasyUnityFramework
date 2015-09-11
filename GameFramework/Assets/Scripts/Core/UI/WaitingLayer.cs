@@ -26,7 +26,7 @@ public class WaitingLayer : MonoBehaviour, ITemplatable
         if (layer) return;
         layer = Templates.Instance(key);
 
-        layer.transform.SetParent(Facade.MessageCanvas, false);
+        layer.transform.SetParent(gate.MessageCanvas, false);
         layer.gameObject.SetActive(true);
 
         var rect = layer.GetComponent<RectTransform>();

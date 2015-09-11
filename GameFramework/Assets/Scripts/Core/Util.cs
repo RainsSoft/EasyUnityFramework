@@ -191,39 +191,6 @@ public class Util : MonoBehaviour
         }
     }
 
-    public static void SafeIvokeHandler(ref Action<string, object> action, string cmd, object obj)
-    {
-        if (action != null)
-        {
-            action.Invoke(cmd, obj);
-            action = null;
-        }
-    }
-
-    /// <summary>
-    /// 委托调用
-    /// </summary>
-    public static void SafeIvokeHandler(ref Action<UnityEngine.Object> action, UnityEngine.Object obj)
-    {
-        if (action != null)
-        {
-            action.Invoke(obj);
-            action = null;
-        }
-    }
-
-    /// <summary>
-    /// 委托调用
-    /// </summary>
-    public static void SafeIvokeHandler(ref Action<System.Object> action, System.Object obj)
-    {
-        if (action != null)
-        {
-            action.Invoke(obj);
-            action = null;
-        }
-    }
-
     /// <summary>
     /// 委托调用
     /// </summary>

@@ -65,9 +65,9 @@ public class SampleLogic : UILogic
         // PopupWindow.Templates.ClearCache();
         // popup = PopupWindow.Template(PopupsNames.Sample) as SamplePopups;
         // popup.Show(modal: true);
-        Facade.GetSceneManager().EnterScene(SceneNames.Test, () =>
+        gate.GetSceneManager().EnterScene(SceneNames.Test, () =>
         {
-            //Facade.GetPanelManager().PushPanel(PanelNames.Sample);
+            //gate.GetPanelManager().PushPanel(PanelNames.Sample);
         });
     }
 
@@ -79,7 +79,7 @@ public class SampleLogic : UILogic
         // GameObject go = Util.Peer(view.gameObject, "Progressbar");
         // go.GetComponent<Progressbar>().Play();
 
-        Facade.GetPanelManager().PopPanel();
+        gate.GetPanelManager().PopPanel();
         // popup.Hide();
 
     }

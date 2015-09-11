@@ -51,7 +51,7 @@ public class AssetBundleOperation : AssetBundleIterator
 		if (m_Request != null)
 			return false;
 
-        AssetBundleInfo bundle = Facade.GetAssetLoadManager().GetDownloadedAssetBundle(m_AssetBundleName, out m_DownloadingError);
+        AssetBundleInfo bundle = gate.GetAssetLoadManager().GetDownloadedAssetBundle(m_AssetBundleName, out m_DownloadingError);
 		if (bundle != null)
 		{
 			m_Request = bundle.m_AssetBundle.LoadAssetAsync(m_AssetName, m_Type);
@@ -89,7 +89,7 @@ public class AssetBundleManifestOperation : AssetBundleOperation
 		base.Update();
 		if (m_Request != null && m_Request.isDone)  //加载完成了。
 		{
-            Facade.GetAssetLoadManager().AssetBundleManifest = GetAsset<AssetBundleManifest>();
+            gate.GetAssetLoadManager().AssetBundleManifest = GetAsset<AssetBundleManifest>();
 			return false;   //返回false，让资源管理器清除本次请求。
 		}
 		else return true;   //还在加载ing...

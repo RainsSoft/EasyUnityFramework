@@ -38,7 +38,7 @@ public class AtlatsTest : MonoBehaviour
     private void loadSprite(string spriteName, Image x)
     {
         //assetbundle 
-        Facade.GetAssetLoadManager().LoadSprite(spriteName, (s) =>
+        gate.GetAssetLoadManager().LoadSprite(spriteName, (s) =>
         {
             x.sprite = s;
         });

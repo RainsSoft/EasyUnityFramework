@@ -62,7 +62,7 @@ public class ResourcesUpdateManager : MonoBehaviour
                     sw.Close();
                 }
             }
-            Facade.GameController.LoadAssetbundleManifest();
+            gate.GameController.LoadAssetbundleManifest();
         }
     }
     
@@ -101,7 +101,7 @@ public class ResourcesUpdateManager : MonoBehaviour
           
         }
         yield return 0;
-        Facade.GameController.LoadAssetbundleManifest();
+        gate.GameController.LoadAssetbundleManifest();
     }
 
 

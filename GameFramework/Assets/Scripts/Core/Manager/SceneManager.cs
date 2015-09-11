@@ -12,7 +12,7 @@ public class SceneManager : MonoBehaviour
 
     public void EnterScene(string sceneName, Action onLoadComplete = null)
     {
-        Facade.GetPanelManager().PushPanel(PanelNames.Loading);
+        gate.GetPanelManager().PushPanel(PanelNames.Loading);
         _loadSceneName = sceneName;
         _onLoadComplete = onLoadComplete;
         LoadScene();
@@ -27,7 +27,7 @@ public class SceneManager : MonoBehaviour
     {
         while (true)
         {
-            UILogic focus = Facade.GetPanelManager().PanelFocused;
+            UILogic focus = gate.GetPanelManager().PanelFocused;
             if(focus == null || focus.IsCreated == false)
                 yield return null;
             else
@@ -40,7 +40,7 @@ public class SceneManager : MonoBehaviour
 
         if (async.isDone)
         {
-            Facade.GetPanelManager().ClearStack();
+            gate.GetPanelManager().ClearStack();
             _loadSceneName = null;
 
             if (_onLoadComplete != null)

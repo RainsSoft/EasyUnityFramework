@@ -29,7 +29,7 @@ public class BasePopups : MonoBehaviour , ITemplatable
         if (position == null) position = new Vector3(0, 0, 0);
         if (modalColor == null) modalColor = new Color(0, 0, 0, 0.2f);
 
-        var parent = (canvas != null) ? canvas.transform : Facade.PopupsWindow;
+        var parent = (canvas != null) ? canvas.transform : gate.PopupsWindow;
 
         transform.SetParent(parent, false);
 

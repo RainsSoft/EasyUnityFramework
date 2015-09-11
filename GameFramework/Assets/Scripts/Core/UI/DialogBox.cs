@@ -80,7 +80,7 @@ public class DialogBox : MonoBehaviour, ITemplatable
         if ((message != null) && (ContentText != null)) contentText.text = message;
         if ((icon != null) && (Icon != null)) Icon.sprite = icon;
 
-        var parent = (canvas != null) ? canvas.transform : Facade.MessageCanvas;
+        var parent = (canvas != null) ? canvas.transform : gate.MessageCanvas;
 
         transform.SetParent(parent, false);
 

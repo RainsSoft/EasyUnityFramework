@@ -2,16 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
-public static class Facade
+public static class gate
 {
-    public static GameController GameController
-    {
-        get
-        {
-            return ManagerCollect.Instance.MainUpdate.GetComponent<GameController>();
-        }
-    }
-
     public static TimerManager GetTimerManager()
     {
         return ManagerCollect.Instance.GetManager<TimerManager>(ManagerNames.Timer);
@@ -52,9 +44,23 @@ public static class Facade
         return ManagerCollect.Instance.GetManager<InputManager>(ManagerNames.Input);
     }
 
+    public static GestureManager GetGestureManager()
+    {
+        return ManagerCollect.Instance.GetManager<GestureManager>(ManagerNames.Gesture);
+    }
+
     public static ResourcesUpdateManager GetResourcesUpdateManager()
     {
         return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.Input);
+    }
+
+
+    public static GameController GameController
+    {
+        get
+        {
+            return ManagerCollect.Instance.MainUpdate.GetComponent<GameController>();
+        }
     }
 
     public static GameObject GUIRoot
@@ -67,9 +73,6 @@ public static class Facade
         }
     }
 
-    /// <summary>
-    /// PanelCamera
-    /// </summary>
     public static Transform PanelCamera
     {
         get
@@ -80,9 +83,6 @@ public static class Facade
         }
     }
 
-    /// <summary>
-    /// EffectCamera
-    /// </summary>
     public static Transform EffectCamera
     {
         get
@@ -93,9 +93,6 @@ public static class Facade
         }
     }
 
-    /// <summary>
-    /// MessageCanvas
-    /// </summary>
     public static Transform MessageCanvas
     {
         get
@@ -105,11 +102,6 @@ public static class Facade
             return null;
         }
     }
-
-
-    /// <summary>
-    /// PopupsWindow
-    /// </summary>
     public static Transform PopupsWindow
     {
         get
@@ -120,9 +112,6 @@ public static class Facade
         }
     }
 
-    /// <summary>
-    /// 网络消息发送者 [socket]
-    /// </summary>
     public static MessageSender MessageSender
     {
         get { return MessageSender.Instance; }

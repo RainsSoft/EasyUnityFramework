@@ -19,8 +19,8 @@ public class LoadingView : UIView
     {
         if (progressbar == null) return;
 
-        if (Facade.GetSceneManager().async == null) return;
+        if (gate.GetSceneManager().async == null) return;
 
-        progressbar.Value = (int)(Facade.GetSceneManager().async.progress * 100);
+        progressbar.Value = (int)(gate.GetSceneManager().async.progress * 100);
     }
 }

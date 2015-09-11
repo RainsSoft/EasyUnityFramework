@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
     {
         //取消 Destroy 对象 
         DontDestroyOnLoad(gameObject);
-        DontDestroyOnLoad(Facade.GUIRoot);
+        DontDestroyOnLoad(gate.GUIRoot);
         DontDestroyOnLoad(DebugConsole.Instance);
 
         //基本设置
@@ -43,9 +43,10 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<SceneManager>(ManagerNames.Scene);
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerNames.Music);
         ManagerCollect.Instance.AddManager<InputManager>(ManagerNames.Input);
+        ManagerCollect.Instance.AddManager<GestureManager>(ManagerNames.Gesture);
 
-        Facade.GetTimerManager().Initialize();
-        Facade.GetMusicManager().Initialize();
+        gate.GetTimerManager().Initialize();
+        gate.GetMusicManager().Initialize();
 
         LoadAssetbundleManifest();
     }
@@ -64,9 +65,9 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void GameStart()
     {
-        Facade.GetSceneManager().EnterScene(SceneNames.Game, () =>
+        gate.GetSceneManager().EnterScene(SceneNames.Game, () =>
         {
-            Facade.GetPanelManager().PushPanel(PanelNames.Sample);
+            gate.GetPanelManager().PushPanel(PanelNames.Sample);
         });
     }
 
@@ -75,19 +76,19 @@ public class GameController : MonoBehaviour
     /// </summary>
     private void GameEnd()
     {
-        Facade.GetAssetLoadManager().UnloadAssetBundles();
+        gate.GetAssetLoadManager().UnloadAssetBundles();
         Util.ClearMemory();
     }
 
     private void RegistUI()
     {
-        Facade.GetPanelManager().RegistLogic(PanelNames.Sample, typeof(SampleLogic));
-        Facade.GetPanelManager().RegistLogic(PanelNames.Loading, typeof(LoadingLogic));
+        gate.GetPanelManager().RegistLogic(PanelNames.Sample, typeof(SampleLogic));
+        gate.GetPanelManager().RegistLogic(PanelNames.Loading, typeof(LoadingLogic));
     }
 
 	public void LoadAssetbundleManifest()
     {
-        var tempManager = Facade.GetAssetLoadManager();
+        var tempManager = gate.GetAssetLoadManager();
         string bundlName = AppPlatform.GetAssetBundleDictionaryName();
         tempManager.DownloadingURL = AppPlatform.GetAssetBundleDictionaryUrl();
         tempManager.LoadManifest(bundlName, () =>

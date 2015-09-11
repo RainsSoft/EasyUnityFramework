@@ -9,5 +9,6 @@
     public const string Croutine                = "CroutineManager";
     public const string Scene                   = "SceneManager";
     public const string Input                   = "InputManager";
+    public const string Gesture                 = "GestureManager";
     public const string ResourcesUpdate         = "ResourcesUpdateManager";
 }

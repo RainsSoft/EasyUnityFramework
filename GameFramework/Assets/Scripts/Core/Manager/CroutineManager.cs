@@ -47,7 +47,7 @@ public class CroutineManager : MonoBehaviour
 		public void Start()  
 		{  
 			running = true;
-            Facade.GetCroutineManager().StartCoroutine(CallWrapper());  
+            gate.GetCroutineManager().StartCoroutine(CallWrapper());  
 		}  
 		
 		public void Stop()  

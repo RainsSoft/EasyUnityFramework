@@ -1,54 +1,123 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	public float moveSpeed;
-	public float turnSpeed;
+    Animator animator;
+    GestureManager g;
 
-	private Vector3 moveDirection;
-
-    bool isAttacking = false;
+    float attackRange = 1;
+    float attackSpeed = 5;
 
 	void Start ()
     {
-		moveDirection = Vector3.zero;
-	}
+        animator = GetComponent<Animator>();
+        g = GameObject.Find("BattleController").GetComponent<GestureManager>();
+        g.OnGestureTap += OnGestureTap;
+        g.OnGestureMove += OnGestureMove;
 
+    }
 
+    void OnGestureTap(float distance)
+    {
+        Vector2 start = Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 end = g.LastPoint;
+        var angle = MathUtil.AngleOfLine(start, end);
+        Attack(angle);
+    }
 
-    void FixedUpdate()
+    void OnGestureMove(Vector2 offset)
     {
 
+    }
 
-		//Vector3 currentPosition = transform.position;
 
-		if( Input.GetButton("Fire1") ) 
+    void SetAttackAnimate(double angle)
+    {
+        var dir = (int)Mathf.Floor((float)(((360 + angle + 11.25) % 360) / 22.5));
+        switch (dir)
         {
-            Vector3 currentPosition = transform.position;
-			Vector3 moveToward = Camera.main.ScreenToWorldPoint( Input.mousePosition );
-            moveToward.z = 0;
-            var moveD = moveToward - currentPosition;
-            var time = moveD.magnitude / moveSpeed;
-            transform.DOLocalMove(moveToward, time).SetEase(Ease.OutExpo);
+            case 0: //attack_up
+                animator.SetInteger("Dir", 5);
+                break;
+            case 1: //attack_22_up
+                break;
+            case 2: //attack_45_up
+                break;
+            case 3: //attack_66_up
+                break;
+            case 4: //attack_right
+                animator.SetInteger("Dir", 3);
+                break;
+            case 5: //attack_22_down
+                break;
+            case 6: //attack_45_down
+                break;
+            case 7: //attack_66_down
+                break;
+            case 8: //attack_down
+                animator.SetInteger("Dir", 2);
+                break;
+            case 9: //attack_66_down
+                break;
+            case 10: //attack_45_down
+                break;
+            case 11: //attack_22_down
+                break;
+            case 12: //attack_left
+                animator.SetInteger("Dir", 1);
+                break;
+            case 13: //attack_66_up
+                break;
+            case 14: //attack_45_up
+                break;
+            case 15: //attack_22_up
+                break;
+        }
+    }
 
-          //  moveToward.
-                //Vector3.Lerp(currentPosition, moveToward, Time.deltaTime);
-			//moveDirection = moveToward - currentPosition;
-			//moveDirection.z = 0; 
-			//moveDirection.Normalize();
-		}
+    void Attack(double angle)
+    {
+        var offectPos = MathUtil.PointWithAngle(Vector2.zero, attackRange, (float)angle);
 
-		//Vector3 target = moveDirection * moveSpeed + currentPosition;
-		//transform.position = Vector3.Lerp( currentPosition, target, Time.deltaTime );
+        var attackDuration = Vector2.Distance(Vector2.zero, offectPos) / attackSpeed;
+        
+        var targetPos = offectPos + new Vector2(transform.position.x, transform.position.y);
+
+        transform.DOLocalMove(targetPos, attackDuration).SetEase(Ease.OutExpo).OnComplete(() =>
+        {
+            animator.SetInteger("Dir", 0);
+        });
+        SetAttackAnimate(angle);
+    }
+
+    public void AttackEnd()
+    {
+
+    }
+
+    public void Run()
+    {
+
+    }
+
+    public void RunEnd()
+    {
+
+    }
 
 
-        /*
-		float targetAngle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
-		transform.rotation = 
-			Quaternion.Slerp( transform.rotation, 
-			                 Quaternion.Euler( 0, 0, targetAngle ), 
-			                 turnSpeed * Time.deltaTime );
-         * */
-	}
+    public enum Direction 
+    {
+        Origin = 0,
+	    TopLeft = 1,
+	    Top = 2,
+	    TopRight = 3,
+	    Right = 4,
+	    BottomRight = 5,
+	    Bottom = 6,
+	    BottomLeft = 7,
+	    Left = 8,
+    }
 }

@@ -7,7 +7,7 @@ public class MathUtil
     /// <summary>
     /// 判断两条直线是否相交.
     /// </summary>
-    public bool lineIntersectLine(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
+    public static bool lineIntersectLine(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
     {
         float s1_x, s1_y, s2_x, s2_y;
         s1_x = end1.x - start1.x;
@@ -25,7 +25,7 @@ public class MathUtil
     /// <summary>
     /// 判断直线和圆是否相交.
     /// </summary>
-    public bool LineIntersectCircle(Vector2 start, Vector2 end, Vector2 circlePoint, float circleRadius)
+    public static bool LineIntersectCircle(Vector2 start, Vector2 end, Vector2 circlePoint, float circleRadius)
     {
         var squaredDistance = PointToLineDistanceSqr(circlePoint, start, end);
         return circleRadius * circleRadius >= squaredDistance;
@@ -34,7 +34,7 @@ public class MathUtil
     /// <summary>
     /// 判断直线是否和矩形相交
     /// </summary>
-    public bool LineIntersectRect(Vector2 start, Vector2 end, Rect rect)
+    public static bool LineIntersectRect(Vector2 start, Vector2 end, Rect rect)
     {
         var p1 = new Vector2(rect.x, rect.y);
         var p2 = new Vector2(rect.x + rect.width, rect.y);
@@ -59,32 +59,32 @@ public class MathUtil
     /// <summary>
     ///  计算点到直线的距离的平方.
     /// </summary>
-    public float PointToLineDistanceSqr(Vector2 point, Vector2 start, Vector2 end)
+    public static float PointToLineDistanceSqr(Vector2 point, Vector2 start, Vector2 end)
     {
         float l2 = DistanceSqr(start, end);
         if (l2 == 0) return DistanceSqr(point, start);
         var t = ((point.x - start.x) * (end.x - start.x) + (point.y - start.y) * (end.y - start.y)) / l2;
         if (t < 0) return DistanceSqr(point, start);
         if (t > 1) return DistanceSqr(point, end);
-        return this.DistanceSqr(point, new Vector2(
+        return DistanceSqr(point, new Vector2(
             (start.x + t * (end.x - start.x)),
             (start.y + t * (end.y - start.y))
             ));
     }
 
     /// <summary>
-    /// 两点距离的平方
+    /// 两点距离的平方, [用这个比较长度效率高]
     /// </summary>
-    public float DistanceSqr(Vector2 one, Vector2 two)
+    public static float DistanceSqr(Vector2 one, Vector2 two)
     {
         float distance = Vector2.Distance(one, two);
         return distance * distance;
     }
 
     /// <summary>
-    /// 获取一条线的角度
+    /// 获取一条线以起始点为圆心的顺时针旋转角度
     /// </summary>
-    public double AngleOfLine(Vector2 start, Vector2 end)
+    public static double AngleOfLine(Vector2 start, Vector2 end)
     {
         var x = end.x - start.x;
         var y = end.y - start.y;
@@ -105,7 +105,7 @@ public class MathUtil
     /// <summary>
     /// 两条线之间的角度
     /// </summary>
-    public double AngleBetweenLines(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
+    public static double AngleBetweenLines(Vector2 start1, Vector2 end1, Vector2 start2, Vector2 end2)
     {
         var a = end1.x - start1.x;
         var b = end1.y - start1.y;
@@ -121,15 +121,19 @@ public class MathUtil
         return RadianToDegree(rads);
     }
 
-    public Vector2 PointWithAngle(Vector2 point, float distance, float angle)
+    /// <summary>
+    /// 从原点向一个给定角度移动给定的距离
+    /// </summary>
+    public static Vector2 PointWithAngle(Vector2 point, float distance, float angle)
     {
         var radian = angle * Math.PI / 180;
-        var deltaX = Math.Sin(radian) * distance;
-        var deltaY = Math.Cos(radian) * distance;
+        var deltaX = Math.Sin(radian) * distance; //X 轴的增量 
+        var deltaY = Math.Cos(radian) * distance; //y 轴的增量 
         Vector2 dest = new Vector2((float)(point.x + deltaX), (float)(point.y + deltaY));
         return dest;
     }
-    public double RadianToDegree(double radian)
+
+    public static double RadianToDegree(double radian)
     {
         return radian * (180 / Math.PI);
     }

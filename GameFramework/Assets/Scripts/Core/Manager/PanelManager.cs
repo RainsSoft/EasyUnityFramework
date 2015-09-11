@@ -12,7 +12,7 @@ public class PanelManager : MonoBehaviour
         get
         {
             if (rootNode == null)
-                rootNode = Facade.PanelCamera;
+                rootNode = gate.PanelCamera;
             return rootNode;
         }
     }
