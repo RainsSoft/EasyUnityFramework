@@ -1,0 +1,65 @@
+ManifestFileVersion: 0
+CRC: 1309438989
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 26d86a9635e8b3793b9c975cec0c1c00
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 75957c18d05791510cbdd301a328d69f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_delimiter.png
+- Assets/OriginalRes/Texture/Test/NewSample/notify_close.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_inactive_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/spinner_up.png
+- Assets/OriginalRes/Texture/Test/NewSample/notify_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/iprogressbar_border.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/fr.png
+- Assets/OriginalRes/Texture/Test/NewSample/scrollbar_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_active_border.png
+- Assets/OriginalRes/Texture/Test/NewSample/listview_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_inactive_texture.png
+- Assets/OriginalRes/Texture/Test/1435425474wn4y.jpg
+- Assets/OriginalRes/Texture/Test/NewSample/progressbar_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/tooltip.png
+- Assets/OriginalRes/Texture/Test/NewSample/iprogressbar_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/scrollbar_handle.png
+- Assets/OriginalRes/Texture/Test/NewSample/spinner_down.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/de.png
+- Assets/OriginalRes/Texture/Test/NewSample/progressbar_texture.png
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_icon.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_inactive_border.png
+- Assets/OriginalRes/Texture/Test/NewSample/input_input.png
+- Assets/OriginalRes/Texture/Test/NewSample/button_border.png
+- Assets/OriginalRes/Texture/Test/u=1909832230,2037310828&fm=11&gp=0.jpg
+- Assets/OriginalRes/Texture/Test/ui_wating.tga
+- Assets/OriginalRes/Texture/Test/NewSample/input_background.png
+- Assets/OriginalRes/Texture/Test/32c5c4d8-2050-4040-b61b-54280d6d1686.jpg
+- Assets/OriginalRes/Texture/Test/NewSample/listview_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_input.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/progressbar_border.png
+- Assets/OriginalRes/Texture/Test/NewSample/button_texture.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_active_texture.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/ch.png
+- Assets/OriginalRes/Texture/Test/NewSample/listview_selected.png
+- Assets/OriginalRes/Texture/Test/NewSample/progressbar_background_02.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/uk.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/ko.png
+- Assets/OriginalRes/Texture/Test/NewSample/listview_hover.png
+- Assets/OriginalRes/Texture/Test/NewSample/tab_active_mask.png
+- Assets/OriginalRes/Texture/Test/NewSample/iprogressbar_texture.png
+- Assets/OriginalRes/Texture/Test/NewSample/dialog_border.png
+- Assets/OriginalRes/Texture/Test/NewSample/progressbar_background_01.png
+- Assets/OriginalRes/Texture/Test/NewSample/Flags/jp.png
+- Assets/OriginalRes/Texture/Test/NewSample/canvas_background.png
+- Assets/OriginalRes/Texture/Test/NewSample/button_mask.png
+Dependencies: []

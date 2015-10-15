@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 1816883404
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d74eaa7ed932ea96c5dbf5f9033ea55f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 6f65a5f3f92d3bfdc155dc036e8b8b3c
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 109
+  Script: {instanceID: 0}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Shader/effect_distortadd.shader
+- Assets/OriginalRes/Shader/SimpleReflection.shader
+- Assets/OriginalRes/Shader/Contour.shader
+- Assets/OriginalRes/Shader/DoubleFace.shader
+- Assets/OriginalRes/Shader/niuqu_Distortion.shader
+- Assets/OriginalRes/Shader/MaskedReflection.shader
+- Assets/OriginalRes/Shader/NormalMappedReflection.shader
+- Assets/OriginalRes/Shader/VertexLit.shader
+- Assets/OriginalRes/Shader/DistortaddStroke.shader
+- Assets/OriginalRes/Shader/effect_distortadd 1.shader
+- Assets/OriginalRes/Shader/SpecularMask.shader
+- Assets/OriginalRes/Shader/BlinnPhong.shader
+- Assets/OriginalRes/Shader/Stroke.shader
+- Assets/OriginalRes/Shader/WFX_S Add Scroll.shader
+- Assets/OriginalRes/Shader/ShowRays.cs
+- Assets/OriginalRes/Shader/FresnelReflection.shader
+- Assets/OriginalRes/Shader/SwapCubemaps.cs
+- Assets/OriginalRes/Shader/DiffuseNormal.shader
+- Assets/OriginalRes/Shader/vetexcol.cginc
+- Assets/OriginalRes/Shader/MetallicSoft.shader
+- Assets/OriginalRes/Shader/WFX_S Particle Add A8.shader
+- Assets/OriginalRes/Shader/Anisotropic.shader
+- Assets/OriginalRes/Shader/SM_TransparentRim.shader
+- Assets/OriginalRes/Shader/lightmap.cginc
+- Assets/OriginalRes/Shader/CustomBlinnPhong.shader
+- Assets/OriginalRes/Shader/Phong.shader
+- Assets/OriginalRes/Shader/RimLight.shader
+- Assets/OriginalRes/Shader/ContourOffset.shader
+- Assets/OriginalRes/Shader/Edge highlights.shader
+Dependencies: []

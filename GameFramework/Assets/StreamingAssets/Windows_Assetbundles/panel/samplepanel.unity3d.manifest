@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 430841316
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b59ae323582b3abf9e9bd5849f1c4d30
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c336971b3935e4efdb4b46fe572c7538
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7b20f514c5100604d8811c237e2b6fe2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Panel/SamplePanel.prefab
+Dependencies: []

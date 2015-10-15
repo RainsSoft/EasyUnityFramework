@@ -24,7 +24,7 @@ public class AppConst
 
     public static string AssetDirName = "StreamingAssets";
 
-    public static string ABDirName = "AssetBundles";                            //Assetbundle目录 
+	public static string ABDirName = AssetDirName;       						//Assetbundle目录 
     public static string ABConfigPath = "Editor/AssetbundlePackage";            //Assetsbudle包的配置文件路径
     public static string ABConfigName = "assetbundle_entries";                  //Assetsbudle包的配置文件名
 

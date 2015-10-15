@@ -1,36 +1,30 @@
 {
-	"packageConfig": [{
-		"name": "textures",
+	"packageConfig": [
+	{
+		"name": "texture",
 		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Textures",
+		"assetPath": "Assets/OriginalRes/Texture",
 		"assetType": "t:Texture",
 		"packageType": "Dir"
 	},
 	{
-		"name": "shaders",
+		"name": "shader",
 		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Shaders",
+		"assetPath": "Assets/OriginalRes/Shader",
 		"assetType": "t:Shader",
 		"packageType": "Dir"
 	},
 	{
-		"name": "materials",
+		"name": "panel",
 		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Materials",
-		"assetType": "t:Material",
-		"packageType": "Dir"
-	},
-	{
-		"name": "prefabs/scene",
-		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Prefabs/Scene/",
+		"assetPath": "Assets/OriginalRes/Panel",
 		"assetType": "t:Prefab",
 		"packageType": "Dir_File"
 	},
 	{
-		"name": "prefabs/gui",
+		"name": "widget",
 		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Prefabs/GUI",
+		"assetPath": "Assets/OriginalRes/Widget",
 		"assetType": "t:Prefab",
 		"packageType": "Dir_File"
 	}]
