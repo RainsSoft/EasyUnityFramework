@@ -1,0 +1,31 @@
+{
+	"packageConfig": [
+	{
+		"name": "texture",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Texture",
+		"assetType": "t:Texture",
+		"packageType": "Dir"
+	},
+	{
+		"name": "shader",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Shader",
+		"assetType": "t:Shader",
+		"packageType": "Dir"
+	},
+	{
+		"name": "uipanel",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/UIPanel",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_File"
+	},
+	{
+		"name": "uiwidget",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/UIWidget",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_File"
+	}]
+}

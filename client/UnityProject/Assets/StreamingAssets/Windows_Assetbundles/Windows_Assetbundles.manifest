@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: texture.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: shader.unity3d
+      Dependencies: {}
+    Info_2:
+      Name: uipanel/loadingpanel.unity3d
+      Dependencies: {}
+    Info_3:
+      Name: uipanel/samplepanel.unity3d
+      Dependencies: {}
+    Info_4:
+      Name: uiwidget/dialogboxtemplate.unity3d
+      Dependencies: {}
+    Info_5:
+      Name: uiwidget/fliplistview.unity3d
+      Dependencies: {}
+    Info_6:
+      Name: uiwidget/listview.unity3d
+      Dependencies: {}
+    Info_7:
+      Name: uiwidget/progressbar.unity3d
+      Dependencies: {}
+    Info_8:
+      Name: uiwidget/tabs.unity3d
+      Dependencies: {}
