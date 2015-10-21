@@ -44,7 +44,6 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<AssetLoadManager>(ManagerNames.Asset);
         ManagerCollect.Instance.AddManager<SceneManager>(ManagerNames.Scene);
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerNames.Music);
-        ManagerCollect.Instance.AddManager<InputManager>(ManagerNames.Input);
         ManagerCollect.Instance.AddManager<GestureManager>(ManagerNames.Gesture);
 
         gate.GetTimerManager().Initialize();

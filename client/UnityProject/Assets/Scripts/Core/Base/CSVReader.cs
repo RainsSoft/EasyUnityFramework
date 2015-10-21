@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 public class CSVReader
 {
-
 	public class CSVTable
 	{
 		private Dict<string, Dict<string, string>> rowTable = new Dict<string, Dict<string, string>> ();

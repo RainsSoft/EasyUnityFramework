@@ -9,10 +9,6 @@ public class DraggableHandle : MonoBehaviour, IDragHandler
 	Canvas canvas;
 	RectTransform canvasRect;
 
-	/// <summary>
-	/// Set the specified draggable object.
-	/// </summary>
-	/// <param name="newDrag">New drag.</param>
 	public void Drag(RectTransform newDrag)
 	{
 		drag = newDrag;
@@ -20,10 +16,6 @@ public class DraggableHandle : MonoBehaviour, IDragHandler
 		canvasRect = canvas.GetComponent<RectTransform>();
 	}
 
-	/// <summary>
-	/// Raises the drag event.
-	/// </summary>
-	/// <param name="eventData">Event data.</param>
 	public void OnDrag(PointerEventData eventData)
 	{
 		drag.localPosition += FixPosition(eventData.position) - FixPosition(eventData.position - eventData.delta);

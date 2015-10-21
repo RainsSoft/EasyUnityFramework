@@ -44,11 +44,6 @@ public static class gate
         return ManagerCollect.Instance.GetManager<SceneManager>(ManagerNames.Scene);
     }
 
-    public static InputManager GetInputManager()
-    {
-        return ManagerCollect.Instance.GetManager<InputManager>(ManagerNames.Input);
-    }
-
     public static GestureManager GetGestureManager()
     {
         return ManagerCollect.Instance.GetManager<GestureManager>(ManagerNames.Gesture);
@@ -56,9 +51,8 @@ public static class gate
 
     public static ResourcesUpdateManager GetResourcesUpdateManager()
     {
-        return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.Input);
+        return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.ResourcesUpdate);
     }
-
 
     public static GameController GameController
     {

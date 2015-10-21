@@ -1,23 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class ShowRays : MonoBehaviour 
+public class ShowReflectRays : MonoBehaviour 
 {
 	MeshFilter curFilter;
 	public float gizmosSize = 1.0f;
-	
-
-	// Use this for initialization
-	void Start () 
-	{
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
-	}
 	
 	void OnDrawGizmos()
 	{

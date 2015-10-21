@@ -164,47 +164,6 @@ public class Util : MonoBehaviour
     }
 
     /// <summary>
-    /// 应用程序内容路径
-    /// </summary>
-    public static string AppContentPath()
-    {
-        string path = string.Empty;
-        switch (Application.platform)
-        {
-            case RuntimePlatform.Android:
-                path = "jar:file://" + Application.dataPath + "!/assets/";
-                break;
-            case RuntimePlatform.IPhonePlayer:
-                path = Application.dataPath + "/Raw/";
-                break;
-            default:
-                path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
-                break;
-        }
-        return path;
-    }
-
-    /// <summary>
-    /// 热更新路径 
-    /// </summary>
-    public static string DataPath
-    {
-        get
-        {
-            string game = AppConst.AppName.ToLower();
-            if (Application.isMobilePlatform)
-            {
-                return Application.persistentDataPath + "/" + game + "/";
-            }
-            if (AppConst.IsDebugMode)
-            {
-                return Application.dataPath + "/" + AppConst.AssetDirName + "/";
-            }
-            return "c:/" + game + "/";
-        }
-    }
-
-    /// <summary>
     /// 生成一个Key名
     /// </summary>
     public static string GetKey(string key)

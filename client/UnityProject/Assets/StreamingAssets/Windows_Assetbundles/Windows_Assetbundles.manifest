@@ -9,10 +9,12 @@ AssetBundleManifest:
       Dependencies: {}
     Info_2:
       Name: uipanel/loadingpanel.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: texture.unity3d
     Info_3:
       Name: uipanel/samplepanel.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: texture.unity3d
     Info_4:
       Name: uiwidget/dialogboxtemplate.unity3d
       Dependencies: {}

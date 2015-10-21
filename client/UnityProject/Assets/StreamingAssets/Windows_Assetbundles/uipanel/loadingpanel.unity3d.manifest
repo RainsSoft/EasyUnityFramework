@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3318911358
+CRC: 319360266
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8bd70f2fc8640e7cafa269e1fa3f279b
+    Hash: 53af211b4c4657639eee3407f089f9c2
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 17e4059beb43dd527d36ddd8cbc1780b
+    Hash: f1754f0e6efcb1450acc5b54102e8edc
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -26,10 +26,12 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 - Class: 114
-  Script: {fileID: 11500000, guid: 5540ad970ee563d439c152b9cf3fffdf, type: 3}
+  Script: {fileID: 11500000, guid: dfba95fb8854d49f9b73d14b222ff464, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 128
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
@@ -37,4 +39,5 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/OriginalRes/UIPanel/LoadingPanel.prefab
-Dependencies: []
+Dependencies:
+- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/texture.unity3d

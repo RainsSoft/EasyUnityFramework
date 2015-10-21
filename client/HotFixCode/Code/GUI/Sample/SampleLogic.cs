@@ -12,7 +12,6 @@ namespace HotFixCode
 
         void StartUp(Transform parent)
         {
-
             UIGenerator.Instance.CreateUI(PanelName.Sample, parent, OnCreated);
         }
 

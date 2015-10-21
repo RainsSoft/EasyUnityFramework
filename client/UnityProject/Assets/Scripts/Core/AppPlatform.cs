@@ -40,13 +40,55 @@ public static class AppPlatform
         OSXPlayer,
         WindowsPlayer,
         WindowsEditor,
-        IphonePlayer,
+        IPhonePlayer,
         Android,
         Unkown,
     }
 
     public static Platform RuntimePlatform { set; get; }
 
+
+    /// <summary>
+    /// 应用程序内容路径
+    /// </summary>
+    public static string AppContentPath()
+    {
+        string path = string.Empty;
+
+        switch (AppPlatform.RuntimePlatform)
+        {
+            case Platform.Android:
+                path = "jar:file://" + Application.dataPath + "!/assets/";
+                break;
+            case Platform.IPhonePlayer:
+                path = Application.dataPath + "/Raw/";
+                break;
+            default:
+                path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
+                break;
+        }
+        return path;
+    }
+
+    /// <summary>
+    /// 热更新路径 
+    /// </summary>
+    public static string DataPath
+    {
+        get
+        {
+            string game = AppConst.AppName.ToLower();
+            if (Application.isMobilePlatform)
+            {
+                return Application.persistentDataPath + "/" + game + "/";
+            }
+            if (AppConst.IsDebugMode)
+            {
+                return Application.dataPath + "/" + AppConst.AssetDirName + "/";
+            }
+            return "c:/" + game + "/";
+        }
+    }
 
     public static string GetAssetBundleDictionaryName()
     {
@@ -115,7 +157,7 @@ public static class AppPlatform
         switch (runtimePlatform)
         {
             case UnityEngine.RuntimePlatform.Android: return AppPlatform.Platform.Android;
-            case UnityEngine.RuntimePlatform.IPhonePlayer: return AppPlatform.Platform.IphonePlayer;
+            case UnityEngine.RuntimePlatform.IPhonePlayer: return AppPlatform.Platform.IPhonePlayer;
             case UnityEngine.RuntimePlatform.OSXEditor: return AppPlatform.Platform.OSXEditor;
             case UnityEngine.RuntimePlatform.OSXPlayer: return AppPlatform.Platform.OSXPlayer;
             case UnityEngine.RuntimePlatform.WindowsEditor: return AppPlatform.Platform.WindowsEditor;

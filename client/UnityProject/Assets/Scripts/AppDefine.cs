@@ -1,8 +1,4 @@
 ﻿using UnityEngine;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 public class AppConst
 {
     public static bool AutoLogin = false;                                       //自动登录
@@ -24,26 +20,44 @@ public class AppConst
 
     public static string AssetDirName = "StreamingAssets";
 
-	public static string ABDirName = AssetDirName;       						//Assetbundle目录 
+    public static string ABDirName = AssetDirName;       						//Assetbundle目录 
     public static string ABConfigPath = "Editor/AssetbundlePackage";            //Assetsbudle包的配置文件路径
     public static string ABConfigName = "assetbundle_entries";                  //Assetsbudle包的配置文件名
 
-    public static Vector2 ReferenceResolution = new Vector2(1280, 720);
+    public static Vector2 ReferenceResolution = new Vector2(640, 1136);
 
-
-    public const bool UsePbc = true;                           //PBC
-    public const bool UseLpeg = true;                          //LPEG
-    public const bool UsePbLua = true;                         //Protobuff-lua-gen
-    public const bool UseCJson = true;                         //CJson
-    public const bool UseSproto = true;                        //Sproto
-    public static string LuaBasePath
-    {
-        get { return Application.dataPath + "/uLua/Source/"; }
-    }
-
-    public static string LuaWrapPath
-    {
-        get { return LuaBasePath + "LuaWrap/"; }
-    }
 }
 
+public class ManagerNames
+{
+    public const string LSharp = "LSharpManager";
+    public const string Game = "GameController";
+    public const string Timer = "TimerManager";
+    public const string Music = "MusicManager";
+    public const string Panel = "PanelManager";
+    public const string Network = "NetworkManager";
+    public const string Asset = "AssetLoadManager";
+    public const string Croutine = "CroutineManager";
+    public const string Scene = "SceneManager";
+    public const string Gesture = "GestureManager";
+    public const string ResourcesUpdate = "ResourcesUpdateManager";
+}
+
+class TemplateNames
+{
+    public const string DialogBox = "DialogBoxTemplate";
+
+}
+
+class SceneNames
+{
+    public const string AppEntry = "AppEntry";
+    public const string Game = "GameScene";
+    public const string Test = "TestScene";
+}
+
+class PopupsNames
+{
+    public const string Sample = "SamplePopups";
+
+}
