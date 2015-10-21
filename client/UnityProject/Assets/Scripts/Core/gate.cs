@@ -4,6 +4,11 @@ using System.Collections.Generic;
 using System;
 public static class gate
 {
+    public static LSharpManager GetLSharpManager()
+    {
+        return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerNames.LSharp);
+    }
+
     public static TimerManager GetTimerManager()
     {
         return ManagerCollect.Instance.GetManager<TimerManager>(ManagerNames.Timer);

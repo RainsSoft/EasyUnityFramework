@@ -129,8 +129,8 @@ public class AssetLoadManager : MonoBehaviour
         // Get asset
         T prefab = request.GetAsset<T>();
         if (func != null)
-            Util.SafeIvokeHandler<T>(ref func, prefab);
-            //func(prefab);
+            //Util.SafeIvokeHandler<T>(ref func, prefab);
+            func(prefab);
         else 
             DebugConsole.LogError("assetbundle load failed:" + "bundle[" + abname +"]" + "  asset[" + assetName + "]");
     }

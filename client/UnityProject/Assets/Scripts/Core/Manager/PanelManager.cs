@@ -3,8 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-public class PanelManager : MonoBehaviour
+class UIPanel
 {
+    public string LogicName { set; get; }
+    public object LogicObject { set; get; }
+}
+
+public class PanelManager : TSingleton<PanelManager>
+{
+    PanelManager() { }
+
     private Transform rootNode;
 
     Transform RootNode
@@ -17,75 +25,64 @@ public class PanelManager : MonoBehaviour
         }
     }
 
-    public UILogic PanelFocused
+    public System.Object PanelCurrent
     {
         get { return panelCur; }
     }
 
-    private Stack<UILogic> _panelStack = new Stack<UILogic>();
-    private Dict<string, System.Type> _registTable = new Dict<string, System.Type>();
-    private UILogic panelCur = null;
+    private Stack<UIPanel> _panelStack = new Stack<UIPanel>();
+    private UIPanel panelCur = new UIPanel();
 
-    public void Initialize() { }
-
-    public void RegistLogic(string pfbName, System.Type ctrl)
+    public System.Object GetLogic(string rLogicName)
     {
-        if (!this._registTable.ContainsKey(pfbName))
-            this._registTable.Add(pfbName, ctrl);
-    }
-
-    public UILogic GetLogic(string pfbName)
-    {
-        UILogic temp = null;
+        
+        System.Object temp = null;
         _panelStack.ForEach((item) =>
         {
-            if (item.ResName == pfbName) temp = item;
+            if (item.LogicName == rLogicName) temp = item.LogicObject;
         });
         return temp;
     }
 
-    public bool IsExist(string pfbName)
+    public bool IsExist(string rLogicName)
     {
         bool isExist = false;
         _panelStack.ForEach((item) =>
         {
-            if (item.ResName == pfbName) isExist = true;
+            if (item.LogicName == rLogicName) isExist = true;
         });
         return isExist;
     }
 
-    public void PushPanel(string pfbName)
+    public void PushPanel(string rLogicName)
     {
-        //check safe
-        if (_registTable == null || !_registTable.ContainsKey(pfbName))
+        if (panelCur != null)
         {
-            DebugConsole.LogError(pfbName + " is not by regist");
-            return;
+            if (panelCur.LogicName == rLogicName)
+            {
+                DebugConsole.Log(rLogicName + " is repeat");
+                return;
+            }
+
+            if (panelCur.LogicObject != null)
+            {
+                Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Disable");
+            }
         }
 
-        if (panelCur != null && pfbName == panelCur.ResName)
+        System.Object logic = GetLogic(rLogicName);
+        if (logic != null)
         {
-            DebugConsole.Log(pfbName + " is current interface");
-            return;
+            panelCur.LogicObject = logic;
+            panelCur.LogicName = rLogicName;
+            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Enable");
+            StickElement(panelCur);
         }
-
-        if (panelCur != null) panelCur.Disable();
-
-        //push
-        System.Type type = null;
-        _registTable.TryGetValue(pfbName, out type);
-
-        UILogic logic = GetLogic(pfbName);
-        if (logic != null) //exist
+        else
         {
-            panelCur = logic;
-            panelCur.Enable();
-            StickElement(logic);
-        }
-        else //not exist
-        {
-            panelCur = (UILogic)ReflectionAssist.CreateInstance(type, BindingFlags.Default);
-            panelCur.StartUp(RootNode);
+            panelCur.LogicObject = gate.GetLSharpManager().CreateLSharpObject(rLogicName);
+            panelCur.LogicName = rLogicName;
+            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "StartUp", RootNode);
             _panelStack.Push(panelCur);
         }
     }
@@ -99,16 +96,16 @@ public class PanelManager : MonoBehaviour
         }
 
         //exchange position
-        UILogic logic = _panelStack.Pop();
-        logic.Disable();
+        var panel = _panelStack.Pop();
+        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, "Disable");
         panelCur = _panelStack.Pop();
-        panelCur.Enable();
+        Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Enable");
 
-        _panelStack.Push(logic);
+        _panelStack.Push(panel);
         _panelStack.Push(panelCur);
     }
 
-    public void ReplacePanel(string pfbName)
+    public void ReplacePanel(string rLogicName)
     {
         //check safe
         if (_panelStack.Count < 1)
@@ -116,29 +113,25 @@ public class PanelManager : MonoBehaviour
             DebugConsole.Log("_panelStack is null, don't can replace Panel");
             return;
         }
-        if (_registTable == null || !_registTable.ContainsKey(pfbName))
+
+        if (panelCur.LogicName == rLogicName)
         {
-            DebugConsole.LogError(pfbName + " is not by regist");
-            return;
-        }
-        if (panelCur != null && pfbName == panelCur.ResName)
-        {
-            DebugConsole.Log(pfbName + " is current interface");
+            DebugConsole.Log(rLogicName + " is repeat");
             return;
         }
 
-        UILogic logic = _panelStack.Pop();
-        logic.Free();
-        panelCur = logic = null;
+        UIPanel panel = _panelStack.Pop();
+        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, "Free");
+        panelCur = panel = null;
 
-        PushPanel(pfbName);
+        PushPanel(rLogicName);
     }
 
     public void ClearStack()
     {
         _panelStack.ForEach((item) =>
         {
-            item.Free();
+            Util.CallScriptFunction(item.LogicObject, item.LogicName, "Free");
             item = null;
         });
         _panelStack.Clear();
@@ -146,11 +139,11 @@ public class PanelManager : MonoBehaviour
     }
 
 
-    private void StickElement(UILogic element)
+    void StickElement(UIPanel element)
     {
         if (element == null) return;
 
-        Stack<UILogic> tempStack = new Stack<UILogic>();
+        Stack<UIPanel> tempStack = new Stack<UIPanel>();
 
         while (_panelStack.Count > 0)
         {
@@ -169,36 +162,4 @@ public class PanelManager : MonoBehaviour
         _panelStack.Push(element);
     }
 
-    /// <summary>
-    /// 异步时才用得代码, 暂时不用
-    /// </summary>
-    public enum OperateType
-    {
-        PushPanel,
-        PopPanel,
-        ReplacePanel,
-        ClearStack,
-        Not,
-    }
-    private bool isOperating = false;
-    private Queue<OperateType> _operationQueue = new Queue<OperateType>();
-    private void Update()
-    {
-        if (_operationQueue.Count < 1 || isOperating) return;
-
-        OperateType op = _operationQueue.Dequeue();
-        switch (op)
-        {
-            case OperateType.PushPanel:
-                break;
-            case OperateType.PopPanel:
-                break;
-            case OperateType.ReplacePanel:
-                break;
-            case OperateType.ClearStack:
-                break;
-            default:
-                break;
-        }
-    }
 }

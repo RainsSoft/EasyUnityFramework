@@ -12,7 +12,7 @@ public class SceneManager : MonoBehaviour
 
     public void EnterScene(string sceneName, Action onLoadComplete = null)
     {
-        gate.GetPanelManager().PushPanel(PanelNames.Loading);
+        gate.GetPanelManager().PushPanel("LoadingLogic");
         _loadSceneName = sceneName;
         _onLoadComplete = onLoadComplete;
         LoadScene();
@@ -25,13 +25,16 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator LoadSceneInternal()
     {
+
         while (true)
         {
-            UILogic focus = gate.GetPanelManager().PanelFocused;
+            /*
+            var focus = gate.GetPanelManager().PanelCurrent;
             if(focus == null || focus.IsCreated == false)
                 yield return null;
             else
                 break;
+             * */
         }
 
         async = Application.LoadLevelAsync(_loadSceneName);
@@ -51,6 +54,7 @@ public class SceneManager : MonoBehaviour
 
             IsLoading = false;
         }
+
     }
 
 }

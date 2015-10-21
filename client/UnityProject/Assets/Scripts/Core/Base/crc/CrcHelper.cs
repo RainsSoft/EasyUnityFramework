@@ -7,13 +7,13 @@ public static class CrcHelper
 {
     public static string CheckConfigFile(string fileName)
     {
-        string path = Util.ConfigDataPath + "/" + fileName;
+        string path = Util.DataPath + "/" + fileName;
         return CheckFile(path);
     }
 
     public static string CheckScriptFile(string fileName)
     {
-        string path = Util.ConfigDataPath + "/Resources/ScriptsUpdate/" + fileName;
+        string path = Util.DataPath + fileName;
         return CheckFile(path);
     }
 

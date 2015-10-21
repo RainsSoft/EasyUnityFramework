@@ -6,55 +6,21 @@ using System.Text.RegularExpressions;
 
 public class Util : MonoBehaviour
 {
-    private static List<string> luaPaths = new List<string>();
-    public static int Int(object o)
+    /// <summary>
+    /// 调用L#脚本成员函数
+    /// </summary>
+    public static object CallScriptFunction(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
     {
-        return Convert.ToInt32(o);
-    }
-
-    public static float Float(object o) 
-    {
-        return (float)Math.Round(Convert.ToSingle(o), 2);
-    }
-
-    public static long Long(object o)
-    {
-        return Convert.ToInt64(o);
-    }
-
-    public static int Random(int min, int max)
-    {
-        return UnityEngine.Random.Range(min, max);
-    }
-
-    public static float Random(float min, float max) 
-    {
-        return UnityEngine.Random.Range(min, max);
-    }
-
-    public static string Uid(string uid)
-    {
-        int position = uid.LastIndexOf('_');
-        return uid.Remove(0, position + 1);
-    }
-
-    public static long GetTime() 
-    { 
-        TimeSpan ts = new TimeSpan(DateTime.UtcNow.Ticks - new DateTime(1970, 1, 1, 0, 0, 0).Ticks);
-        return (long)ts.TotalMilliseconds;
+        var rName = rTypeName.Replace("(Clone)", "");
+        return gate.GetLSharpManager().CallLSharpMethod(rObj, rName, rFuncName, rArgs);
     }
 
     /// <summary>
-    /// 向上搜索Canvas
+    /// 调用L#脚本静态函数
     /// </summary>
-    public static Transform FindCanvas(Transform currentObject)
+    public static object CallScriptFunctionStatic(string rTypeName, string rFuncName, params object[] rArgs)
     {
-        var canvas = currentObject.GetComponentInParent<Canvas>();
-        if (canvas == null)
-        {
-            return null;
-        }
-        return canvas.transform;
+        return gate.GetLSharpManager().CallLSharpMethodStatic(rTypeName, rFuncName, rArgs);
     }
 
     /// <summary>
@@ -77,6 +43,19 @@ public class Util : MonoBehaviour
         rectTransform.localRotation = defaultRectTransform.localRotation;
         rectTransform.localScale = defaultRectTransform.localScale;
         rectTransform.anchoredPosition = defaultRectTransform.anchoredPosition;
+    }
+
+    /// <summary>
+    /// 向上搜索Canvas
+    /// </summary>
+    public static Transform FindCanvas(Transform currentObject)
+    {
+        var canvas = currentObject.GetComponentInParent<Canvas>();
+        if (canvas == null)
+        {
+            return null;
+        }
+        return canvas.transform;
     }
 
     /// <summary>
@@ -173,39 +152,6 @@ public class Util : MonoBehaviour
     }
 
     /// <summary>
-    /// 销毁
-    /// </summary>
-    public static void SafeDestroyObject(UnityEngine.Object obj)
-    {
-        if (obj != null) 
-            Destroy(obj);
-    }
-
-    /// <summary>
-    /// 委托调用
-    /// </summary>
-    public static void SafeIvokeHandler(ref Action action)
-    {
-        if (action != null)
-        {
-            action.Invoke();
-            action = null;
-        }
-    }
-
-    /// <summary>
-    /// 委托调用
-    /// </summary>
-    public static void SafeIvokeHandler<T>(ref Action<T> action, T obj)
-    {
-        if (action != null)
-        {
-            action.Invoke(obj);
-            action = null;
-        }
-    }
-
-    /// <summary>
     /// 清除所有子节点
     /// </summary>
     public static void ClearChild(Transform go)
@@ -218,11 +164,52 @@ public class Util : MonoBehaviour
     }
 
     /// <summary>
+    /// 应用程序内容路径
+    /// </summary>
+    public static string AppContentPath()
+    {
+        string path = string.Empty;
+        switch (Application.platform)
+        {
+            case RuntimePlatform.Android:
+                path = "jar:file://" + Application.dataPath + "!/assets/";
+                break;
+            case RuntimePlatform.IPhonePlayer:
+                path = Application.dataPath + "/Raw/";
+                break;
+            default:
+                path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
+                break;
+        }
+        return path;
+    }
+
+    /// <summary>
+    /// 热更新路径 
+    /// </summary>
+    public static string DataPath
+    {
+        get
+        {
+            string game = AppConst.AppName.ToLower();
+            if (Application.isMobilePlatform)
+            {
+                return Application.persistentDataPath + "/" + game + "/";
+            }
+            if (AppConst.IsDebugMode)
+            {
+                return Application.dataPath + "/" + AppConst.AssetDirName + "/";
+            }
+            return "c:/" + game + "/";
+        }
+    }
+
+    /// <summary>
     /// 生成一个Key名
     /// </summary>
     public static string GetKey(string key)
     {
-        return AppConst.AppPrefix + AppConst.UserId + "_" + key; 
+        return AppConst.AppPrefix + AppConst.UserId + "_" + key;
     }
 
     /// <summary>
@@ -237,7 +224,7 @@ public class Util : MonoBehaviour
     /// <summary>
     /// 有没有值
     /// </summary>
-    public static bool HasKey(string key) 
+    public static bool HasKey(string key)
     {
         string name = GetKey(key);
         return PlayerPrefs.HasKey(name);
@@ -286,7 +273,7 @@ public class Util : MonoBehaviour
     /// </summary>
     public static void ClearMemory()
     {
-        GC.Collect(); 
+        GC.Collect();
         Resources.UnloadUnusedAssets();
     }
 
@@ -299,64 +286,26 @@ public class Util : MonoBehaviour
         return !regex.IsMatch(strNumber);
     }
 
-    /// <summary>
-    /// 取得数据存放目录
-    /// </summary>
-    public static string ConfigDataPath
+    public static int Random(int min, int max)
     {
-        get
-        {
-            string path = string.Empty;
-            string gamePath = AppConst.AppName.ToLower();
-            if (Application.platform == RuntimePlatform.IPhonePlayer ||
-                Application.platform == RuntimePlatform.Android ||
-                Application.platform == RuntimePlatform.WP8Player)
-            {
-                path = Application.persistentDataPath + "/" + gamePath + "/ConfigData/";
-            }
-            else  // Editor 模式
-            {
-                path = Application.dataPath + "/" + AppConst.AssetDirName + "/ConfigData/";
-            }
-            return path;
-        }
+        return UnityEngine.Random.Range(min, max);
     }
 
-    /// <summary>
-    /// 应用程序内容路径
-    /// </summary>
-    public static string AppContentPath()
+    public static float Random(float min, float max)
     {
-        string path = string.Empty;
-        switch (Application.platform)
-        {
-            case RuntimePlatform.Android:
-                path = "jar:file://" + Application.dataPath + "!/assets/";
-                break;
-            case RuntimePlatform.IPhonePlayer:
-                path = Application.dataPath + "/Raw/";
-                break;
-            default:
-                path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
-                break;
-        }
-        return path;
+        return UnityEngine.Random.Range(min, max);
     }
 
-    public static string DataPath
+    public static string Uid(string uid)
     {
-        get
-        {
-            string game = AppConst.AppName.ToLower();
-            if (Application.isMobilePlatform)
-            {
-                return Application.persistentDataPath + "/" + game + "/";
-            }
-            if (AppConst.IsDebugMode)
-            {
-                return Application.dataPath + "/" + AppConst.AssetDirName + "/";
-            }
-            return "c:/" + game + "/";
-        }
+        int position = uid.LastIndexOf('_');
+        return uid.Remove(0, position + 1);
     }
+
+    public static long GetTime()
+    {
+        TimeSpan ts = new TimeSpan(DateTime.UtcNow.Ticks - new DateTime(1970, 1, 1, 0, 0, 0).Ticks);
+        return (long)ts.TotalMilliseconds;
+    }
+
 }

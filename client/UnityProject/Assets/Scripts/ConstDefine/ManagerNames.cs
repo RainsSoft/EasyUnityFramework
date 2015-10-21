@@ -1,5 +1,6 @@
 ﻿public class ManagerNames 
 {
+    public const string LSharp                  = "LSharpManager";
     public const string Game                    = "GameController";
     public const string Timer                   = "TimerManager";
     public const string Music                   = "MusicManager";

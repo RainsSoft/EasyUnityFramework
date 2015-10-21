@@ -10,15 +10,15 @@ using UnityEngine.Events;
 
 public class GameController : MonoBehaviour 
 {
+    object _scriptMainUpdate = null;
+    bool inited = false;
+
     void Awake()
     {
-        this.PreInitialize(); 
+        Initialize(); 
     }
 
-    /// <summary>
-    /// 预初始化 【资源更新前】
-    /// </summary>
-    private void PreInitialize()
+    void Initialize()
     {
         //取消 Destroy 对象 
         DontDestroyOnLoad(gameObject);
@@ -36,10 +36,12 @@ public class GameController : MonoBehaviour
         AppPlatform.Initialize();
 
         //挂载管理器并初始化
+        ManagerCollect.Instance.AddManager(ManagerNames.LSharp, LSharpManager.Instance);
+        ManagerCollect.Instance.AddManager(ManagerNames.Panel, PanelManager.Instance);
+
         ManagerCollect.Instance.AddManager<CroutineManager>(ManagerNames.Croutine);
         ManagerCollect.Instance.AddManager<TimerManager>(ManagerNames.Timer);
         ManagerCollect.Instance.AddManager<AssetLoadManager>(ManagerNames.Asset);
-        ManagerCollect.Instance.AddManager<PanelManager>(ManagerNames.Panel);
         ManagerCollect.Instance.AddManager<SceneManager>(ManagerNames.Scene);
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerNames.Music);
         ManagerCollect.Instance.AddManager<InputManager>(ManagerNames.Input);
@@ -47,59 +49,73 @@ public class GameController : MonoBehaviour
 
         gate.GetTimerManager().Initialize();
         gate.GetMusicManager().Initialize();
+        gate.GetLSharpManager().InitLSharp();
 
         LoadAssetbundleManifest();
     }
 
-    /// <summary>
-    /// 后初始化【资源更新后】
-    /// </summary>
-    private void PostInitialize()
-    {
-        RegistUI();
-        GameStart();
-    }
-
-    /// <summary>
-    /// 进入游戏
-    /// </summary>
-    private void GameStart()
-    {
-        gate.GetSceneManager().EnterScene(SceneNames.Game, () =>
-        {
-            gate.GetPanelManager().PushPanel(PanelNames.Sample);
-        });
-    }
-
-    /// <summary>
-    /// 退出游戏
-    /// </summary>
-    private void GameEnd()
-    {
-        gate.GetAssetLoadManager().UnloadAssetBundles();
-        Util.ClearMemory();
-    }
-
-    private void RegistUI()
-    {
-        gate.GetPanelManager().RegistLogic(PanelNames.Sample, typeof(SampleLogic));
-        gate.GetPanelManager().RegistLogic(PanelNames.Loading, typeof(LoadingLogic));
-    }
-
-	public void LoadAssetbundleManifest()
+    public void LoadAssetbundleManifest()
     {
         var tempManager = gate.GetAssetLoadManager();
         string bundlName = AppPlatform.GetAssetBundleDictionaryName();
         tempManager.DownloadingURL = AppPlatform.GetAssetBundleDictionaryUrl();
         tempManager.LoadManifest(bundlName, () =>
         {
-            this.PostInitialize();
+            //资源载入完成 开始游戏
+            GameStart();
         });
     }
 
-    public void OnApplicationQuit()
+    /// <summary>
+    /// 进入游戏
+    /// </summary>
+    void GameStart()
+    {
+        //启动脚本系统
+        _scriptMainUpdate = gate.GetLSharpManager().CreateLSharpObject("MainUpdate");
+        Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Init");
+       // inited = true;
+    }
+
+    /// <summary>
+    /// 退出游戏
+    /// </summary>
+    void GameEnd()
+    {
+        
+        Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "End");
+        _scriptMainUpdate = null;
+        gate.GetAssetLoadManager().UnloadAssetBundles();
+        Util.ClearMemory();
+    }
+
+
+
+    void OnApplicationQuit()
     {
         GameEnd();
     }
+
+    void Update()
+    {
+        if (_scriptMainUpdate != null && inited)
+            Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Update");
+
+    }
+
+    void FixedUpdate()
+    {
+        if (_scriptMainUpdate != null && inited)
+            Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "FixedUpdate");
+    }
+
+    void LateUpdate()
+    {
+        if (_scriptMainUpdate != null && inited)
+            Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "LateUpdate");
+    }
+
+
+
 
 }
