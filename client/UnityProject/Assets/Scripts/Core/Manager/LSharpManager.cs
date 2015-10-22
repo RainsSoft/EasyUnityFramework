@@ -10,7 +10,7 @@ public class LSharpManager : TSingleton<LSharpManager>
 
     bool isLSharpInited = false;
 
-    public void InitLSharp()
+    public void Initialize()
     {
         //创建CLRSharp环境
         env = new CLRSharp.CLRSharp_Environment(new Logger());

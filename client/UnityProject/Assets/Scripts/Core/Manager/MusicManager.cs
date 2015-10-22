@@ -52,7 +52,7 @@ public class MusicManager : MonoBehaviour
                 {
                     this.audioSource.Stop();
                     this.audioSource.clip = null;
-                    Util.ClearMemory();
+                    //Util.ClearMemory();
                 }
                 return;
             }
@@ -68,7 +68,7 @@ public class MusicManager : MonoBehaviour
         {
             this.audioSource.Stop();
             this.audioSource.clip = null;
-            Util.ClearMemory();
+            //Util.ClearMemory();
         }
     }
 

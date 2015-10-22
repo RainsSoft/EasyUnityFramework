@@ -12,7 +12,7 @@ public class Util : MonoBehaviour
     public static object CallScriptFunction(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
     {
         var rName = rTypeName.Replace("(Clone)", "");
-        return gate.GetLSharpManager().CallLSharpMethod(rObj, rName, rFuncName, rArgs);
+        return gate.LSharpManager.CallLSharpMethod(rObj, rName, rFuncName, rArgs);
     }
 
     /// <summary>
@@ -20,7 +20,7 @@ public class Util : MonoBehaviour
     /// </summary>
     public static object CallScriptFunctionStatic(string rTypeName, string rFuncName, params object[] rArgs)
     {
-        return gate.GetLSharpManager().CallLSharpMethodStatic(rTypeName, rFuncName, rArgs);
+        return gate.LSharpManager.CallLSharpMethodStatic(rTypeName, rFuncName, rArgs);
     }
 
     /// <summary>

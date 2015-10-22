@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 start = Camera.main.WorldToScreenPoint(transform.position);
         Vector2 end = g.LastPoint;
-        var angle = MathUtil.AngleOfLine(start, end);
+        var angle = MathAssist.AngleOfLine(start, end);
         Attack(angle);
     }
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     void Attack(double angle)
     {
-        var offectPos = MathUtil.PointWithAngle(Vector2.zero, attackRange, (float)angle);
+        var offectPos = MathAssist.PointWithAngle(Vector2.zero, attackRange, (float)angle);
 
         var attackDuration = Vector2.Distance(Vector2.zero, offectPos) / attackSpeed;
         

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class MathUtil
+public class MathAssist
 {
     /// <summary>
     /// 判断两条直线是否相交.

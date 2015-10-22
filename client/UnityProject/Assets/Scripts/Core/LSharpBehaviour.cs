@@ -12,7 +12,7 @@ public class LSharpBehaviour : MonoBehaviour
 
     protected void Awake()
     {
-        _scriptObject = gate.GetLSharpManager().CreateLSharpObject(name);
+        _scriptObject = gate.LSharpManager.CreateLSharpObject(name);
         CallMethod("Awake", gameObject);
     }
 

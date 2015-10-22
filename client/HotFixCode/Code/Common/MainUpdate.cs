@@ -15,7 +15,7 @@ namespace HotFixCode
 
         void Start()
         {
-            gate.GetPanelManager().PushPanel(LogicName.Sample);
+            gate.PanelManager.PushPanel(LogicName.Sample);
         }
 
         void End()

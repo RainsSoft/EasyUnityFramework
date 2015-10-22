@@ -15,6 +15,6 @@ public class MessageSender : TSingleton<MessageSender>
         M0001 msg = new M0001();
         msg.name = name;
         msg.password = password;
-        gate.GetNetworkManager().SendeMessage<M0001>(msg);
+        gate.NetworkManager.SendeMessage<M0001>(msg);
     }
 }

@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
         DOTween.Init().SetCapacity(500, 100);
         DOTween.defaultAutoKill = true;
 
-        //完全静态类初始化
+        //静态类初始化
         AppPlatform.Initialize();
 
         //挂载管理器并初始化
@@ -46,16 +46,16 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerNames.Music);
         ManagerCollect.Instance.AddManager<GestureManager>(ManagerNames.Gesture);
 
-        gate.GetTimerManager().Initialize();
-        gate.GetMusicManager().Initialize();
-        gate.GetLSharpManager().InitLSharp();
+        gate.TimerManager.Initialize();
+        gate.MusicManager.Initialize();
+        gate.LSharpManager.Initialize();
 
         LoadAssetbundleManifest();
     }
 
     public void LoadAssetbundleManifest()
     {
-        var tempManager = gate.GetAssetLoadManager();
+        var tempManager = gate.AssetLoadManager;
         string bundlName = AppPlatform.GetAssetBundleDictionaryName();
         tempManager.DownloadingURL = AppPlatform.GetAssetBundleDictionaryUrl();
         tempManager.LoadManifest(bundlName, () =>
@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
     void GameStart()
     {
         //启动脚本系统
-        _scriptMainUpdate = gate.GetLSharpManager().CreateLSharpObject("MainUpdate");
+        _scriptMainUpdate = gate.LSharpManager.CreateLSharpObject("MainUpdate");
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Init");
        // inited = true;
     }
@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
         
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "End");
         _scriptMainUpdate = null;
-        gate.GetAssetLoadManager().UnloadAssetBundles();
+        gate.AssetLoadManager.UnloadAssetBundles();
         Util.ClearMemory();
     }
 

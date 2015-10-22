@@ -53,8 +53,8 @@ public class ResourcesUpdateManager : MonoBehaviour
                 {
                     Debug.Log("THIS PATH IS NOT EXITS!!!!");
                     Directory.CreateDirectory(toPath);
-                }                      
-                string contnet = FileHelper.ReadFile(Frompath, filenames[i]);
+                }
+                string contnet = FileAssist.ReadFile(Frompath, filenames[i]);
                 using (FileStream fs = new FileStream(toPath + filenames[i], FileMode.OpenOrCreate))
                 {
                     StreamWriter sw = new StreamWriter(fs);
@@ -98,8 +98,8 @@ public class ResourcesUpdateManager : MonoBehaviour
             {
                 Debug.Log("this file can not read : " + strlist[i]);
             }            
-            Debug.Log("WO ZAI ZHE ER DENG ZHE NI HUI LAI ");            
-            FileHelper.WriteFileFromEnd(Topath  + strlist[i], content.text);
+            Debug.Log("WO ZAI ZHE ER DENG ZHE NI HUI LAI ");
+            FileAssist.WriteFileFromEnd(Topath + strlist[i], content.text);
           
         }
         yield return 0;

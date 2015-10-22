@@ -4,7 +4,7 @@ using System.Collections;
 using System.IO;
 using System.Text;
 
-public static class FileHelper 
+public static class FileAssist 
 {
     /// <summary>
     /// 创建文件夹

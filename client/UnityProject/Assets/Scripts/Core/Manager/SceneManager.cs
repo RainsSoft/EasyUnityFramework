@@ -12,7 +12,7 @@ public class SceneManager : MonoBehaviour
 
     public void EnterScene(string sceneName, Action onLoadComplete = null)
     {
-        gate.GetPanelManager().PushPanel("LoadingLogic");
+        gate.PanelManager.PushPanel("LoadingLogic");
         _loadSceneName = sceneName;
         _onLoadComplete = onLoadComplete;
         LoadScene();
@@ -43,7 +43,7 @@ public class SceneManager : MonoBehaviour
 
         if (async.isDone)
         {
-            gate.GetPanelManager().ClearStack();
+            gate.PanelManager.ClearStack();
             _loadSceneName = null;
 
             if (_onLoadComplete != null)

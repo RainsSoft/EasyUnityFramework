@@ -141,7 +141,7 @@ public class GestureManager : MonoBehaviour
     public void HandleGestureSwipe(Vector2 point, float distance)
     {
         if (OnGestureSwipe == null) return;
-        var angle = MathUtil.AngleOfLine(beginPoint, point);
+        var angle = MathAssist.AngleOfLine(beginPoint, point);
         OnGestureSwipe.Invoke(angle, distance);
     }
 

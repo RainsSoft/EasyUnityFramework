@@ -4,54 +4,85 @@ using System.Collections.Generic;
 using System;
 public static class gate
 {
-    public static LSharpManager GetLSharpManager()
+    public static LSharpManager LSharpManager
     {
-        return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerNames.LSharp);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerNames.LSharp);
+        }
     }
 
-    public static TimerManager GetTimerManager()
+    public static TimerManager TimerManager
     {
-        return ManagerCollect.Instance.GetManager<TimerManager>(ManagerNames.Timer);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<TimerManager>(ManagerNames.Timer);
+        }
     }
 
-    public static MusicManager GetMusicManager()
+    public static MusicManager MusicManager
     {
-        return ManagerCollect.Instance.GetManager<MusicManager>(ManagerNames.Music);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<MusicManager>(ManagerNames.Music);
+        }
     }
 
-    public static PanelManager GetPanelManager()
+    public static PanelManager PanelManager
     {
-        return ManagerCollect.Instance.GetManager<PanelManager>(ManagerNames.Panel);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<PanelManager>(ManagerNames.Panel);
+        }
     }
 
-    public static NetworkManager GetNetworkManager()
+    public static NetworkManager NetworkManager
     {
-        return ManagerCollect.Instance.GetManager<NetworkManager>(ManagerNames.Network);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<NetworkManager>(ManagerNames.Network);
+        }
     }
 
-    public static AssetLoadManager GetAssetLoadManager()
+    public static AssetLoadManager AssetLoadManager
     {
-        return ManagerCollect.Instance.GetManager<AssetLoadManager>(ManagerNames.Asset);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<AssetLoadManager>(ManagerNames.Asset);
+        }
     }
 
-    public static CroutineManager GetCroutineManager()
+    public static CroutineManager CroutineManager
     {
-        return ManagerCollect.Instance.GetManager<CroutineManager>(ManagerNames.Croutine);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<CroutineManager>(ManagerNames.Croutine);
+        }
     }
 
-    public static SceneManager GetSceneManager()
+    public static SceneManager SceneManager
     {
-        return ManagerCollect.Instance.GetManager<SceneManager>(ManagerNames.Scene);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<SceneManager>(ManagerNames.Scene);
+        }
     }
 
-    public static GestureManager GetGestureManager()
+    public static GestureManager GestureManager
     {
-        return ManagerCollect.Instance.GetManager<GestureManager>(ManagerNames.Gesture);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<GestureManager>(ManagerNames.Gesture);
+        }
     }
 
-    public static ResourcesUpdateManager GetResourcesUpdateManager()
+    public static ResourcesUpdateManager ResourcesUpdateManager
     {
-        return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.ResourcesUpdate);
+        get
+        {
+            return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.ResourcesUpdate);
+        }
+       
     }
 
     public static GameController GameController
@@ -101,6 +132,7 @@ public static class gate
             return null;
         }
     }
+
     public static Transform PopupsWindow
     {
         get
