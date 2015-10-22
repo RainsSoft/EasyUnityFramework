@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1343771683
+CRC: 1201232698
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: adb4b81907ab6f5213ce2a1ef65f36b7
+    Hash: ced415f5132059a1fa282f5efd8fe469
   TypeTreeHash:
     serializedVersion: 2
-    Hash: bfb751509167c547e55d7ee37ab58b28
+    Hash: d10b33251c8d0be77d342ff77d852700
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -43,10 +43,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
 - Class: 222
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
 Assets:
 - Assets/OriginalRes/UIWidget/DialogBoxTemplate.prefab
-Dependencies: []
+Dependencies:
+- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/texture.unity3d

@@ -27,6 +27,7 @@ namespace CLRSharp
             this.RegCrossBind(new CrossBind_IEnumerable());
             this.RegCrossBind(new CrossBind_IEnumerator());
             this.RegCrossBind(new CrossBind_IDisposable());
+            //this.RegCrossBind(new CrossBind_BasePopups());
        }
         Dictionary<string, ICLRType> mapType = new Dictionary<string, ICLRType>();
         //public Dictionary<string, Mono.Cecil.ModuleDefinition> mapModule = new Dictionary<string, Mono.Cecil.ModuleDefinition>();

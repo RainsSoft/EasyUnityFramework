@@ -16,4 +16,23 @@ namespace HotFixCode
         public const string Sample = "SampleLogic";
         public const string Loading = "LoadingLogic";
     }
+
+    struct PopupsName
+    {
+        public const string Sample = "SamplePopups";
+    }
+
+    struct TemplateName
+    {
+        public const string DialogBox = "DialogBoxTemplate";
+
+    }
+
+    class SceneName
+    {
+        public const string AppEntry = "AppEntry";
+        public const string Game = "GameScene";
+        public const string Test = "TestScene";
+    }
+
 }

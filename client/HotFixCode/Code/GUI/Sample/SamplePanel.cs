@@ -10,10 +10,15 @@ namespace HotFixCode
         GameObject gameObject;
         Transform transform;
 
+        public SampleLogic logic;
+        public Button btnOpen;
+
         void Awake(GameObject rGo)
         {
             gameObject = rGo;
-            transform = rGo.transform;
+            transform = rGo.GetComponent<Transform>();
+
+            btnOpen = Util.Get<Button>(gameObject, "OpenDialog");
             Debug.Log("Awake");
         }
 
@@ -24,7 +29,7 @@ namespace HotFixCode
 
         void OnDestroy()
         {
-            Debug.Log("test");
+            Debug.Log("OnDestroy");
         }
     }
 }

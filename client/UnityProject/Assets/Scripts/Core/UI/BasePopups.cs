@@ -2,7 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 
-public class BasePopups : MonoBehaviour , ITemplatable
+public class BasePopups : MonoBehaviour, ITemplatable
 {
     bool isTemplate = true;
 

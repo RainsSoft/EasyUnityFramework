@@ -4,13 +4,14 @@ using System.Collections;
 
 namespace HotFixCode
 {
-    public class SampleLogic : System.Object
+    public class SampleLogic
     {
         GameObject gameObject;
         Transform transform;
-        LSharpBehaviour lSharpBehaviour;
+        LSharpBehaviour behaviour;
+        SamplePanel panel;
 
-        void StartUp(Transform parent)
+        void StartUp(RectTransform parent)
         {
             UIGenerator.Instance.CreateUI(PanelName.Sample, parent, OnCreated);
         }
@@ -20,6 +21,7 @@ namespace HotFixCode
             if (!gameObject) return;
             gameObject.SetActive(true);
             gameObject.GetComponent<RectTransform>().SetAsLastSibling();
+
         }
 
         void Disable()
@@ -40,18 +42,23 @@ namespace HotFixCode
             Debug.Log("OnCreated");
             gameObject = rGo;
             transform = rGo.GetComponent<Transform>();
-            lSharpBehaviour = rGo.GetComponent<LSharpBehaviour>();
-            var objBtn = transform.FindChild("OpenDialog").gameObject;
+            behaviour = rGo.GetComponent<LSharpBehaviour>();
+
+            panel = behaviour._scriptObject as SamplePanel;
+            panel.logic = this;
             
-
-            lSharpBehaviour.AddClick(objBtn, OnClick);
-
+            
+            behaviour.AddClick(panel.btnOpen.gameObject, OnClick);
             Eanble();
+
         }
 
         void OnClick(GameObject go)
         {
             Debug.Log("OnClick" + go.name);
+            //WaitingLayer.Show();
+            
+            DialogBox.Template(TemplateName.DialogBox).Show(title: "SDFASDF");
         }
     }
 }

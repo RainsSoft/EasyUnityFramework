@@ -19,8 +19,7 @@ public class UIGenerator : TSingleton<UIGenerator>
             go.transform.localScale = Vector3.one;
             go.transform.localPosition = Vector3.zero;
             go.transform.localRotation = Quaternion.identity;
-            var ls = go.AddComponent<LSharpBehaviour>();
-            ls.Init();
+            go.AddComponent<LSharpBehaviour>();
             if (func != null)
             {
                 func(go);   //回传面板对象

@@ -20,12 +20,12 @@ public class PanelManager : TSingleton<PanelManager>
         get
         {
             if (rootNode == null)
-                rootNode = gate.PanelCamera;
+                rootNode = gate.PanelWindow;
             return rootNode;
         }
     }
 
-    public System.Object PanelCurrent
+    public object PanelCurrent
     {
         get { return panelCur; }
     }
@@ -33,10 +33,10 @@ public class PanelManager : TSingleton<PanelManager>
     private Stack<UIPanel> _panelStack = new Stack<UIPanel>();
     private UIPanel panelCur = new UIPanel();
 
-    public System.Object GetLogic(string rLogicName)
+    public object GetLogic(string rLogicName)
     {
-        
-        System.Object temp = null;
+
+        object temp = null;
         _panelStack.ForEach((item) =>
         {
             if (item.LogicName == rLogicName) temp = item.LogicObject;
@@ -70,7 +70,7 @@ public class PanelManager : TSingleton<PanelManager>
             }
         }
 
-        System.Object logic = GetLogic(rLogicName);
+        object logic = GetLogic(rLogicName);
         if (logic != null)
         {
             panelCur.LogicObject = logic;

@@ -72,12 +72,12 @@ public static class gate
         }
     }
 
-    public static Transform PanelCamera
+    public static Transform PanelWindow
     {
         get
         {
-            GameObject go = GameObject.FindWithTag("PanelCamera");
-            if (go != null) return go.transform;
+            GameObject go = GameObject.FindWithTag("PanelWindow");
+            if (go != null) return go.GetComponent<Transform>();
             return null;
         }
     }

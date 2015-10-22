@@ -17,7 +17,8 @@ AssetBundleManifest:
         Dependency_0: texture.unity3d
     Info_4:
       Name: uiwidget/dialogboxtemplate.unity3d
-      Dependencies: {}
+      Dependencies:
+        Dependency_0: texture.unity3d
     Info_5:
       Name: uiwidget/fliplistview.unity3d
       Dependencies: {}

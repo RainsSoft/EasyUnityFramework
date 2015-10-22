@@ -43,21 +43,3 @@ public class ManagerNames
     public const string ResourcesUpdate = "ResourcesUpdateManager";
 }
 
-class TemplateNames
-{
-    public const string DialogBox = "DialogBoxTemplate";
-
-}
-
-class SceneNames
-{
-    public const string AppEntry = "AppEntry";
-    public const string Game = "GameScene";
-    public const string Test = "TestScene";
-}
-
-class PopupsNames
-{
-    public const string Sample = "SamplePopups";
-
-}
