@@ -1,7 +1,7 @@
 ﻿using System;
 
 [System.Serializable] 
-public class ABConfig
+public class BundleInfo
 {
     /// <summary>
     /// 资源包名
@@ -26,7 +26,7 @@ public class ABConfig
 }
 
 [System.Serializable] 
-public class PackageConfigData
+public class AssetPackageConfig
 {
-    public ABConfig[] packageConfig;
+    public BundleInfo[] bundlesInfo;
 }

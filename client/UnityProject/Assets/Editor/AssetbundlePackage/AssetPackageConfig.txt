@@ -1,5 +1,5 @@
 {
-	"packageConfig": [
+	"bundlesInfo": [
 	{
 		"name": "texture",
 		"variant": "unity3d",

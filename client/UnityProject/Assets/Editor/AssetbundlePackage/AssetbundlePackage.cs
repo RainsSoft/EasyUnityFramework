@@ -81,18 +81,18 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         string str = File.ReadAllText(path);
 
         Dict<string, ABEntry> abEntries = new Dict<string, ABEntry>();
-        PackageConfigData a = JsonReader.Deserialize<PackageConfigData>(str);
+        AssetPackageConfig apc = JsonReader.Deserialize<AssetPackageConfig>(str);
 
-        ABConfig[] configs = a.packageConfig;
+        BundleInfo[] bundlesInfo = apc.bundlesInfo;
 
-        for (int i = 0; i < configs.Length; i++)
+        for (int i = 0; i < bundlesInfo.Length; i++)
         {
             ABEntry entry = new ABEntry();
-            entry.abConfig = configs[i];
+            entry.bundleInfo = bundlesInfo[i];
 
-            if (!abEntries.ContainsKey(entry.abConfig.name))
+            if (!abEntries.ContainsKey(entry.bundleInfo.name))
             {
-                abEntries.Add(entry.abConfig.name, entry);
+                abEntries.Add(entry.bundleInfo.name, entry);
             }
         }
 
@@ -106,11 +106,11 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
 
     private class ABEntry
     {
-        public ABConfig abConfig;
+        public BundleInfo bundleInfo;
 
         public AssetBundleBuild[] ToABBuild()
         {
-            switch (abConfig.packageType)
+            switch (bundleInfo.packageType)
             {
                 case "Dir_Dir":
                     return GetOneDir_Dirs();
@@ -129,13 +129,13 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         /// </summary>
         private AssetBundleBuild[] GetOneFile()
         {
-            Object rObj = AssetDatabase.LoadAssetAtPath(abConfig.assetPath, typeof(Object));
+            Object rObj = AssetDatabase.LoadAssetAtPath(bundleInfo.assetPath, typeof(Object));
             if (rObj == null) return null;
 
             AssetBundleBuild rABB = new AssetBundleBuild();
-            rABB.assetBundleName = abConfig.name;
-            rABB.assetBundleVariant = abConfig.variant;
-            rABB.assetNames = new string[] { abConfig.assetPath };
+            rABB.assetBundleName = bundleInfo.name;
+            rABB.assetBundleVariant = bundleInfo.variant;
+            rABB.assetNames = new string[] { bundleInfo.assetPath };
             return new AssetBundleBuild[] { rABB };
         }
 
@@ -144,13 +144,13 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         /// </summary>
         private AssetBundleBuild[] GetOneDir()
         {
-            DirectoryInfo rDirInfo = new DirectoryInfo(abConfig.assetPath);
+            DirectoryInfo rDirInfo = new DirectoryInfo(bundleInfo.assetPath);
             if (!rDirInfo.Exists) return null;
 
             AssetBundleBuild rABB = new AssetBundleBuild();
-            rABB.assetBundleName = abConfig.name;
-            rABB.assetBundleVariant = abConfig.variant;
-            rABB.assetNames = new string[] { abConfig.assetPath };
+            rABB.assetBundleName = bundleInfo.name;
+            rABB.assetBundleVariant = bundleInfo.variant;
+            rABB.assetNames = new string[] { bundleInfo.assetPath };
             return new AssetBundleBuild[] { rABB };
         }
 
@@ -159,18 +159,18 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         /// </summary>
         private AssetBundleBuild[] GetOneDir_Files()
         {
-            DirectoryInfo rDirInfo = new DirectoryInfo(abConfig.assetPath);
+            DirectoryInfo rDirInfo = new DirectoryInfo(bundleInfo.assetPath);
             if (!rDirInfo.Exists) return null;
 
             List<AssetBundleBuild> rABBList = new List<AssetBundleBuild>();
-            string[] rGUIDS = AssetDatabase.FindAssets(abConfig.assetType, new string[] { abConfig.assetPath });
+            string[] rGUIDS = AssetDatabase.FindAssets(bundleInfo.assetType, new string[] { bundleInfo.assetPath });
             for (int i = 0; i < rGUIDS.Length; i++)
             {
                 string rAssetPath = AssetDatabase.GUIDToAssetPath(rGUIDS[i]);
 
                 AssetBundleBuild rABB = new AssetBundleBuild();
-                rABB.assetBundleName = abConfig.name + "/" + Path.GetFileNameWithoutExtension(rAssetPath);
-                rABB.assetBundleVariant = abConfig.variant;
+                rABB.assetBundleName = bundleInfo.name + "/" + Path.GetFileNameWithoutExtension(rAssetPath);
+                rABB.assetBundleVariant = bundleInfo.variant;
                 rABB.assetNames = new string[] { rAssetPath };
                 rABBList.Add(rABB);
             }
@@ -184,7 +184,7 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
         private AssetBundleBuild[] GetOneDir_Dirs()
         {
 
-            DirectoryInfo rDirInfo = new DirectoryInfo(abConfig.assetPath);
+            DirectoryInfo rDirInfo = new DirectoryInfo(bundleInfo.assetPath);
             if (!rDirInfo.Exists) return null;
 
             List<AssetBundleBuild> rABBList = new List<AssetBundleBuild>();
@@ -197,8 +197,8 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
                 string rFileName = Path.GetFileNameWithoutExtension(rDirPath);
 
                 AssetBundleBuild rABB = new AssetBundleBuild();
-                rABB.assetBundleName = abConfig.name + "/" + rFileName;
-                rABB.assetBundleVariant = abConfig.variant;
+                rABB.assetBundleName = bundleInfo.name + "/" + rFileName;
+                rABB.assetBundleVariant = bundleInfo.variant;
                 rABB.assetNames = new string[] { rDirPath };
                 rABBList.Add(rABB);
             }

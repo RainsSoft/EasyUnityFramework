@@ -8,7 +8,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerNames.LSharp);
+            return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerName.LSharp);
         }
     }
 
@@ -16,7 +16,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<TimerManager>(ManagerNames.Timer);
+            return ManagerCollect.Instance.GetManager<TimerManager>(ManagerName.Timer);
         }
     }
 
@@ -24,7 +24,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<MusicManager>(ManagerNames.Music);
+            return ManagerCollect.Instance.GetManager<MusicManager>(ManagerName.Music);
         }
     }
 
@@ -32,7 +32,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<PanelManager>(ManagerNames.Panel);
+            return ManagerCollect.Instance.GetManager<PanelManager>(ManagerName.Panel);
         }
     }
 
@@ -40,7 +40,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<NetworkManager>(ManagerNames.Network);
+            return ManagerCollect.Instance.GetManager<NetworkManager>(ManagerName.Network);
         }
     }
 
@@ -48,7 +48,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<AssetLoadManager>(ManagerNames.Asset);
+            return ManagerCollect.Instance.GetManager<AssetLoadManager>(ManagerName.Asset);
         }
     }
 
@@ -56,7 +56,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<CroutineManager>(ManagerNames.Croutine);
+            return ManagerCollect.Instance.GetManager<CroutineManager>(ManagerName.Croutine);
         }
     }
 
@@ -64,7 +64,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<SceneManager>(ManagerNames.Scene);
+            return ManagerCollect.Instance.GetManager<SceneManager>(ManagerName.Scene);
         }
     }
 
@@ -72,7 +72,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<GestureManager>(ManagerNames.Gesture);
+            return ManagerCollect.Instance.GetManager<GestureManager>(ManagerName.Gesture);
         }
     }
 
@@ -80,7 +80,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerNames.ResourcesUpdate);
+            return ManagerCollect.Instance.GetManager<ResourcesUpdateManager>(ManagerName.ResourcesUpdate);
         }
        
     }

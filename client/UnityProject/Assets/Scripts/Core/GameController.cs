@@ -36,15 +36,15 @@ public class GameController : MonoBehaviour
         AppPlatform.Initialize();
 
         //挂载管理器并初始化
-        ManagerCollect.Instance.AddManager(ManagerNames.LSharp, LSharpManager.Instance);
-        ManagerCollect.Instance.AddManager(ManagerNames.Panel, PanelManager.Instance);
+        ManagerCollect.Instance.AddManager(ManagerName.LSharp, LSharpManager.Instance);
+        ManagerCollect.Instance.AddManager(ManagerName.Panel, PanelManager.Instance);
 
-        ManagerCollect.Instance.AddManager<CroutineManager>(ManagerNames.Croutine);
-        ManagerCollect.Instance.AddManager<TimerManager>(ManagerNames.Timer);
-        ManagerCollect.Instance.AddManager<AssetLoadManager>(ManagerNames.Asset);
-        ManagerCollect.Instance.AddManager<SceneManager>(ManagerNames.Scene);
-        ManagerCollect.Instance.AddManager<MusicManager>(ManagerNames.Music);
-        ManagerCollect.Instance.AddManager<GestureManager>(ManagerNames.Gesture);
+        ManagerCollect.Instance.AddManager<CroutineManager>(ManagerName.Croutine);
+        ManagerCollect.Instance.AddManager<TimerManager>(ManagerName.Timer);
+        ManagerCollect.Instance.AddManager<AssetLoadManager>(ManagerName.Asset);
+        ManagerCollect.Instance.AddManager<SceneManager>(ManagerName.Scene);
+        ManagerCollect.Instance.AddManager<MusicManager>(ManagerName.Music);
+        ManagerCollect.Instance.AddManager<GestureManager>(ManagerName.Gesture);
 
         gate.TimerManager.Initialize();
         gate.MusicManager.Initialize();
