@@ -82,7 +82,7 @@ public class PanelManager : TSingleton<PanelManager>
         {
             panelCur.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
             panelCur.LogicName = rLogicName;
-            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "StartUp", RootNode);
+            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Startup", RootNode);
             _panelStack.Push(panelCur);
         }
     }

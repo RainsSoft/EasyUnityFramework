@@ -19,17 +19,14 @@ namespace HotFixCode
             transform = rGo.GetComponent<Transform>();
 
             btnOpen = Util.Get<Button>(gameObject, "OpenDialog");
-            Debug.Log("Awake");
         }
 
         void Start()
         {
-            Debug.Log("Start");
         }
 
         void OnDestroy()
         {
-            Debug.Log("OnDestroy");
         }
     }
 }

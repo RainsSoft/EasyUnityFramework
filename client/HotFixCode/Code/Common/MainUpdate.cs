@@ -10,6 +10,7 @@ namespace HotFixCode
 
         void Init()
         {
+            DebugConsole.Log("APP Script system is runing ");
             Start();
         }
 
@@ -20,6 +21,7 @@ namespace HotFixCode
 
         void End()
         {
+            DebugConsole.Log("APP Script system is end ");
         }
 
         void Update()

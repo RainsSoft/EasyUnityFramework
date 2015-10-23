@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        DebugConsole.Log("APP Startup");
         Initialize(); 
     }
 
@@ -50,6 +51,8 @@ public class GameController : MonoBehaviour
         gate.MusicManager.Initialize();
         gate.LSharpManager.Initialize();
 
+        DebugConsole.Log("APP Initialize complete");
+
         LoadAssetbundleManifest();
     }
 
@@ -61,6 +64,7 @@ public class GameController : MonoBehaviour
         tempManager.LoadManifest(bundlName, () =>
         {
             //资源载入完成 开始游戏
+            DebugConsole.Log("APP LoadAssetbundleManifest complete");
             GameStart();
         });
     }
@@ -81,11 +85,12 @@ public class GameController : MonoBehaviour
     /// </summary>
     void GameEnd()
     {
-        
+
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "End");
         _scriptMainUpdate = null;
         gate.AssetLoadManager.UnloadAssetBundles();
         Util.ClearMemory();
+        DebugConsole.Log("APP UnloadAssetBundles complete");
     }
 
 
@@ -93,6 +98,7 @@ public class GameController : MonoBehaviour
     void OnApplicationQuit()
     {
         GameEnd();
+        DebugConsole.Log("APP End");
     }
 
     void Update()

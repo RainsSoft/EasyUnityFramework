@@ -11,7 +11,7 @@ namespace HotFixCode
         LSharpBehaviour behaviour;
         SamplePanel panel;
 
-        void StartUp(RectTransform parent)
+        void Startup(RectTransform parent)
         {
             UIGenerator.Instance.CreateUI(PanelName.Sample, parent, OnCreated);
         }
@@ -39,7 +39,6 @@ namespace HotFixCode
 
         void OnCreated(GameObject rGo)
         {
-            Debug.Log("OnCreated");
             gameObject = rGo;
             transform = rGo.GetComponent<Transform>();
             behaviour = rGo.GetComponent<LSharpBehaviour>();
