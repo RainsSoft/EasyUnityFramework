@@ -26,15 +26,15 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gate.GUIRoot);
         DontDestroyOnLoad(DebugConsole.Instance);
 
+        //平台初始化
+        AppPlatform.Initialize();
+
         //基本设置
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = AppConst.FrameRate;
         UnityEngine.QualitySettings.vSyncCount = AppConst.VSyncCount;
         DOTween.Init().SetCapacity(500, 100);
         DOTween.defaultAutoKill = true;
-
-        //静态类初始化
-        AppPlatform.Initialize();
 
         //挂载管理器并初始化
         ManagerCollect.Instance.AddManager(ManagerName.LSharp, LSharpManager.Instance);
@@ -61,6 +61,7 @@ public class GameController : MonoBehaviour
         var tempManager = gate.AssetLoadManager;
         string bundlName = AppPlatform.GetAssetBundleDictionaryName();
         tempManager.DownloadingURL = AppPlatform.GetAssetBundleDictionaryUrl();
+        Debug.Log("AssetBundleDictionaryUrl:  " + tempManager.DownloadingURL);
         tempManager.LoadManifest(bundlName, () =>
         {
             //资源载入完成 开始游戏

@@ -32,7 +32,7 @@ namespace HotFixCode
     {
         public const string AppEntry = "AppEntry";
         public const string Game = "GameScene";
-        public const string Test = "TestScene";
+        public const string Test = "Test";
     }
 
 }

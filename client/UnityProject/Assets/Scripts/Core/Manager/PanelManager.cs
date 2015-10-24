@@ -3,17 +3,51 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-class UIPanel
+/// <summary>
+/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
+/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
+/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
+/// 重要的事情说三遍
+/// </summary>
+
+public class UIPanel
 {
+    /// <summary>
+    /// 面板对象名
+    /// </summary>
+    public string PanelName { set; get; }
+
+    /// <summary>
+    /// 脚本名
+    /// </summary>
     public string LogicName { set; get; }
+
+    /// <summary>
+    /// 脚本运行时对象
+    /// </summary>
     public object LogicObject { set; get; }
+
+    /// <summary>
+    /// 面板是否已被创建
+    /// </summary>
+    public bool IsCreated { set; get; }
+
+    public UIPanel()
+    {
+        PanelName = "Noting";
+        LogicName = "Noting";
+        LogicObject = null;
+        IsCreated = false;
+    }
 }
 
 public class PanelManager : TSingleton<PanelManager>
 {
-    PanelManager() { }
+    Stack<UIPanel> _panelStack = new Stack<UIPanel>();
+    UIPanel panelCur = new UIPanel();
+    Transform rootNode;
 
-    private Transform rootNode;
+    PanelManager() { }
 
     Transform RootNode
     {
@@ -25,23 +59,23 @@ public class PanelManager : TSingleton<PanelManager>
         }
     }
 
-    public object PanelCurrent
+    public UIPanel PanelCurrent
     {
         get { return panelCur; }
     }
 
-    private Stack<UIPanel> _panelStack = new Stack<UIPanel>();
-    private UIPanel panelCur = new UIPanel();
-
-    public object GetLogic(string rLogicName)
+    public bool TryGetPanel(string rLogicName, out UIPanel rPanel)
     {
-
-        object temp = null;
-        _panelStack.ForEach((item) =>
+        foreach(UIPanel rElment in _panelStack)
         {
-            if (item.LogicName == rLogicName) temp = item.LogicObject;
-        });
-        return temp;
+            if (rElment.LogicName == rLogicName)
+            {
+                rPanel = rElment;
+                return true;
+            }
+        }
+        rPanel = new UIPanel();
+        return false;
     }
 
     public bool IsExist(string rLogicName)
@@ -56,7 +90,7 @@ public class PanelManager : TSingleton<PanelManager>
 
     public void PushPanel(string rLogicName)
     {
-        if (panelCur != null)
+        if (panelCur != null && panelCur.LogicName != "Noting" && panelCur.PanelName != "Noting")
         {
             if (panelCur.LogicName == rLogicName)
             {
@@ -70,18 +104,28 @@ public class PanelManager : TSingleton<PanelManager>
             }
         }
 
-        object logic = GetLogic(rLogicName);
-        if (logic != null)
+
+        UIPanel rPanel = null;
+        bool rGot = TryGetPanel(rLogicName, out rPanel);
+        if (rGot)
         {
-            panelCur.LogicObject = logic;
-            panelCur.LogicName = rLogicName;
+            panelCur.IsCreated = rPanel.IsCreated;
+            panelCur.LogicName = rPanel.LogicName;
+            panelCur.PanelName = rPanel.PanelName;
+            panelCur.LogicObject = rPanel.LogicObject;
+
             Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Enable");
             StickElement(panelCur);
         }
         else
         {
-            panelCur.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
+            var rPanelName = rLogicName.Replace("Logic", "Panel");
+
+            panelCur.IsCreated = false;
             panelCur.LogicName = rLogicName;
+            panelCur.PanelName = rPanelName;
+            panelCur.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
+
             Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Startup", RootNode);
             _panelStack.Push(panelCur);
         }
@@ -122,7 +166,8 @@ public class PanelManager : TSingleton<PanelManager>
 
         UIPanel panel = _panelStack.Pop();
         Util.CallScriptFunction(panel.LogicObject, panel.LogicName, "Free");
-        panelCur = panel = null;
+        panel = null;
+        panelCur = new UIPanel();
 
         PushPanel(rLogicName);
     }

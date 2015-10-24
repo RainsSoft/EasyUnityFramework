@@ -267,4 +267,17 @@ public class Util : MonoBehaviour
         return (long)ts.TotalMilliseconds;
     }
 
+    //待修改 
+    public static byte[] ReadSheetFile(string filename)
+    {
+        string path = string.Empty;
+        path = Application.streamingAssetsPath + "/Sheet/" + filename;
+
+        if (!File.Exists(path))
+        {
+            Debug.LogError("不存在数据文件:" + path);
+            return null;
+        }
+        return System.IO.File.ReadAllBytes(path);
+    }
 }

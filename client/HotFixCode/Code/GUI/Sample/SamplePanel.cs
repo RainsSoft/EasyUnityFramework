@@ -5,28 +5,15 @@ using DG.Tweening;
 
 namespace HotFixCode
 {
-    public class SamplePanel
+    public class SamplePanel : UIView
     {
-        GameObject gameObject;
-        Transform transform;
-
         public SampleLogic logic;
         public Button btnOpen;
 
-        void Awake(GameObject rGo)
+        protected override void Awake(GameObject rGo)
         {
-            gameObject = rGo;
-            transform = rGo.GetComponent<Transform>();
-
+            base.Awake(rGo);
             btnOpen = Util.Get<Button>(gameObject, "OpenDialog");
-        }
-
-        void Start()
-        {
-        }
-
-        void OnDestroy()
-        {
         }
     }
 }

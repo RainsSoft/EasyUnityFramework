@@ -3,12 +3,12 @@ using System.Collections;
 
 public class LSharpManager : TSingleton<LSharpManager> 
 {
-    LSharpManager() { }
-
     static CLRSharp.CLRSharp_Environment env;
     static CLRSharp.ThreadContext context;
 
     bool isLSharpInited = false;
+
+    LSharpManager() { }
 
     public void Initialize()
     {
@@ -22,7 +22,7 @@ public class LSharpManager : TSingleton<LSharpManager>
         TextAsset pdb = Resources.Load("HotFixCode.pdb") as TextAsset;
         System.IO.MemoryStream msPdb = new System.IO.MemoryStream(pdb.bytes);
 
-        //env.LoadModule(msDll);//如果无符号是pdb的话，第二个参数传null
+        // env.LoadModule(msDll);//如果无符号是pdb的话，第二个参数传null
         env.LoadModule(msDll, msPdb, new Mono.Cecil.Pdb.PdbReaderProvider());//Pdb
         //env.LoadModule(msDll, msMdb, new Mono.Cecil.Mdb.MdbReaderProvider());//如果符号是Mdb格式
         Debug.Log("LoadModule HotFixCode.dll done.");
@@ -91,6 +91,27 @@ public class LSharpManager : TSingleton<LSharpManager>
         }
     }
 
+    public bool TryGetMethod(CLRSharp.ICLRType rType, string rFuncName, out CLRSharp.IMethod outMethod, params object[] rArgs)
+    {
+        var rList = MatchParamList(rArgs);
+
+        outMethod = rType.GetMethod(rFuncName, rList);
+
+        if (outMethod != null) return true;
+        else return false;
+    }
+
+    public bool CheckExistMethod(CLRSharp.ICLRType rType, string rFuncName, params object[] rArgs)
+    {
+        var rList = MatchParamList(rArgs);
+
+        var method = rType.GetMethod(rFuncName, rList);
+
+        if (method != null) return true;
+        else return false;
+    }
+
+
     public object CreateLSharpObject(string rName, params object[] rArgs)
     {
         CLRSharp.ICLRType rType;
@@ -111,6 +132,22 @@ public class LSharpManager : TSingleton<LSharpManager>
         object rObj = rCtor.Invoke(context, null, null);
 
         
+        return rObj;
+    }
+
+    public object CreateLSharpObject(CLRSharp.ICLRType rType, params object[] rArgs)
+    {
+
+        var rList = MatchParamList(rArgs);
+        CLRSharp.IMethod rCtor = rType.GetMethod(".ctor", rList);
+
+        if (rCtor == null)
+        {
+            Debug.LogError("Create LSharp Object failed, check full type name and param list");
+            return null;
+        }
+
+        object rObj = rCtor.Invoke(context, null, null);
         return rObj;
     }
 
