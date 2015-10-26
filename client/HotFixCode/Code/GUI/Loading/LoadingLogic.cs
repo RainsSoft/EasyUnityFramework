@@ -7,6 +7,12 @@ namespace HotFixCode
     {
         LoadingPanel panel;
 
+        void SetProgressbar(int progress)
+        {
+            if (panel.progressbar == null) return;
+            panel.progressbar.Value = progress;
+        }
+
         protected override void Startup(RectTransform parent)
         {
             UIGenerator.Instance.CreateUI(PanelName.Loading, parent, OnCreated);

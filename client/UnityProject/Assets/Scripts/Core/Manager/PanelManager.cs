@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
-/// <summary>
-/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
-/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
-/// 同一时刻下 UIRoot只会有一个Panel 是被激活的！！！
-/// 重要的事情说三遍
-/// </summary>
-
 public class UIPanel
 {
     /// <summary>

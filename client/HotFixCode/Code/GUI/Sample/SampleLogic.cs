@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using DG.Tweening;
 
 namespace HotFixCode
 {
@@ -39,14 +39,18 @@ namespace HotFixCode
             base.Free();
         }
 
-        void OnClick(GameObject go)
+        void OnClick(GameObject rGo)
         {
-            Debug.Log("OnClick" + go.name);
+            //Debug.Log("OnClick" + rGo.name);
 
             //WaitingLayer.Show();
             //DialogBox.Template(TemplateName.DialogBox).Show(title: "SDFASDF");
+            //gameObject.transform.DOMoveX(10, 20);
 
-            gate.SceneManager.EnterScene(SceneName.Test);
+            gate.SceneManager.EnterScene(SceneName.Test, () => 
+            {
+                Debug.Log("进入到场景" + SceneName.Test);
+            });
         }
         
         void Onc()

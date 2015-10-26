@@ -3,33 +3,24 @@ using System;
 using System.Collections;
 public class SceneManager : MonoBehaviour 
 {
+    int progress = 0;
+    string loadSceneName = null;
+    UnityEngine.Events.UnityAction onLoadComplete = null;
+    AsyncOperation async = null;
 
-    string _loadSceneName = null;
-    Action _onLoadComplete = null;
-
-    public AsyncOperation async = null;
     public bool IsLoading { get; set; }
 
-    const string loadingLogic = "LoadingLogic";
+    const string logicName = "LoadingLogic";
+    const string callFuncName = "SetProgressbar";
 
-    public void EnterScene(string sceneName, Action onLoadComplete = null)
+    public void EnterScene(string sceneName, UnityEngine.Events.UnityAction rFunc)
     {
-        gate.PanelManager.PushPanel(loadingLogic);
-        _loadSceneName = sceneName;
-        _onLoadComplete = onLoadComplete;
+        gate.PanelManager.PushPanel(logicName);
+        loadSceneName = sceneName;
+        onLoadComplete = rFunc;
         LoadScene();
     }
 
-    /// <summary>
-    /// 暂时先用这个  这里肯定是要重写的 
-    /// </summary>
-    public void EnterScene(string sceneName)
-    {
-        gate.PanelManager.PushPanel(loadingLogic);
-        _loadSceneName = sceneName;
-        //_onLoadComplete = onLoadComplete;
-        LoadScene();
-    }
     void LoadScene()
     {
         StartCoroutine(LoadSceneInternal());
@@ -37,41 +28,69 @@ public class SceneManager : MonoBehaviour
 
     IEnumerator LoadSceneInternal()
     {
+        var rPanel = gate.PanelManager.PanelCurrent;
 
+        //检查Loading UI 
         while (true)
         {
-            var rPanel = gate.PanelManager.PanelCurrent;
-            if (rPanel == null || rPanel.IsCreated == false)
-            {
-                yield return null;
-            }
-            else
-            {
+
+            if (rPanel != null &&
+                rPanel.LogicName == logicName &&
+                rPanel.IsCreated == true)
                 break;
-            }
-
+            else
+                yield return new WaitForEndOfFrame();
         }
 
-        async = Application.LoadLevelAsync(_loadSceneName);
+        //加载
+        int rDisplayProgress = 0;
+        async = Application.LoadLevelAsync(loadSceneName);
         IsLoading = true;
-        yield return async;
+
         async.allowSceneActivation = false;
-
-        if (async.isDone)
+        while (async.progress < 0.9f)
         {
-            gate.PanelManager.ClearStack();
-            _loadSceneName = null;
-
-            if (_onLoadComplete != null)
+            progress = (int)async.progress * 100;
+            while (rDisplayProgress < progress)
             {
-                //_onLoadComplete();
-                _onLoadComplete = null;
+                ++rDisplayProgress;
+                Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callFuncName, rDisplayProgress);
+                yield return new WaitForEndOfFrame();
             }
-
-            IsLoading = false;
-            async.allowSceneActivation = true;
+            yield return null;
         }
 
+        progress = 100;
+
+        while (rDisplayProgress < progress)
+        {
+
+            ++rDisplayProgress;
+            Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callFuncName, rDisplayProgress);
+            yield return new WaitForEndOfFrame();
+
+        }
+        async.allowSceneActivation = true;
+        LoadSceneComplete();
+        IsLoading = false;
     }
+
+    void LoadSceneComplete()
+    {
+        // 加载完成
+        gate.PanelManager.ClearStack();
+
+        if (onLoadComplete != null)
+        {
+            onLoadComplete.Invoke();
+            onLoadComplete = null;
+        }
+
+        loadSceneName = null;
+        async = null;
+        progress = 0;
+    }
+
+
 
 }

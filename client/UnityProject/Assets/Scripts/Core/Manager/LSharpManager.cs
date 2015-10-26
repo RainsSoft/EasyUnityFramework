@@ -1,6 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/// <summary>
+/// 重要备注
+/// 脚本程序中不可使用类型System.Action。 But 泛型版本可以使用。
+/// 
+/// 问题进展： 已与L#开发者沟通， 目前此问题无解..  如需使用, 请用其他类型代替，如 UnityAction
+/// 原因：无法获取到System.Core.dll下的 System.Action, System.Action类型与泛型版本不在一个程序集，编译dll的引用和unity实际的不同
+/// </summary>
+
 public class LSharpManager : TSingleton<LSharpManager> 
 {
     static CLRSharp.CLRSharp_Environment env;

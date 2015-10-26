@@ -69,7 +69,7 @@ public class LSharpBehaviour : MonoBehaviour
             }
         );
     }
-
+    
     public void ClearClick()
     {
         for (int i = 0; i < clickEvents.Count; i++)
