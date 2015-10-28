@@ -5,9 +5,10 @@ public class PopupWindow : MonoBehaviour
 {
     public static UITemplates<BasePopups> Templates = new UITemplates<BasePopups>();
 
-    static public BasePopups Template(string template)
+    public static BasePopups Template(string template)
     {
-        return Templates.Instance(template);
+        var rPopups = Templates.Instance(template);
+        rPopups.Init();
+        return rPopups;
     }
-
 }

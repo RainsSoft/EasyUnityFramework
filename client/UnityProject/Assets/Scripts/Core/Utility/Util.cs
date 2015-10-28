@@ -6,8 +6,9 @@ using System.Text.RegularExpressions;
 
 public class Util : MonoBehaviour
 {
+
     /// <summary>
-    /// 调用L#脚本成员函数
+    /// 调用脚本成员函数
     /// </summary>
     public static object CallScriptFunction(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
     {
@@ -16,11 +17,21 @@ public class Util : MonoBehaviour
     }
 
     /// <summary>
-    /// 调用L#脚本静态函数
+    /// 调用脚本静态函数
     /// </summary>
     public static object CallScriptFunctionStatic(string rTypeName, string rFuncName, params object[] rArgs)
     {
-        return gate.LSharpManager.CallLSharpMethodStatic(rTypeName, rFuncName, rArgs);
+        var rName = rTypeName.Replace("(Clone)", "");
+        return gate.LSharpManager.CallLSharpMethodStatic(rName, rFuncName, rArgs);
+    }
+
+    /// <summary>
+    /// 创建脚本对象
+    /// </summary>
+    public static object CreateLSharpObject(string rTypeName, params object[] rArgs)
+    {
+        var rName = rTypeName.Replace("(Clone)", "");
+        return gate.LSharpManager.CreateLSharpObject(rName, rArgs);
     }
 
     /// <summary>
@@ -232,8 +243,20 @@ public class Util : MonoBehaviour
     /// </summary>
     public static void ClearMemory()
     {
-        GC.Collect();
         Resources.UnloadUnusedAssets();
+        GC.Collect();
+    }
+
+    /// <summary>
+    /// 清理UI缓存
+    /// </summary>
+    public static void ClearUICache()
+    {
+        ModleLayer.Templates.ClearAll();
+        WaitingLayer.Templates.ClearAll();
+        DialogBox.Templates.ClearAll();
+        PopupWindow.Templates.ClearAll();
+        gate.PanelManager.ClearStack();
     }
 
     /// <summary>

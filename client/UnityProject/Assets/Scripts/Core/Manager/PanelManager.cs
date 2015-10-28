@@ -40,6 +40,11 @@ public class PanelManager : TSingleton<PanelManager>
     UIPanel panelCur = new UIPanel();
     Transform rootNode;
 
+    const string disableName = "Disable";
+    const string enableName = "Enable";
+    const string startupName = "Startup";
+    const string freeName = "Free";
+
     PanelManager() { }
 
     Transform RootNode
@@ -93,7 +98,7 @@ public class PanelManager : TSingleton<PanelManager>
 
             if (panelCur.LogicObject != null)
             {
-                Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Disable");
+                Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, disableName);
             }
         }
 
@@ -102,25 +107,25 @@ public class PanelManager : TSingleton<PanelManager>
         bool rGot = TryGetPanel(rLogicName, out rPanel);
         if (rGot)
         {
-            panelCur.IsCreated = rPanel.IsCreated;
-            panelCur.LogicName = rPanel.LogicName;
-            panelCur.PanelName = rPanel.PanelName;
-            panelCur.LogicObject = rPanel.LogicObject;
+            panelCur = rPanel;
 
-            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Enable");
+            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, enableName);
             StickElement(panelCur);
         }
         else
         {
             var rPanelName = rLogicName.Replace("Logic", "Panel");
 
-            panelCur.IsCreated = false;
-            panelCur.LogicName = rLogicName;
-            panelCur.PanelName = rPanelName;
-            panelCur.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
+            UIPanel rNewPanel = new UIPanel();
+            rNewPanel.IsCreated = false;
+            rNewPanel.LogicName = rLogicName;
+            rNewPanel.PanelName = rPanelName;
+            rNewPanel.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
+            _panelStack.Push(rNewPanel);
 
-            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Startup", RootNode);
-            _panelStack.Push(panelCur);
+            panelCur = rNewPanel;
+            Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, startupName, RootNode);
+
         }
     }
 
@@ -134,9 +139,9 @@ public class PanelManager : TSingleton<PanelManager>
 
         //exchange position
         var panel = _panelStack.Pop();
-        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, "Disable");
+        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, disableName);
         panelCur = _panelStack.Pop();
-        Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, "Enable");
+        Util.CallScriptFunction(panelCur.LogicObject, panelCur.LogicName, enableName);
 
         _panelStack.Push(panel);
         _panelStack.Push(panelCur);
@@ -158,7 +163,7 @@ public class PanelManager : TSingleton<PanelManager>
         }
 
         UIPanel panel = _panelStack.Pop();
-        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, "Free");
+        Util.CallScriptFunction(panel.LogicObject, panel.LogicName, freeName);
         panel = null;
         panelCur = new UIPanel();
 
@@ -169,7 +174,7 @@ public class PanelManager : TSingleton<PanelManager>
     {
         _panelStack.ForEach((item) =>
         {
-            Util.CallScriptFunction(item.LogicObject, item.LogicName, "Free");
+            Util.CallScriptFunction(item.LogicObject, item.LogicName, freeName);
             item = null;
         });
         _panelStack.Clear();

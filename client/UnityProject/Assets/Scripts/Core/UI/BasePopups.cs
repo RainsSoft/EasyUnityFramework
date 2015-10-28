@@ -2,7 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 
-public class BasePopups : MonoBehaviour, ITemplatable
+public class BasePopups : LSharpBehaviour, ITemplatable
 {
     bool isTemplate = true;
 
@@ -18,7 +18,13 @@ public class BasePopups : MonoBehaviour, ITemplatable
 
     public virtual void OnAnimateInEnd() { }
     public virtual void OnAnimateOutEnd() { }
-    public virtual void ResetParametres() { }
+    public virtual void OnReturnCache() { }
+
+    public void Init()
+    {
+        transform.SetParent(gate.PopupsWindow, false);
+        _scriptObject = Util.CreateLSharpObject(name, this);
+    }
 
     public void Show(bool modal = false,
                     Sprite modalSprite = null,
@@ -57,35 +63,44 @@ public class BasePopups : MonoBehaviour, ITemplatable
 
     void AnimateIn()
     {
-        transform.DOScale(1.0f, 0.5f).OnComplete(OnAnimateInEnd);
+        transform.DOScale(1.0f, 0.5f).OnComplete(()=>
+        {
+           CallMethod("OnAnimateInEnd");
+           OnAnimateInEnd();
+        });
     }
 
     void AnimateOut()
     {
         transform.DOScale(0.1f, 0.5f).OnComplete(()=>
         {
+            CallMethod("OnAnimateOutEnd");
             OnAnimateOutEnd();
             Return();
         });
     }
 
-
     void Return()
     {
+        CallMethod("OnReturnCache");
+        OnReturnCache();
         PopupWindow.Templates.ReturnCache(this);
-        ResetParametres();
     }
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         if (IsTemplate)
         {
             gameObject.SetActive(false);
         }
     }
 
-    void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
+
         if (!IsTemplate)
         {
             return;

@@ -31,3 +31,7 @@ AssetBundleManifest:
     Info_8:
       Name: uiwidget/tabs.unity3d
       Dependencies: {}
+    Info_9:
+      Name: uipanel/sampletwopanel.unity3d
+      Dependencies:
+        Dependency_0: texture.unity3d

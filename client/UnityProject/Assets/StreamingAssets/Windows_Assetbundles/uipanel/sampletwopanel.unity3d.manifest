@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1073505288
+CRC: 1587973364
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: df8c94694abc92f2abbb1d1ffac57f4d
+    Hash: 949cf091baeb79484410fbbecac6cbfc
   TypeTreeHash:
     serializedVersion: 2
     Hash: a3517b368293a73fb30c8488b5b6bcad
@@ -36,6 +36,6 @@ ClassTypes:
 - Class: 224
   Script: {instanceID: 0}
 Assets:
-- Assets/OriginalRes/UIPanel/SamplePanel.prefab
+- Assets/OriginalRes/UIPanel/SampleTwoPanel.prefab
 Dependencies:
 - D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/texture.unity3d

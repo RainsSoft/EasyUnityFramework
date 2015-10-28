@@ -56,7 +56,7 @@ namespace HotFixCode
         /// <summary>
         /// 启用面板
         /// </summary>
-        protected virtual void Eanble()
+        protected virtual void Enable()
         {
             if (!gameObject) return;
             gameObject.SetActive(true);
@@ -79,9 +79,10 @@ namespace HotFixCode
         {
             Disable();
             if (gameObject != null)
+            {
+                PopupWindow.Templates.ClearAll();
                 GameObject.Destroy(gameObject);
+            }
         }
-        
-
     }
 }

@@ -39,15 +39,15 @@ public class TimerManager : MonoBehaviour
 
     public void Initialize()
     {
-        StartTimer(AppConst.TimerInterval);
+        interval = 0.1f;
+        StartTimer();
 	}
 
     /// <summary>
     /// 启动计时器
     /// </summary>
-    public void StartTimer(float value)
+    public void StartTimer()
     {
-        interval = value;
         InvokeRepeating("Run", 0, interval);
     }
 

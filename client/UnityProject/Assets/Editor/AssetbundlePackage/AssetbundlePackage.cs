@@ -6,6 +6,9 @@ using JsonFx.Json;
 
 public class AssetbundlePackage : TSingleton<AssetbundlePackage>
 {
+
+    string ABConfigPath = "Editor/AssetbundlePackage/AssetPackageConfig";
+
     private enum BuildPlatform
     {
         Windows = BuildTarget.StandaloneWindows,        //Windows
@@ -72,12 +75,13 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
 
     private string GetAssetbundlesPath()
     {
-        return Path.Combine(Application.dataPath + "/" + AppConst.ABDirName + "/", packagePlatform.ToString()) + "_Assetbundles";
+        return Path.Combine(Application.dataPath + "/" + AppConst.AssetDirName + "/", packagePlatform.ToString()) + "_Assetbundles";
     }
 
     private List<AssetBundleBuild> GeneratorAssetbundleEntry()
     {
-        string path = Application.dataPath + "/" + AppConst.ABConfigPath + "/" + AppConst.ABConfigName + ".txt";
+       
+        string path = Application.dataPath + "/" + ABConfigPath + ".txt";
         string str = File.ReadAllText(path);
 
         Dict<string, ABEntry> abEntries = new Dict<string, ABEntry>();

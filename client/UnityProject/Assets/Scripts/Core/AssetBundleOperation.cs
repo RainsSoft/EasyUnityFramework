@@ -52,7 +52,7 @@ public class AssetBundleOperation : AssetBundleIterator
 			return false;
 
         AssetBundleInfo bundle = gate.AssetLoadManager.GetDownloadedAssetBundle(m_AssetBundleName, out m_DownloadingError);
-		if (bundle != null)
+		if (bundle != null && bundle.m_AssetBundle != null)
 		{
 			m_Request = bundle.m_AssetBundle.LoadAssetAsync(m_AssetName, m_Type);
 			return false;

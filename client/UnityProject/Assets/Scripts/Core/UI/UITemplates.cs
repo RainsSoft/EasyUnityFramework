@@ -27,6 +27,12 @@ public class UITemplates<T> where T : MonoBehaviour, ITemplatable
         });
     }
 
+    public void ClearAll()
+    {
+        templates.Clear();
+        ClearCache();
+    }
+
     public void ClearCache()
     {
         cache.Keys.ForEach(x =>
@@ -123,10 +129,12 @@ public class UITemplates<T> where T : MonoBehaviour, ITemplatable
             }
         }
 
+        /*
         if (templates[name].transform.parent != null)
         {
-           // template.transform.SetParent(templates[name].transform.parent);
+            template.transform.SetParent(templates[name].transform.parent);
         }
+        */
 
         return template;
     }

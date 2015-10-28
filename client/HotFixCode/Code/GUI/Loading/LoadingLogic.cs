@@ -25,12 +25,12 @@ namespace HotFixCode
             panel = behaviour._scriptObject as LoadingPanel;
             panel.logic = this;
 
-            Eanble();
+            Enable();
         }
 
-        protected override void Eanble()
+        protected override void Enable()
         {
-            base.Eanble();
+            base.Enable();
         }
 
         protected override void Disable()

@@ -42,7 +42,10 @@ public class SceneManager : MonoBehaviour
                 yield return new WaitForEndOfFrame();
         }
 
-        //加载
+        //加载场景Bundle（待添加）
+        
+
+        //加载场景
         int rDisplayProgress = 0;
         async = Application.LoadLevelAsync(loadSceneName);
         IsLoading = true;
@@ -77,9 +80,10 @@ public class SceneManager : MonoBehaviour
 
     void LoadSceneComplete()
     {
-        // 加载完成
-        gate.PanelManager.ClearStack();
+        Util.ClearUICache();
+        Util.ClearMemory();
 
+        // 加载完成
         if (onLoadComplete != null)
         {
             onLoadComplete.Invoke();
@@ -90,7 +94,5 @@ public class SceneManager : MonoBehaviour
         async = null;
         progress = 0;
     }
-
-
 
 }

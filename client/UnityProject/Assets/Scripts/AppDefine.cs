@@ -1,31 +1,57 @@
 ﻿using UnityEngine;
-public class AppConst
+
+/// <summary>
+/// 全局常量
+/// </summary>
+public static class AppConst
 {
-    public static bool AutoLogin = false;                                       //自动登录
-    public static bool IsDebugMode = true;                                      //调试模式-用于内部测试
+    /// <summary>
+    /// 服务器IP
+    /// </summary>
+    public static string ServerIp = "192.168.1.58";
 
-    public static float TimerInterval = 0.1f;                                   //计时器间隔
-    public static int FrameRate = 30;                                           //游戏帧频   -1： 不限制
-    public static int VSyncCount = 0;                                           //垂直同步数
+    /// <summary>
+    /// 服务器端口
+    /// </summary>
+    public static int ServerPort = 7000;
 
-    public static string UserId = string.Empty;                                 //用户ID
-    public static string AppName = "HDXX";                                      //应用程序名称
-    public static string AppPrefix = AppName + "_";                             //应用程序前缀
+    /// <summary>
+    /// 限帧（-1： 不限制）
+    /// </summary>
+    public static int FrameRate = 30;
+    
+    /// <summary>
+    /// 垂直同步
+    /// </summary>
+    public static int VSyncCount = 0;
 
-    public static string ServerIp = "192.168.1.58";                             //IP
-    public static int ServerPort = 7000;                                        //端口
+    /// <summary>
+    /// 调试模式-用于内部测试
+    /// </summary>
+    public static bool IsDebugMode = true;
 
+
+    /// <summary>
+    /// 资源目录路径（流文件夹）
+    /// </summary>
     public static string AssetDirName = "StreamingAssets";
 
-    public static string ABDirName = AssetDirName;       						//Assetbundle目录 
-    public static string ABConfigPath = "Editor/AssetbundlePackage";            //Assetsbudle包的配置文件路径
-    public static string ABConfigName = "AssetPackageConfig";                  //Assetsbudle包的配置文件名
-
+    /// <summary>
+    /// 约定分辨率
+    /// </summary>
     public static Vector2 ReferenceResolution = new Vector2(640, 1136);
+
+
+    public static string UserId = string.Empty;
+    public static string AppName = "HDXX";
+    public static string AppPrefix = AppName + "_";
 
 }
 
-public class ManagerName
+/// <summary>
+/// 管理器名
+/// </summary>
+public struct ManagerName
 {
     public const string LSharp = "LSharpManager";
     public const string Game = "GameController";
