@@ -45,11 +45,11 @@ namespace HotFixCode
             if (gameObject.name.Contains(rPanel.PanelName))
             {
                 rPanel.IsCreated = true;
-                Debug.Log(gameObject.name + "与脚本匹配完成");
+                Debug.Log("[script match complete]:" + gameObject.name);
             }
             else
             {
-                Debug.Log(gameObject.name + "产生了非预期的变化， 脚本与其未匹配成功");
+                Debug.Log("[script match failed]:" + gameObject.name);
             }
         }
 

@@ -37,10 +37,21 @@ namespace HotFixCode
                 case "ButtonPanel":
                     TestPanelChange();
                     break;
+                case "ButtonReadData":
+                    TestReadData();
+                    break;
                 default:
                     break;
             }
 
+        }
+
+        void TestReadData()
+        {
+            var rTemp = Sheet.petdatamanager.Get();
+            var rlog = rTemp[0].AnSpeed;
+            Debug.Log(rlog);
+	
         }
 
         void TestPanelChange()
@@ -123,6 +134,7 @@ namespace HotFixCode
             behaviour.AddClick(panel.buttonTween.gameObject, OnClick);
             behaviour.AddClick(panel.buttonWaiting.gameObject, OnClick);
             behaviour.AddClick(panel.buttonPanel.gameObject, OnClick);
+            behaviour.AddClick(panel.buttonReadData.gameObject, OnClick);
             Enable();
         }
 

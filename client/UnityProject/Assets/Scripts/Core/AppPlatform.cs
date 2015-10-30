@@ -1,6 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum Platform
+{
+    OSXEditor = 0,
+    OSXPlayer,
+    WindowsPlayer,
+    WindowsEditor,
+    IPhonePlayer,
+    Android,
+    Unkown,
+}
+
 public static class AppPlatform 
 {
     public static string[] PlatformPathPrefixs = 
@@ -10,7 +21,7 @@ public static class AppPlatform
         "file:///",         //WindowsPlayer
         "file:///",         //WindowsEditor
         "file://",          //IphonePlayer
-        "",                 //Android
+        "file:///",         //Android
     };
 
     public static string[] PlatformNames = 
@@ -33,80 +44,75 @@ public static class AppPlatform
         false
     };
 
+    public static Platform PlatformCurrent { set; get; }
 
-    public enum Platform
+
+    public static string AssetsPath
     {
-        OSXEditor = 0,
-        OSXPlayer,
-        WindowsPlayer,
-        WindowsEditor,
-        IPhonePlayer,
-        Android,
-        Unkown,
-    }
-
-    public static Platform RuntimePlatform { set; get; }
-
-
-    /// <summary>
-    /// 应用程序内容路径
-    /// </summary>
-    public static string AppContentPath()
-    {
-        string path = string.Empty;
-
-        switch (AppPlatform.RuntimePlatform)
+        get
         {
-            case Platform.Android:
-                path = "jar:file://" + Application.dataPath + "!/assets/";
-                break;
-            case Platform.IPhonePlayer:
-                path = Application.dataPath + "/Raw/";
-                break;
-            default:
-                path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
-                break;
+            string path = string.Empty;
+
+            switch (AppPlatform.PlatformCurrent)
+            {
+                case Platform.Android:
+                    path = "jar:file://" + Application.dataPath + "!/assets/";
+                    break;
+                case Platform.IPhonePlayer:
+                    path = Application.dataPath + "/Raw/";
+                    break;
+                default:
+                    path = Application.dataPath + "/" + AppConst.AssetDirName + "/";
+                    break;
+            }
+            return path;
         }
-        return path;
     }
 
-    /// <summary>
-    /// 热更新路径 
-    /// </summary>
-    public static string DataPath
+    public static string RuntimeAssetsPath
     {
         get
         {
             string game = AppConst.AppName.ToLower();
+            //移动平台走沙盒
             if (Application.isMobilePlatform)
             {
                 return Application.persistentDataPath + "/" + game + "/";
             }
+            //测试走流文件
             if (AppConst.IsDebugMode)
             {
                 return Application.dataPath + "/" + AppConst.AssetDirName + "/";
             }
+            //非测试
             return "c:/" + game + "/";
         }
     }
 
-    public static string GetAssetBundleDictionaryName()
+    public static string GetBundleDirName()
     {
         string str = string.Empty;
-        int index = (int)AppPlatform.RuntimePlatform;
+        int index = (int)AppPlatform.PlatformCurrent;
         str = string.Format("{0}{1}", AppPlatform.PlatformNames[index], "_Assetbundles");
         return str;
     }
 
+    public static string GetBundleDirUrl()
+    {
+        int index = (int)AppPlatform.PlatformCurrent;
+        return AppPlatform.PlatformPathPrefixs[index] + RuntimeAssetsPath + GetBundleDirName() + "/";
+    }
+
+
     public static string GetAssetBundleDictionaryUrl()
     {
-        int index = (int)AppPlatform.RuntimePlatform;
+        int index = (int)AppPlatform.PlatformCurrent;
         return AppPlatform.PlatformPathPrefixs[index] + GetAssetBundleDictionaryPath();
     }
 
     public static string GetAssetBundleDictionaryPath()
     {
-        int index = (int)AppPlatform.RuntimePlatform;
+        int index = (int)AppPlatform.PlatformCurrent;
        // bool isEditor = AppPlatform.PlatformIsEditor[index];
 
 #if UNITY_EDITOR
@@ -124,44 +130,21 @@ public static class AppPlatform
 #endif
     }
 
-    public static string GetAssetBundleUrl(string abName)
-    {
-        string rPath = GetAssetBundleDictionaryUrl() + abName;
-        DebugConsole.Log(rPath);
-        return rPath;
-    }
-
-    public static string GetResourcesDictionaryUrl()
-    {
-        string path = string.Empty;
-
-#if UNITY_EDITOR
-        path = Application.dataPath + "/" + AppConst.AssetDirName;
-#elif UNITY_ANDROID 
-       path = "jar:file://" + Application.dataPath  + "!/assets";
-#elif (UNITY_IPHONE || UNITY_STANDALONE_OSX )
-        path = Application.dataPath + "/Raw";
-#endif
-        return path;
-    }
-        
-
-
     public static void Initialize()
     {
-        AppPlatform.RuntimePlatform = RuntimePlatform_To_AppPlaform(Application.platform);
+        AppPlatform.PlatformCurrent = RuntimePlatform_To_AppPlaform(Application.platform);
     }
 
     private static Platform RuntimePlatform_To_AppPlaform(RuntimePlatform runtimePlatform)
     {
         switch (runtimePlatform)
         {
-            case UnityEngine.RuntimePlatform.Android: return AppPlatform.Platform.Android;
-            case UnityEngine.RuntimePlatform.IPhonePlayer: return AppPlatform.Platform.IPhonePlayer;
-            case UnityEngine.RuntimePlatform.OSXEditor: return AppPlatform.Platform.OSXEditor;
-            case UnityEngine.RuntimePlatform.OSXPlayer: return AppPlatform.Platform.OSXPlayer;
-            case UnityEngine.RuntimePlatform.WindowsEditor: return AppPlatform.Platform.WindowsEditor;
-            case UnityEngine.RuntimePlatform.WindowsPlayer: return AppPlatform.Platform.WindowsPlayer;
+            case UnityEngine.RuntimePlatform.Android: return Platform.Android;
+            case UnityEngine.RuntimePlatform.IPhonePlayer: return Platform.IPhonePlayer;
+            case UnityEngine.RuntimePlatform.OSXEditor: return Platform.OSXEditor;
+            case UnityEngine.RuntimePlatform.OSXPlayer: return Platform.OSXPlayer;
+            case UnityEngine.RuntimePlatform.WindowsEditor: return Platform.WindowsEditor;
+            case UnityEngine.RuntimePlatform.WindowsPlayer: return Platform.WindowsPlayer;
             default: return Platform.Unkown;
         }
     }

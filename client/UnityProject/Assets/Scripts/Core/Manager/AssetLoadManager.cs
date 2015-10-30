@@ -201,6 +201,7 @@ public class AssetLoadManager : MonoBehaviour
 
         WWW download = null;
         string url = _downloadingURL + assetBundleName;
+        DebugConsole.Log("[DownloadAssetBundle]:" + url);
 
         if (isLoadingAssetBundleManifest)
             download = new WWW(url);

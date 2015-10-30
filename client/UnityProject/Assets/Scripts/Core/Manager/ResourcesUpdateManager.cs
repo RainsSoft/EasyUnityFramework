@@ -1,145 +1,194 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.IO;
-
-//              要重写 
+using System.IO; 
 
 public class ResourcesUpdateManager : MonoBehaviour
 {
+    const string ResourcesUpdateUrl = "http://192.168.0.35:8080/";
 
-    public void Initialize() { }
-    /// <summary>
-    /// 检查服务器有没有不同的版本之间的更新
-    /// </summary>
-    public bool CheckDifferentVersionOfResuorce()
+    System.Action OnResourceUpdateComplete;
+
+    public void ResourceUpdateStart(System.Action func)
     {
-        return false;
-    }
-
-    /// <summary>
-    /// 根据对比出来的不同的版本文件从服务器上下载所需的文件
-    /// </summary>
-    public void CreateOrCoverNewFileByDifferentVersion()
-    { 
-    
-    }
-    /// <summary>
-    /// 将本地的部分streamingAssetsPath资源文件拷贝到沙盒路径里面去
-    /// </summary>
-    public void CopyResuorceToPersistentDataPath()
-    {
-        string[] filenames = new string[] { "map_element.json", "gs_cn.json", "age.json", "battle.json", "city_information.json", 
-            "create_character.json", "gender.json", "gs_en.json", "interest.json", "job.json", "map_element_op.json", "skill_feature.json",
-        "skill_normal.json","task.json","version.json"};
-        string Frompath = string.Empty;
-        Frompath = AppPlatform.GetResourcesDictionaryUrl() + "/ConfigData/";        
-        if (!Directory.Exists(Frompath))
+        if(func != null)
         {
-            Debug.Log(" this Form Path is NOT Exists");
-        }        
-        string toPath = string.Empty;
-        toPath = this.GetResourceByPlantFrom();
-        Debug.Log("Begin to filenames Data");
-
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            StartCoroutine(this.LoadWWWFromStreassetpath(filenames));
+            OnResourceUpdateComplete = func;
         }
-        else
+        CheckExtractResource();
+    }
+
+    void ResourceUpdateEnd()
+    {
+        Debug.Log("[ResourceUpdateEnd]");
+        if (OnResourceUpdateComplete != null)
         {
-            for (int i = 0, count = filenames.Length; i < count; i++)
+            OnResourceUpdateComplete.Invoke();
+            OnResourceUpdateComplete = null;
+        }
+    }
+    
+    void CheckExtractResource()
+    {
+        bool rNoExtract = Directory.Exists(AppPlatform.RuntimeAssetsPath) && File.Exists(AppPlatform.RuntimeAssetsPath + "files.txt");
+        if (rNoExtract || AppConst.IsDebugMode)
+        {
+
+            DebugConsole.Log("[extracted] or [debug mode] is open");
+            StartCoroutine(OnUpdateResource());
+            return;
+        }
+        DebugConsole.Log("[not extract] run before extract to RuntimeAssetsPath");
+        StartCoroutine(OnExtractResource());
+    }
+
+    IEnumerator OnExtractResource()
+    {
+        string rAssetsPath = AppPlatform.AssetsPath;
+        string rRuntimeAssetsPath = AppPlatform.RuntimeAssetsPath;
+
+        DebugConsole.Log("[AssetsPath]：" + rAssetsPath);
+        DebugConsole.Log("[RuntimeAssetsPath] :" + rRuntimeAssetsPath);
+
+        string infile = rAssetsPath + "files.txt";
+        string outfile = rRuntimeAssetsPath + "files.txt";
+
+        //清理解包文件夹
+        DebugConsole.Log("[clear RuntimeAssetsPath dir]");
+        if (File.Exists(outfile)) File.Delete(outfile);
+        if (Directory.Exists(rRuntimeAssetsPath)) Directory.Delete(rRuntimeAssetsPath, true);
+        Directory.CreateDirectory(rRuntimeAssetsPath);
+
+        //写文件列表文件
+        if (AppPlatform.PlatformCurrent == Platform.Android)
+        {
+            WWW www = new WWW(infile);
+            yield return www;
+
+            if (www.isDone)
             {
-                if (!Directory.Exists(toPath))
-                {
-                    Debug.Log("THIS PATH IS NOT EXITS!!!!");
-                    Directory.CreateDirectory(toPath);
-                }
-                string contnet = FileAssist.ReadFile(Frompath, filenames[i]);
-                using (FileStream fs = new FileStream(toPath + filenames[i], FileMode.OpenOrCreate))
-                {
-                    StreamWriter sw = new StreamWriter(fs);
-                    fs.SetLength(0);
-                    sw.Write(contnet);
-                    sw.Flush();
-                    sw.Close();
-                }
+                File.WriteAllBytes(outfile, www.bytes);
             }
-            gate.GameController.LoadAssetbundleManifest();
-        }
-    }
-    
-    /// <summary>
-    /// 用携程的方式去处理Andriod平台访问权限的问题 主要还是用WWW 下载里面的资源
-    /// </summary>
-    /// <param name="strlist"></param>
-    /// <returns></returns>
-    private IEnumerator LoadWWWFromStreassetpath(string[] strlist)
-    {
-
-        string Frompath = AppPlatform.GetResourcesDictionaryUrl() + "/ConfigData/";
-        
-        string Topath = this.GetResourceByPlantFrom();
-        if (!Directory.Exists(Topath))
-        {
-            Debug.Log(" yyyyy this Topath Path is NOT Exists");
-            Directory.CreateDirectory(Topath);
-        }        
-        
-        yield return new WaitForSeconds(1);
-
-        for (int i = 0, cont = strlist.Length; i < cont; i++)
-        {
-            Debug.Log("+++++++++++++++++++++++begin read WWW " + strlist[i]);
-            Debug.Log("this read Path is : " + Frompath + strlist[i]);
-            Debug.Log("this write Path is : " + Topath + strlist[i]);
-            WWW content = new WWW(Frompath + strlist[i]);
-            yield return content;
-            if (!string.IsNullOrEmpty(content.error))
-            {
-                Debug.Log("this file can not read : " + strlist[i]);
-            }            
-            Debug.Log("WO ZAI ZHE ER DENG ZHE NI HUI LAI ");
-            FileAssist.WriteFileFromEnd(Topath + strlist[i], content.text);
-          
-        }
-        yield return 0;
-        gate.GameController.LoadAssetbundleManifest();
-    }
-
-
-    private string GetResourceByPlantFrom()
-    {
-        if (Application.platform != RuntimePlatform.WindowsEditor)
-        {
-            return Application.persistentDataPath +"/ConfigData/";
+            yield return null;
         }
         else
         {
-            return  Application.streamingAssetsPath + "/TempConfig/";
+            File.Copy(infile, outfile, true);
         }
-    }
-    /// <summary>
-    /// 启动游戏
-    /// </summary>
-    public void EnterGame()
-    { 
-        
+        yield return new WaitForEndOfFrame();
+
+        //释放所有文件到运行时读取目录
+        string[] files = File.ReadAllLines(outfile);
+        foreach (var file in files)
+        {
+            string[] rKeyValue = file.Split('|');
+            infile = rAssetsPath + rKeyValue[0];
+            outfile = rRuntimeAssetsPath + rKeyValue[0];
+
+            DebugConsole.Log("[extracting]:>" + infile + "[TO]" + outfile);
+
+            string rDirName = Path.GetDirectoryName(outfile);
+            if (!Directory.Exists(rDirName)) Directory.CreateDirectory(rDirName);
+
+            if (AppPlatform.PlatformCurrent == Platform.Android)
+            {
+                WWW www = new WWW(infile);
+                yield return www;
+
+                if (www.isDone)
+                {
+                    File.WriteAllBytes(outfile, www.bytes);
+                }
+                yield return 0;
+            }
+            else
+            {
+                if (File.Exists(outfile))
+                {
+                    File.Delete(outfile);
+                }
+                File.Copy(infile, outfile, true);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        DebugConsole.Log("[extract complete]");
+        yield return new WaitForSeconds(0.1f);
+
+        //解包完成，开始启动更新资源
+        StartCoroutine(OnUpdateResource());
     }
 
-    /// <summary>
-    /// 手机各个平台系统接入成功以后的回调，一般是进行检查更新（怎么演才能检测到哪里有更新呢？）
-    /// </summary>
-    public void PlatFormConnectedCallBack()
-    { 
-    
-    }
 
-    /// <summary>
-    /// 开始执行资源文件的创建
-    /// </summary>
-    public void StartMoveResuorce()
+    IEnumerator OnUpdateResource()
     {
-        this.CopyResuorceToPersistentDataPath();
-        this.CreateOrCoverNewFileByDifferentVersion();
-    }	
+        if (!AppConst.IsUpdateMode)
+        {
+            ResourceUpdateEnd();
+            yield break;
+        }
+
+        string rRuntimeAssetsPath = AppPlatform.RuntimeAssetsPath;
+        string url = ResourcesUpdateUrl;
+
+        string listUrl = url + "files";
+
+        WWW www = new WWW(listUrl);
+        yield return www;
+
+        if (www.error != null)
+        {
+            Debug.Log(www.error);
+            yield break;
+        }
+
+        if (!Directory.Exists(rRuntimeAssetsPath))
+        {
+            Directory.CreateDirectory(rRuntimeAssetsPath);
+        }
+
+        File.WriteAllBytes(rRuntimeAssetsPath + "files.txt", www.bytes);
+
+        string filesText = www.text;
+        string[] files = filesText.Split('\n');
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            if (string.IsNullOrEmpty(files[i])) continue;
+            string[] keyValue = files[i].Split('|');
+            string fileName = keyValue[0];
+            string localfilePath = (rRuntimeAssetsPath + fileName).Trim();
+            string path = Path.GetDirectoryName(localfilePath);
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string fileUrl = url + fileName;
+
+            bool canUpdate = !File.Exists(localfilePath);
+            if (!canUpdate)
+            {
+                string remoteMd5 = keyValue[1].Trim();
+                string localMd5 = Util.md5file(localfilePath);
+                canUpdate = !remoteMd5.Equals(localMd5);
+                if (canUpdate) File.Delete(localfilePath);
+            }
+
+            if (canUpdate)
+            {  
+                //本地缺少文件
+                Debug.Log(fileUrl);
+                www = new WWW(fileUrl); yield return www;
+                if (www.error != null)
+                {
+                    Debug.Log(www.error+path);
+                    yield break;
+                }
+                File.WriteAllBytes(localfilePath, www.bytes);
+                
+            }
+        }
+        yield return new WaitForEndOfFrame();
+
+        ResourceUpdateEnd();
+    }
 }

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        DebugConsole.Log("APP Startup");
+        DebugConsole.Log("[APP Startup]");
         Initialize(); 
     }
 
@@ -37,9 +37,11 @@ public class GameController : MonoBehaviour
         DOTween.defaultAutoKill = true;
 
         //挂载管理器并初始化
+
         ManagerCollect.Instance.AddManager(ManagerName.LSharp, LSharpManager.Instance);
         ManagerCollect.Instance.AddManager(ManagerName.Panel, PanelManager.Instance);
 
+        ManagerCollect.Instance.AddManager<ResourcesUpdateManager>(ManagerName.ResourcesUpdate);
         ManagerCollect.Instance.AddManager<CroutineManager>(ManagerName.Croutine);
         ManagerCollect.Instance.AddManager<TimerManager>(ManagerName.Timer);
         ManagerCollect.Instance.AddManager<AssetLoadManager>(ManagerName.Asset);
@@ -47,25 +49,30 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerName.Music);
         ManagerCollect.Instance.AddManager<GestureManager>(ManagerName.Gesture);
 
+
         gate.TimerManager.Initialize();
         gate.MusicManager.Initialize();
         gate.LSharpManager.Initialize();
 
-        DebugConsole.Log("APP Initialize complete");
+        DebugConsole.Log("[APP Initialize complete]");
 
-        LoadAssetbundleManifest();
+        gate.ResourcesUpdateManager.ResourceUpdateStart(() => 
+        {
+            LoadAssetbundleManifest();
+        });
     }
 
     public void LoadAssetbundleManifest()
     {
         var tempManager = gate.AssetLoadManager;
-        string bundlName = AppPlatform.GetAssetBundleDictionaryName();
-        tempManager.DownloadingURL = AppPlatform.GetAssetBundleDictionaryUrl();
-        Debug.Log("AssetBundleDictionaryUrl:  " + tempManager.DownloadingURL);
+        string bundlName = AppPlatform.GetBundleDirName();
+
+        tempManager.DownloadingURL = AppPlatform.GetBundleDirUrl();
+        Debug.Log("[AssetBundleDictionaryUrl]:" + tempManager.DownloadingURL);
         tempManager.LoadManifest(bundlName, () =>
         {
             //资源载入完成 开始游戏
-            DebugConsole.Log("APP LoadAssetbundleManifest complete");
+            DebugConsole.Log("[APP LoadAssetbundleManifest complete]");
             GameStart();
         });
     }
@@ -91,7 +98,7 @@ public class GameController : MonoBehaviour
         _scriptMainUpdate = null;
         gate.AssetLoadManager.UnloadAssetBundles();
         Util.ClearMemory();
-        DebugConsole.Log("APP UnloadAssetBundles complete");
+        DebugConsole.Log("[APP UnloadAssetBundles complete]");
     }
 
 
@@ -99,7 +106,7 @@ public class GameController : MonoBehaviour
     void OnApplicationQuit()
     {
         GameEnd();
-        DebugConsole.Log("APP End");
+        DebugConsole.Log("[APP End]");
     }
 
     void Update()
@@ -120,8 +127,5 @@ public class GameController : MonoBehaviour
         if (_scriptMainUpdate != null && inited)
             Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "LateUpdate");
     }
-
-
-
 
 }

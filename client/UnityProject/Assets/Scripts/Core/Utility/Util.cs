@@ -3,9 +3,33 @@ using System.IO;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-
+using System.Text;
 public class Util : MonoBehaviour
 {
+    /// <summary>
+    /// 计算文件的MD5值
+    /// </summary>
+    public static string md5file(string file)
+    {
+        try
+        {
+            FileStream fs = new FileStream(file, FileMode.Open);
+            System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
+            byte[] retVal = md5.ComputeHash(fs);
+            fs.Close();
+
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < retVal.Length; i++)
+            {
+                sb.Append(retVal[i].ToString("x2"));
+            }
+            return sb.ToString();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("md5file() fail, error:" + ex.Message);
+        }
+    }
 
     /// <summary>
     /// 调用脚本成员函数
@@ -294,7 +318,8 @@ public class Util : MonoBehaviour
     public static byte[] ReadSheetFile(string filename)
     {
         string path = string.Empty;
-        path = Application.streamingAssetsPath + "/Sheet/" + filename;
+
+        path = AppPlatform.RuntimeAssetsPath + "Sheet/" + filename;
 
         if (!File.Exists(path))
         {

@@ -26,10 +26,14 @@ public static class AppConst
     public static int VSyncCount = 0;
 
     /// <summary>
-    /// 调试模式-用于内部测试
+    /// 研发模式-用于内部开发,   资源文件会走流文件目录
     /// </summary>
-    public static bool IsDebugMode = true;
+    public static bool IsDebugMode = false;
 
+    /// <summary>
+    /// 更新模式
+    /// </summary>
+    public static bool IsUpdateMode = false;
 
     /// <summary>
     /// 资源目录路径（流文件夹）
