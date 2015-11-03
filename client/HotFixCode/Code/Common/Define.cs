@@ -8,7 +8,7 @@ namespace HotFixCode
     /// <summary>
     /// UI面板名
     /// </summary>
-    struct PanelName
+    public class PanelName
     {
         public const string Sample = "SamplePanel";
         public const string SampleTwo = "SampleTwoPanel";
@@ -18,7 +18,7 @@ namespace HotFixCode
     /// <summary>
     /// UI逻辑名
     /// </summary>
-    struct LogicName
+    public class LogicName
     {
         public const string Sample = "SampleLogic";
         public const string SampleTwo = "SampleTwoLogic";
@@ -28,24 +28,15 @@ namespace HotFixCode
     /// <summary>
     /// UI弹窗名
     /// </summary>
-    struct PopupsName
+    public class PopupsName
     {
         public const string Sample = "SamplePopupsTest";
     }
 
     /// <summary>
-    /// UI模板名
-    /// </summary>
-    struct TemplateName
-    {
-        public const string DialogBox = "DialogBoxTemplate";
-
-    }
-
-    /// <summary>
     /// 场景名
     /// </summary>
-    struct SceneName
+    public class SceneName
     {
         public const string AppEntry = "AppEntry";
         public const string Game = "GameScene";

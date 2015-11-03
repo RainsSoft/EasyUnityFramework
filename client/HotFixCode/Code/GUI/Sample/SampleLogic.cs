@@ -40,18 +40,94 @@ namespace HotFixCode
                 case "ButtonReadData":
                     TestReadData();
                     break;
+                case "ButtonCreateAccount":
+                    TestCreateAccount();
+                    break;
+                case "ButtonCreateRole":
+                    TestCreateRole();
+                    break;
+                case "ButtonLogin":
+                    TestLogin();
+                    break;
                 default:
                     break;
             }
 
         }
 
+        string account = "Test000";
+        void TestCreateAccount()
+        {
+           var req = gate.HttpRequestManager.CreateAccount(account, "1");
+           req.ResponseCreateAccountEvent += (sender, args) =>
+           {
+               Debug.Log("ResponseCreateAccountEvent");
+               Debug.Log(args.ret);
+           };
+        }
+
+        void TestCreateRole()
+        {
+            var req = gate.HttpRequestManager.CreateRole(account,
+                gate.ModelManager.GetModel<UserModel>().LoginKey,
+                1,
+                "role01",
+                1);
+            req.ResponseCreateRoleEvent += (sender, args) =>
+            {
+                Debug.Log("ResponseCreateRoleEvent");
+                Debug.Log(args.ret);
+            };
+
+        }
+
+        void TestLogin()
+        {
+            var req = gate.HttpRequestManager.Login(account, "1", "1");
+            req.ResponseLoginEvent += (sender, args) =>
+            {
+                Debug.Log("ResponseLoginEvent");
+                Debug.Log(args.ret);
+                Debug.Log(args.loginKey);
+                switch (args.ret)
+                {
+                    case 0:
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "服务器异常错误");
+                        
+                        break;
+                    case 1:
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "密码错误,请重新输入");
+                        break;
+                    case 2:
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "该帐号并不存在,请重新输入");
+                        break;
+                    case 3:
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "对应游戏服务器无法连接,请重新输入");
+                        break;
+                    case 200:
+                        gate.ModelManager.GetModel<UserModel>().LoginKey = args.loginKey;
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "可以进入游戏了");
+                        break;
+                    default:
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "未知错误");
+                        break;
+                }
+            };
+        }
+
         void TestReadData()
         {
             var rTemp = Sheet.petdatamanager.Get();
             var rlog = rTemp[0].AnSpeed;
-            Debug.Log(rlog);
-	
+            Debug.Log("Static Data :" + rlog);
+
+            var userModel = gate.ModelManager.GetModel<UserModel>();
+            var rName = userModel.UserName;
+            var money = userModel.Gold;
+            Debug.Log("Dynamic Data :");
+            Debug.Log("UserName = " + rName);
+            Debug.Log("Gold =" + money);
+
         }
 
         void TestPanelChange()
@@ -135,6 +211,9 @@ namespace HotFixCode
             behaviour.AddClick(panel.buttonWaiting.gameObject, OnClick);
             behaviour.AddClick(panel.buttonPanel.gameObject, OnClick);
             behaviour.AddClick(panel.buttonReadData.gameObject, OnClick);
+            behaviour.AddClick(panel.buttonCreateAccount.gameObject, OnClick);
+            behaviour.AddClick(panel.buttonCreateRole.gameObject, OnClick);
+            behaviour.AddClick(panel.buttonLogin.gameObject, OnClick);
             Enable();
         }
 

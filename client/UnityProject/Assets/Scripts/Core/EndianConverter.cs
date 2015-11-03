@@ -22,7 +22,7 @@
 
 using System;
 
-public class Converter
+public class EndianConverter
 {
     public static Int32 GetBigEndian(Int32 value)
     {

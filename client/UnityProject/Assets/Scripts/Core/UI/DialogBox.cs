@@ -67,7 +67,7 @@ public class DialogBox : MonoBehaviour, ITemplatable
                      Vector3? position = null,
                      Sprite icon = null,
 
-                     bool modal = false,
+                     bool modal = true,
                      Sprite modalSprite = null,
                      Color? modalColor = null,
 

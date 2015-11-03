@@ -7,6 +7,19 @@ using System.Text;
 public class Util : MonoBehaviour
 {
     /// <summary>
+    /// new 一个新对象
+    /// </summary>
+    public static GameObject NewObject(string name, GameObject rParent)
+    {
+        var rGo = new GameObject(name);
+        rGo.transform.SetParent(rParent.transform);
+        rGo.transform.localPosition = rParent.transform.localPosition;
+        rGo.transform.localScale = rParent.transform.localScale;
+        rGo.transform.localRotation = rParent.transform.localRotation;
+        return rGo;
+    }
+
+    /// <summary>
     /// 计算文件的MD5值
     /// </summary>
     public static string md5file(string file)
@@ -37,7 +50,7 @@ public class Util : MonoBehaviour
     public static object CallScriptFunction(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
     {
         var rName = rTypeName.Replace("(Clone)", "");
-        return gate.LSharpManager.CallLSharpMethod(rObj, rName, rFuncName, rArgs);
+        return gate.ScriptManager.CallScriptMethod(rObj, rName, rFuncName, rArgs);
     }
 
     /// <summary>
@@ -46,16 +59,16 @@ public class Util : MonoBehaviour
     public static object CallScriptFunctionStatic(string rTypeName, string rFuncName, params object[] rArgs)
     {
         var rName = rTypeName.Replace("(Clone)", "");
-        return gate.LSharpManager.CallLSharpMethodStatic(rName, rFuncName, rArgs);
+        return gate.ScriptManager.CallScriptMethodStatic(rName, rFuncName, rArgs);
     }
 
     /// <summary>
     /// 创建脚本对象
     /// </summary>
-    public static object CreateLSharpObject(string rTypeName, params object[] rArgs)
+    public static object CreateScriptObject(string rTypeName, params object[] rArgs)
     {
         var rName = rTypeName.Replace("(Clone)", "");
-        return gate.LSharpManager.CreateLSharpObject(rName, rArgs);
+        return gate.ScriptManager.CreateScriptObject(rName, rArgs);
     }
 
     /// <summary>

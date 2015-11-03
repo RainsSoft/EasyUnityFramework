@@ -2,7 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 
-public class BasePopups : LSharpBehaviour, ITemplatable
+public class BasePopups : ScriptBehaviour, ITemplatable
 {
     bool isTemplate = true;
 
@@ -23,7 +23,7 @@ public class BasePopups : LSharpBehaviour, ITemplatable
     public void Init()
     {
         transform.SetParent(gate.PopupsWindow, false);
-        _scriptObject = Util.CreateLSharpObject(name, this);
+        _scriptObject = Util.CreateScriptObject(name, this);
     }
 
     public void Show(bool modal = false,
@@ -33,7 +33,7 @@ public class BasePopups : LSharpBehaviour, ITemplatable
                     Vector3? position = null)
     {
         if (position == null) position = new Vector3(0, 0, 0);
-        if (modalColor == null) modalColor = new Color(0, 0, 0, 0.2f);
+        if (modalColor == null) modalColor = new Color(0, 0, 0, 0.5f);
 
         var parent = (canvas != null) ? canvas.transform : gate.PopupsWindow;
 

@@ -2,13 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using System;
+
 public static class gate
 {
-    public static LSharpManager LSharpManager
+    public static HttpRequestManager HttpRequestManager
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<LSharpManager>(ManagerName.LSharp);
+            return ManagerCollect.Instance.GetManager<HttpRequestManager>(ManagerName.HttpRequest);
+        }
+    }
+
+    public static ModelManager ModelManager
+    {
+        get
+        {
+            return ManagerCollect.Instance.GetManager<ModelManager>(ManagerName.Model);
+        }
+    }
+
+    public static ScriptManager ScriptManager
+    {
+        get
+        {
+            return ManagerCollect.Instance.GetManager<ScriptManager>(ManagerName.Script);
         }
     }
 
@@ -89,7 +106,7 @@ public static class gate
     {
         get
         {
-            return ManagerCollect.Instance.MainUpdate.GetComponent<GameController>();
+            return gate.MainUpdate.GetComponent<GameController>();
         }
     }
 
@@ -138,6 +155,36 @@ public static class gate
         get
         {
             GameObject go = GameObject.FindWithTag("PopupsWindow");
+            if (go != null) return go.transform;
+            return null;
+        }
+    }
+
+    public static Transform RequestPool
+    {
+        get
+        {
+            GameObject go = GameObject.FindWithTag("RequestPool");
+            if (go != null) return go.transform;
+            return null;
+        }
+    }
+
+    public static Transform Templates
+    {
+        get
+        {
+            GameObject go = GameObject.FindWithTag("Templates");
+            if (go != null) return go.transform;
+            return null;
+        }
+    }
+
+    public static Transform MainUpdate
+    {
+        get
+        {
+            GameObject go = GameObject.FindWithTag("MainUpdate");
             if (go != null) return go.transform;
             return null;
         }

@@ -13,11 +13,17 @@ using System;
 ///     原因：无法获取到System.Core.dll下的 System.Action, System.Action类型与泛型版本不在一个程序集，编译dll的引用和unity实际的不同
 /// 4.在脚本中使用协程，请使用 gate.CroutineManager.StartTask（）函数
 /// 5.如在宿主程序中需要与脚本程序通信， 所有字符串形式的方法名，类型名等，记得存为常量（const string）使用，不要直接使用字符串
+/// 6.脚本程序的类型不是真正的C#类型
+/// 7.TryGetValue 之类的 out 关键字可能不能使用
+/// 8.序列化与反序列化不行
+/// 9.不要在L#中定义模板代码
+/// 10.基类方法，字段，如果未覆盖在子类，则获取不到
+/// 11.Lambda慎用， Delegate 慎用
 /// 
-/// (没有说三遍，不要以为不重要啊魂淡)
+/// (没有说三遍，不要以为这些不重要啊...魂淡)
 /// </summary>
 
-public class LSharpBehaviour : MonoBehaviour
+public class ScriptBehaviour : MonoBehaviour
 {
     public object _scriptObject;
     private List<Action<GameObject>> clickEvents = new List<Action<GameObject>>();
@@ -38,19 +44,19 @@ public class LSharpBehaviour : MonoBehaviour
     {
         CLRSharp.ICLRType rType = null;
         var rName = name.Replace("(Clone)", "");
-        bool rGot = gate.LSharpManager.TryGetType(rName, out rType);
+        bool rGot = gate.ScriptManager.TryGetType(rName, out rType);
 
         if(rGot)
         {
             if (_scriptObject == null)
             {
-                _scriptObject = gate.LSharpManager.CreateLSharpObject(rType);
+                _scriptObject = gate.ScriptManager.CreateScriptObject(rType);
             }
-            isNeedStart = gate.LSharpManager.CheckExistMethod(rType, startName);
-            isNeedUpdate = gate.LSharpManager.CheckExistMethod(rType, updateName);
-            isNeedLateUpdate = gate.LSharpManager.CheckExistMethod(rType, lateUpdateName);
-            isNeedFixedUpdate = gate.LSharpManager.CheckExistMethod(rType, fixedUpdateName);
-            isNeedOnDestroy = gate.LSharpManager.CheckExistMethod(rType, onDestroyName);
+            isNeedStart = gate.ScriptManager.CheckExistMethod(rType, startName);
+            isNeedUpdate = gate.ScriptManager.CheckExistMethod(rType, updateName);
+            isNeedLateUpdate = gate.ScriptManager.CheckExistMethod(rType, lateUpdateName);
+            isNeedFixedUpdate = gate.ScriptManager.CheckExistMethod(rType, fixedUpdateName);
+            isNeedOnDestroy = gate.ScriptManager.CheckExistMethod(rType, onDestroyName);
             CallMethod("Awake", gameObject);
         }
         else

@@ -5,6 +5,8 @@
 /// </summary>
 public static class AppConst
 {
+    public static string HttpServerHost = "http://192.168.1.232:8888/";
+
     /// <summary>
     /// 服务器IP
     /// </summary>
@@ -23,12 +25,12 @@ public static class AppConst
     /// <summary>
     /// 垂直同步
     /// </summary>
-    public static int VSyncCount = 0;
+    public static int vSyncCount = 0;
 
     /// <summary>
     /// 研发模式-用于内部开发,   资源文件会走流文件目录
     /// </summary>
-    public static bool IsDebugMode = false;
+    public static bool IsDebugMode = true;
 
     /// <summary>
     /// 更新模式
@@ -49,15 +51,16 @@ public static class AppConst
     public static string UserId = string.Empty;
     public static string AppName = "HDXX";
     public static string AppPrefix = AppName + "_";
-
 }
 
 /// <summary>
 /// 管理器名
 /// </summary>
-public struct ManagerName
+public class ManagerName
 {
-    public const string LSharp = "LSharpManager";
+    public const string HttpRequest = "HttpRequestManager";
+    public const string Model = "ModelManager";
+    public const string Script = "ScriptManager";
     public const string Game = "GameController";
     public const string Timer = "TimerManager";
     public const string Music = "MusicManager";
@@ -68,5 +71,14 @@ public struct ManagerName
     public const string Scene = "SceneManager";
     public const string Gesture = "GestureManager";
     public const string ResourcesUpdate = "ResourcesUpdateManager";
+}
+
+
+/// <summary>
+/// UI模板名
+/// </summary>
+public class TemplateName
+{
+    public const string DialogBox = "DialogBoxTemplate";
 }
 

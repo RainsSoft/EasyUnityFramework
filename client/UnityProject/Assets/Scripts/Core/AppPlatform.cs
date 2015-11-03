@@ -103,33 +103,6 @@ public static class AppPlatform
         return AppPlatform.PlatformPathPrefixs[index] + RuntimeAssetsPath + GetBundleDirName() + "/";
     }
 
-
-    public static string GetAssetBundleDictionaryUrl()
-    {
-        int index = (int)AppPlatform.PlatformCurrent;
-        return AppPlatform.PlatformPathPrefixs[index] + GetAssetBundleDictionaryPath();
-    }
-
-    public static string GetAssetBundleDictionaryPath()
-    {
-        int index = (int)AppPlatform.PlatformCurrent;
-       // bool isEditor = AppPlatform.PlatformIsEditor[index];
-
-#if UNITY_EDITOR
-        string rootDir =  Application.streamingAssetsPath;
-        return rootDir + "/" + AppPlatform.PlatformNames[index] + "_Assetbundles/";
-#elif UNITY_STANDALONE_OSX 
-        string rootDir = Application.streamingAssetsPath;
-        return rootDir +"/" + AppPlatform.PlatformNames[index] + "_Assetbundles/";
-#elif UNITY_ANDROID 
-        string rootDir = Application.dataPath;
-        return "jar:file://" + rootDir  +"/"  + "!/assets/"+ AppPlatform.PlatformNames[index] + "_Assetbundles/";
-#elif UNITY_IPHONE
-        string rootDir = Application.dataPath;
-        return rootDir + "/Raw" + "/" + AppPlatform.PlatformNames[index] + "_Assetbundles/" ;
-#endif
-    }
-
     public static void Initialize()
     {
         AppPlatform.PlatformCurrent = RuntimePlatform_To_AppPlaform(Application.platform);

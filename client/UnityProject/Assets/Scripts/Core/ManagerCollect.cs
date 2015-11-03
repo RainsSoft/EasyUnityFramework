@@ -8,17 +8,7 @@ public class ManagerCollect : TSingleton<ManagerCollect>
     private ManagerCollect() { }
     static Dictionary<string, object> m_Managers = new Dictionary<string, object>();
     static GameObject _mainUpdate;
-    public GameObject MainUpdate
-    {
-        get
-        {
-            if (_mainUpdate == null)
-            {
-                _mainUpdate = GameObject.FindGameObjectWithTag("MainUpdate");
-            }
-            return _mainUpdate;
-        }
-    }
+
     /// <summary>
     /// 添加System管理器
     /// </summary>
@@ -41,7 +31,7 @@ public class ManagerCollect : TSingleton<ManagerCollect>
         {
             return (T)result;
         }
-        Component c = MainUpdate.AddComponent<T>();
+        Component c = gate.MainUpdate.gameObject.AddComponent<T>();
         m_Managers.Add(typeName, c);
         return default(T);
     }

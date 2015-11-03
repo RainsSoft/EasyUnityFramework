@@ -52,4 +52,4 @@ ClassTypes:
 Assets:
 - Assets/OriginalRes/UIWidget/DialogBoxTemplate.prefab
 Dependencies:
-- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/texture.unity3d
+- D:/hdxx_client/hdxx/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/texture.unity3d

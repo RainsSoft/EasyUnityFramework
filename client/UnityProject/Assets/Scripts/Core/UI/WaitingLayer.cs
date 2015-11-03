@@ -48,7 +48,7 @@ public class WaitingLayer : MonoBehaviour, ITemplatable
             rotator = img.transform.DORotate(new Vector3(0, 0, 10), 0.2f, RotateMode.Fast).SetLoops(-1, LoopType.Incremental);
         }
 
-        if (layer) modalKey = ModleLayer.Open(layer, null, new Color(0, 0, 0, 0.2f));
+        if (layer) modalKey = ModleLayer.Open(layer, color: new Color(0.0f, 0.0f, 0.0f, 0.5f));
         else modalKey = null;
 
         layer.transform.SetAsLastSibling();

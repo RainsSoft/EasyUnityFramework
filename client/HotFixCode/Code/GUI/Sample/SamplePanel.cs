@@ -16,6 +16,9 @@ namespace HotFixCode
         public Button buttonWaiting;
         public Button buttonPanel;
         public Button buttonReadData;
+        public Button buttonCreateAccount;
+        public Button buttonCreateRole;
+        public Button buttonLogin;
 
         protected override void Awake(GameObject rGo)
         {
@@ -28,6 +31,9 @@ namespace HotFixCode
             buttonWaiting = Util.Get<Button>(gameObject, "ButtonWaiting");
             buttonPanel = Util.Get<Button>(gameObject, "ButtonPanel");
             buttonReadData = Util.Get<Button>(gameObject, "ButtonReadData");
+            buttonCreateAccount = Util.Get<Button>(gameObject, "ButtonCreateAccount");
+            buttonCreateRole = Util.Get<Button>(gameObject, "ButtonCreateRole");
+            buttonLogin = Util.Get<Button>(gameObject, "ButtonLogin");
         }
 
     }

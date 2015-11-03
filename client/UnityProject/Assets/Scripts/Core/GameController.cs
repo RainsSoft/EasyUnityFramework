@@ -32,15 +32,16 @@ public class GameController : MonoBehaviour
         //基本设置
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = AppConst.FrameRate;
-        UnityEngine.QualitySettings.vSyncCount = AppConst.VSyncCount;
+        UnityEngine.QualitySettings.vSyncCount = AppConst.vSyncCount;
         DOTween.Init().SetCapacity(500, 100);
         DOTween.defaultAutoKill = true;
 
         //挂载管理器并初始化
-
-        ManagerCollect.Instance.AddManager(ManagerName.LSharp, LSharpManager.Instance);
+        ManagerCollect.Instance.AddManager(ManagerName.Script, ScriptManager.Instance);
         ManagerCollect.Instance.AddManager(ManagerName.Panel, PanelManager.Instance);
+        ManagerCollect.Instance.AddManager(ManagerName.Model, ModelManager.Instance);
 
+        ManagerCollect.Instance.AddManager<HttpRequestManager>(ManagerName.HttpRequest);
         ManagerCollect.Instance.AddManager<ResourcesUpdateManager>(ManagerName.ResourcesUpdate);
         ManagerCollect.Instance.AddManager<CroutineManager>(ManagerName.Croutine);
         ManagerCollect.Instance.AddManager<TimerManager>(ManagerName.Timer);
@@ -49,13 +50,13 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerName.Music);
         ManagerCollect.Instance.AddManager<GestureManager>(ManagerName.Gesture);
 
-
         gate.TimerManager.Initialize();
         gate.MusicManager.Initialize();
-        gate.LSharpManager.Initialize();
+        gate.ScriptManager.Initialize();
 
         DebugConsole.Log("[APP Initialize complete]");
 
+        //开始资源更新
         gate.ResourcesUpdateManager.ResourceUpdateStart(() => 
         {
             LoadAssetbundleManifest();
@@ -83,9 +84,8 @@ public class GameController : MonoBehaviour
     void GameStart()
     {
         //启动脚本系统
-        _scriptMainUpdate = gate.LSharpManager.CreateLSharpObject("MainUpdate");
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Init");
-       // inited = true;
+        //inited = true;
     }
 
     /// <summary>

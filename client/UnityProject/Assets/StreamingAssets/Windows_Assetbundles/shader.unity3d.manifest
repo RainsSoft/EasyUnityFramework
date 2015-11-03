@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1986364946
+CRC: 2010203131
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 19a5efd23433e6aaf3ae6ecb3515119f
+    Hash: b608d941f09c47d4498fe7a1635b0e9c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 32d0c14284e9af121a32c9f5a0cbed48
@@ -21,7 +21,6 @@ Assets:
 - Assets/OriginalRes/Shader/niuqu_Distortion.shader
 - Assets/OriginalRes/Shader/MaskedReflection.shader
 - Assets/OriginalRes/Shader/NormalMappedReflection.shader
-- Assets/OriginalRes/Shader/VertexLit.shader
 - Assets/OriginalRes/Shader/DistortaddStroke.shader
 - Assets/OriginalRes/Shader/effect_distortadd 1.shader
 - Assets/OriginalRes/Shader/SpecularMask.shader
@@ -29,7 +28,6 @@ Assets:
 - Assets/OriginalRes/Shader/Stroke.shader
 - Assets/OriginalRes/Shader/WFX_S Add Scroll.shader
 - Assets/OriginalRes/Shader/FresnelReflection.shader
-- Assets/OriginalRes/Shader/DiffuseNormal.shader
 - Assets/OriginalRes/Shader/vetexcol.cginc
 - Assets/OriginalRes/Shader/MetallicSoft.shader
 - Assets/OriginalRes/Shader/WFX_S Particle Add A8.shader

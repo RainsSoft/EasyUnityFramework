@@ -120,7 +120,7 @@ public class PanelManager : TSingleton<PanelManager>
             rNewPanel.IsCreated = false;
             rNewPanel.LogicName = rLogicName;
             rNewPanel.PanelName = rPanelName;
-            rNewPanel.LogicObject = gate.LSharpManager.CreateLSharpObject(rLogicName);
+            rNewPanel.LogicObject = gate.ScriptManager.CreateScriptObject(rLogicName);
             _panelStack.Push(rNewPanel);
 
             panelCur = rNewPanel;
@@ -203,6 +203,13 @@ public class PanelManager : TSingleton<PanelManager>
         }
 
         _panelStack.Push(element);
+    }
+
+    public void Destroy()
+    {
+        ClearStack();
+        panelCur = null;
+        _panelStack = null;
     }
 
 }

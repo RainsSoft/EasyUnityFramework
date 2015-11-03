@@ -129,12 +129,11 @@ public class UITemplates<T> where T : MonoBehaviour, ITemplatable
             }
         }
 
-        /*
         if (templates[name].transform.parent != null)
         {
-            template.transform.SetParent(templates[name].transform.parent);
+            //template.transform.SetParent(templates[name].transform.parent);
         }
-        */
+
 
         return template;
     }

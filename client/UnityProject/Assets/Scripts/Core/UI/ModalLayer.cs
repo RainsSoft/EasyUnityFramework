@@ -31,7 +31,6 @@ public class ModleLayer : MonoBehaviour, ITemplatable
     {
         if (!Templates.Exists(key))
         {
-            Templates.FindTemplates();
             CreateTemplate();
         }
 
@@ -74,12 +73,13 @@ public class ModleLayer : MonoBehaviour, ITemplatable
 
     static void CreateTemplate()
     {
-        var template = new GameObject(key);
+        var rTemplate = new GameObject(key);
 
-        var modal = template.AddComponent<ModleLayer>();
-        template.AddComponent<Image>();
+        var rModal = rTemplate.AddComponent<ModleLayer>();
+        rTemplate.AddComponent<Image>();
+        rTemplate.transform.SetParent(gate.Templates);
 
-        Templates.Add(key, modal);
+        Templates.Add(key, rModal);
     }
 
 

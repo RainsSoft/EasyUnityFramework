@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LSharpManager : TSingleton<LSharpManager> 
+public class ScriptManager : TSingleton<ScriptManager> 
 {
     static CLRSharp.CLRSharp_Environment env;
     static CLRSharp.ThreadContext context;
 
-    bool isLSharpInited = false;
+    bool isScriptInited = false;
 
-    LSharpManager() { }
+    ScriptManager() { }
 
     public void Initialize()
     {
@@ -31,10 +31,10 @@ public class LSharpManager : TSingleton<LSharpManager>
         context = new CLRSharp.ThreadContext(env);
         Debug.Log("Create ThreadContext for L#.");
 
-        isLSharpInited = true;
+        isScriptInited = true;
     }
 
-    public object CallLSharpMethodStatic(string rTypeName, string rFuncName, params object[] rArgs)
+    public object CallScriptMethodStatic(string rTypeName, string rFuncName, params object[] rArgs)
     {
         CLRSharp.IMethod method;
         bool rGot = TryGetMethod(rTypeName, rFuncName, out method, rArgs);
@@ -42,7 +42,7 @@ public class LSharpManager : TSingleton<LSharpManager>
         else return null;
     }
 
-    public object CallLSharpMethod(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
+    public object CallScriptMethod(object rObj, string rTypeName, string rFuncName, params object[] rArgs)
     {
         CLRSharp.IMethod method;
         bool rGot = TryGetMethod(rTypeName, rFuncName, out method, rArgs);
@@ -53,8 +53,10 @@ public class LSharpManager : TSingleton<LSharpManager>
     public bool TryGetType(string rName, out CLRSharp.ICLRType outType)
     {
         string fullTypeName = "HotFixCode." + rName;
+        
 
         outType = env.GetType(fullTypeName);
+        
         if (outType != null)
         {
             return true;
@@ -112,7 +114,7 @@ public class LSharpManager : TSingleton<LSharpManager>
     }
 
 
-    public object CreateLSharpObject(string rName, params object[] rArgs)
+    public object CreateScriptObject(string rName, params object[] rArgs)
     {
         CLRSharp.ICLRType rType;
 
@@ -125,7 +127,7 @@ public class LSharpManager : TSingleton<LSharpManager>
 
         if (rCtor == null)
         {
-            Debug.LogError("Create LSharp Object failed, check full type name and param list");
+            Debug.LogError("Create Script Object failed, check full type name and param list");
             return null;
         }
 
@@ -135,7 +137,7 @@ public class LSharpManager : TSingleton<LSharpManager>
         return rObj;
     }
 
-    public object CreateLSharpObject(CLRSharp.ICLRType rType, params object[] rArgs)
+    public object CreateScriptObject(CLRSharp.ICLRType rType, params object[] rArgs)
     {
 
         var rList = MatchParamList(rArgs);
@@ -143,7 +145,7 @@ public class LSharpManager : TSingleton<LSharpManager>
 
         if (rCtor == null)
         {
-            Debug.LogError("Create LSharp Object failed, check full type name and param list");
+            Debug.LogError("Create Script Object failed, check full type name and param list");
             return null;
         }
 

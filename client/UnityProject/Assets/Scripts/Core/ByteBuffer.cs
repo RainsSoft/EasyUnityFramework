@@ -161,6 +161,7 @@ public class ByteBuffer
 
     public byte[] ReadBytesRemaining()
     {
+
         return reader.ReadBytes((int)(stream.Length - stream.Position));
     }
 
@@ -169,6 +170,7 @@ public class ByteBuffer
         if (writer != null) writer.Flush();
         return stream.ToArray();
     }
+
 
     public void Flush()
     {

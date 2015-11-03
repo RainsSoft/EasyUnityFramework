@@ -10,7 +10,7 @@ public class EditorApplicationEvent
         {
             if (!EditorApplication.isPlaying && EditorApplication.isPlayingOrWillChangePlaymode)
             {
-                AssetbundlePackage.BuildAssetbundleWindows();
+               // AssetbundlePackage.BuildAssetbundleWindows();
             }
         };
     }
