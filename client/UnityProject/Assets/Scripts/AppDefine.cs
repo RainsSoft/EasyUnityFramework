@@ -10,12 +10,12 @@ public static class AppConst
     /// <summary>
     /// 服务器IP
     /// </summary>
-    public static string ServerIp = "192.168.1.58";
+    public static string TcpServerIp = "192.168.1.232";
 
     /// <summary>
     /// 服务器端口
     /// </summary>
-    public static int ServerPort = 7000;
+    public static int TcpServerPort = 8080;
 
     /// <summary>
     /// 限帧（-1： 不限制）
@@ -65,7 +65,7 @@ public class ManagerName
     public const string Timer = "TimerManager";
     public const string Music = "MusicManager";
     public const string Panel = "PanelManager";
-    public const string Network = "NetworkManager";
+    public const string SocketClient = "SocketClientManager";
     public const string Asset = "AssetLoadManager";
     public const string Croutine = "CroutineManager";
     public const string Scene = "SceneManager";

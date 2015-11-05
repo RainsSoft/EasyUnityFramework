@@ -168,7 +168,7 @@ public class ResourcesUpdateManager : MonoBehaviour
             if (!canUpdate)
             {
                 string remoteMd5 = keyValue[1].Trim();
-                string localMd5 = Util.md5file(localfilePath);
+                string localMd5 = Util.MD5File(localfilePath);
                 canUpdate = !remoteMd5.Equals(localMd5);
                 if (canUpdate) File.Delete(localfilePath);
             }

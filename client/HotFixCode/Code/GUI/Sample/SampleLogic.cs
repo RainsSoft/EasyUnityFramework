@@ -10,7 +10,6 @@ namespace HotFixCode
         SamplePopupsTest popupsTest = null;
 
         #region Example code
-
         void OnClick(GameObject rGo)
         {
             Debug.Log(rGo.name);
@@ -55,10 +54,10 @@ namespace HotFixCode
 
         }
 
-        string account = "Test000";
+        string account = "1";
         void TestCreateAccount()
         {
-           var req = gate.HttpRequestManager.CreateAccount(account, "1");
+            var req = gate.HttpRequestManager.CreateAccount(account, "1");
            req.ResponseCreateAccountEvent += (sender, args) =>
            {
                Debug.Log("ResponseCreateAccountEvent");
@@ -78,12 +77,13 @@ namespace HotFixCode
                 Debug.Log("ResponseCreateRoleEvent");
                 Debug.Log(args.ret);
             };
-
         }
 
         void TestLogin()
         {
             var req = gate.HttpRequestManager.Login(account, "1", "1");
+            
+            
             req.ResponseLoginEvent += (sender, args) =>
             {
                 Debug.Log("ResponseLoginEvent");
@@ -93,7 +93,6 @@ namespace HotFixCode
                 {
                     case 0:
                         DialogBox.Template(TemplateName.DialogBox).Show(message: "服务器异常错误");
-                        
                         break;
                     case 1:
                         DialogBox.Template(TemplateName.DialogBox).Show(message: "密码错误,请重新输入");
@@ -105,8 +104,9 @@ namespace HotFixCode
                         DialogBox.Template(TemplateName.DialogBox).Show(message: "对应游戏服务器无法连接,请重新输入");
                         break;
                     case 200:
-                        gate.ModelManager.GetModel<UserModel>().LoginKey = args.loginKey;
-                        DialogBox.Template(TemplateName.DialogBox).Show(message: "可以进入游戏了");
+                        var rKey = gate.ModelManager.GetModel<UserModel>().LoginKey = args.loginKey;
+                        DialogBox.Template(TemplateName.DialogBox).Show(message: "进入游戏");
+                        TestIntoGame(rKey);
                         break;
                     default:
                         DialogBox.Template(TemplateName.DialogBox).Show(message: "未知错误");
@@ -115,10 +115,24 @@ namespace HotFixCode
             };
         }
 
+        void TestIntoGame(string rKey)
+        {
+            gate.SocketClientManager.SendConnectTCP();
+            gate.SocketClientManager.OnConnectedTCP = () =>
+            {
+                SocketMessageSender.Instance.Send_Login(account, rKey);
+                gate.SocketClientManager.OnReceive_MSG_LOGIN += (sender, args) =>
+                {
+                    Debug.Log("Receive_Login");
+                    Debug.Log(args.buf.ToString());
+                };
+            };
+        }
+
         void TestReadData()
         {
-            var rTemp = Sheet.petdatamanager.Get();
-            var rlog = rTemp[0].AnSpeed;
+            var rTemp = Sheet.languagesdatamanager.Get();
+            var rlog = rTemp[0].ChineseSP;
             Debug.Log("Static Data :" + rlog);
 
             var userModel = gate.ModelManager.GetModel<UserModel>();

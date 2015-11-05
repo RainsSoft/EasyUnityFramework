@@ -7,9 +7,9 @@ public class ModelManager: TSingleton<ModelManager>
 {
     ModelManager() { }
 
-    private Dict<string, BaseModel> modelPool = new Dict<string, BaseModel>();
+    private Dict<string, ModelBase> modelPool = new Dict<string, ModelBase>();
 
-    public T GetModel<T>() where T : BaseModel
+    public T GetModel<T>() where T : ModelBase
     {
         Type type = typeof(T);
         if (modelPool.ContainsKey(type.Name))
@@ -26,7 +26,7 @@ public class ModelManager: TSingleton<ModelManager>
 
     public void Clear()
     {
-        foreach (BaseModel m in modelPool.OriginCollection.Values)
+        foreach (ModelBase m in modelPool.OriginCollection.Values)
         {
             m.Destroy();
         }

@@ -53,11 +53,11 @@ public static class gate
         }
     }
 
-    public static NetworkManager NetworkManager
+    public static SocketClientManager SocketClientManager
     {
         get
         {
-            return ManagerCollect.Instance.GetManager<NetworkManager>(ManagerName.Network);
+            return ManagerCollect.Instance.GetManager<SocketClientManager>(ManagerName.SocketClient);
         }
     }
 
@@ -188,10 +188,5 @@ public static class gate
             if (go != null) return go.transform;
             return null;
         }
-    }
-
-    public static MessageSender MessageSender
-    {
-        get { return MessageSender.Instance; }
     }
 }

@@ -129,7 +129,7 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
             string ext = Path.GetExtension(file);
             if (file.EndsWith(".meta") || file.Contains(".DS_Store")) continue;
 
-            string md5 = Util.md5file(file);
+            string md5 = Util.MD5File(file);
             string value = file.Replace(rAssetsPath, string.Empty);
             sw.WriteLine(value + "|" + md5);
         }

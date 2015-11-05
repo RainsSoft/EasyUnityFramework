@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using netMessage;
 using System.Text;
 using System;
 using DG.Tweening;
@@ -42,6 +41,7 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager(ManagerName.Model, ModelManager.Instance);
 
         ManagerCollect.Instance.AddManager<HttpRequestManager>(ManagerName.HttpRequest);
+        ManagerCollect.Instance.AddManager<SocketClientManager>(ManagerName.SocketClient);
         ManagerCollect.Instance.AddManager<ResourcesUpdateManager>(ManagerName.ResourcesUpdate);
         ManagerCollect.Instance.AddManager<CroutineManager>(ManagerName.Croutine);
         ManagerCollect.Instance.AddManager<TimerManager>(ManagerName.Timer);
@@ -50,16 +50,16 @@ public class GameController : MonoBehaviour
         ManagerCollect.Instance.AddManager<MusicManager>(ManagerName.Music);
         ManagerCollect.Instance.AddManager<GestureManager>(ManagerName.Gesture);
 
+
         gate.TimerManager.Initialize();
         gate.MusicManager.Initialize();
         gate.ScriptManager.Initialize();
 
         DebugConsole.Log("[APP Initialize complete]");
 
-        //开始资源更新
-        gate.ResourcesUpdateManager.ResourceUpdateStart(() => 
+        gate.ResourcesUpdateManager.ResourceUpdateStart(() =>
         {
-            LoadAssetbundleManifest();
+            gate.GameController.LoadAssetbundleManifest();
         });
     }
 
@@ -72,7 +72,6 @@ public class GameController : MonoBehaviour
         Debug.Log("[AssetBundleDictionaryUrl]:" + tempManager.DownloadingURL);
         tempManager.LoadManifest(bundlName, () =>
         {
-            //资源载入完成 开始游戏
             DebugConsole.Log("[APP LoadAssetbundleManifest complete]");
             GameStart();
         });

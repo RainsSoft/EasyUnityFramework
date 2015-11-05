@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UserModel : BaseModel
+public class UserModel : ModelBase
 {
     UserModel() { }
 
