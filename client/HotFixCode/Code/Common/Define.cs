@@ -32,15 +32,4 @@ namespace HotFixCode
     {
         public const string Sample = "SamplePopupsTest";
     }
-
-    /// <summary>
-    /// 场景名
-    /// </summary>
-    public class SceneName
-    {
-        public const string Launch = "LaunchScene";
-        public const string Game = "GameScene";
-        public const string Test = "TestScene";
-    }
-
 }
