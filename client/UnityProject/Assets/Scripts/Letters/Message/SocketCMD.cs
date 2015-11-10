@@ -16,5 +16,5 @@ public class SocketStatusCMD
 {
     public const string Connect = "Connect";            //连接服务器
     public const string Exception = "Exception";            //异常掉线
-    public const string Disconnect = "Disconnect";            //正常断线  
+    public const string Disconnect = "Disconnect";            //手动断线处理  
 }

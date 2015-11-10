@@ -23,10 +23,10 @@ public class SceneManager : MonoBehaviour
 
     void LoadScene()
     {
-        StartCoroutine(LoadSceneInternal());
+        StartCoroutine(LoadSceneBundle());
     }
 
-    IEnumerator LoadSceneInternal()
+    IEnumerator LoadSceneBundle()
     {
         var rPanel = gate.PanelManager.PanelCurrent;
 
@@ -42,9 +42,17 @@ public class SceneManager : MonoBehaviour
                 yield return new WaitForEndOfFrame();
         }
 
-        //加载场景Bundle（待添加）
-        
+        if (String.IsNullOrEmpty(loadSceneName)) yield break;
 
+        gate.AssetLoadManager.LoadScene(loadSceneName, (scene) =>
+        {
+            var temp = scene;
+            this.StartCoroutine(LoadSceneInternal(rPanel));
+        });
+    }
+
+    IEnumerator LoadSceneInternal(UIPanel rPanel)
+    {
         //加载场景
         int rDisplayProgress = 0;
         async = Application.LoadLevelAsync(loadSceneName);

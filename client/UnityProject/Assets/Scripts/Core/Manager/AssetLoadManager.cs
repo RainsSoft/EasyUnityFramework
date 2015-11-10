@@ -55,11 +55,11 @@ public class AssetLoadManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 调用接口 [GUI]
+    /// 调用接口 [UIPanel]
     /// </summary>
-    public void LoadGUI(string assetname, Action<GameObject> func)
+    public void LoadUIPanel(string assetname, Action<GameObject> func)
     {
-        this.LoadAsset<GameObject>("uipanel/" + assetname, assetname, func);
+        this.LoadAsset<GameObject>("ui/"+assetname, assetname, func);
     }
 
     /// <summary>
@@ -75,27 +75,11 @@ public class AssetLoadManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 调用接口 [Texture]
+    /// 调用接口 [Scene]
     /// </summary>
-    public void LoadTexture(string assetname, Action<Texture> func)
+    public void LoadScene(string assetname, Action<UnityEngine.Object> func)
     {
-        this.LoadAsset<Texture>("textures", assetname, func);
-    }
-
-    /// <summary>
-    /// 调用接口 [Material]
-    /// </summary>
-    public void LoadMaterial(string assetname, Action<Material> func)
-    {
-        this.LoadAsset<Material>("materials", assetname, func);
-    }
-
-    /// <summary>
-    /// 调用接口 [Shader]
-    /// </summary>
-    public void LoadShader(string assetname, Action<Shader> func)
-    {
-        this.LoadAsset<Shader>("shaders", assetname, func);
+        this.LoadAsset<UnityEngine.Object>("scene/" + assetname, assetname, func);
     }
 
     /// <summary>
@@ -125,7 +109,7 @@ public class AssetLoadManager : MonoBehaviour
         AssetBundleOperation request = this.LoadAssetAsync(abName, assetName, typeof(T));
         if (request == null) yield break;
         yield return StartCoroutine(request);
-
+        
         // Get asset
         T prefab = request.GetAsset<T>();
         if (func != null)

@@ -38,9 +38,9 @@ namespace HotFixCode
     /// </summary>
     public class SceneName
     {
-        public const string AppEntry = "AppEntry";
+        public const string Launch = "LaunchScene";
         public const string Game = "GameScene";
-        public const string Test = "Test";
+        public const string Test = "TestScene";
     }
 
 }

@@ -19,8 +19,6 @@ using System;
 /// 9.不要在L#中定义模板代码
 /// 10.基类方法，字段，如果未覆盖在子类，则获取不到
 /// 11.Lambda慎用， Delegate 慎用
-/// 
-/// (没有说三遍，不要以为这些不重要啊...魂淡)
 /// </summary>
 
 public class ScriptBehaviour : MonoBehaviour

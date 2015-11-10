@@ -1,0 +1,52 @@
+{
+	"bundlesInfo": [
+	{
+		"name": "character",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Character",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_Dir"
+	},
+	{
+		"name": "effect",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Effect",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_Dir"
+	},
+	{
+		"name": "front",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Front",
+		"assetType": "t:Prefab",
+		"packageType": "Dir"
+	},
+	{
+		"name": "mappart",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/MapPart",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_Dir"
+	},
+	{
+		"name": "scene",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Scene",
+		"assetType": "t:Scene",
+		"packageType": "Dir_File"
+	},
+	{
+		"name": "shader",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/Shader",
+		"assetType": "t:Shader",
+		"packageType": "Dir"
+	},
+	{
+		"name": "ui",
+		"variant": "unity3d",
+		"assetPath": "Assets/OriginalRes/UI",
+		"assetType": "t:Prefab",
+		"packageType": "Dir_Dir"
+	}]
+}
