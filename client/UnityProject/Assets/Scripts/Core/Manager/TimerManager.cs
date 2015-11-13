@@ -17,6 +17,7 @@ public class TimerInfo
 {
     public long tick;
     public bool stop;
+   
     public bool delete;
     public TimerEvent TimerUpdate = new TimerEvent();
     public TimerInfo(UnityAction<TimerInfo> tu)
@@ -31,7 +32,9 @@ public class TimerManager : MonoBehaviour
     private float interval = 0;
     private List<TimerInfo> objects = new List<TimerInfo>();
 
-    public float Interval 
+
+
+    public float Interval
     {
         get { return interval; }
         set { interval = value; }
@@ -41,7 +44,7 @@ public class TimerManager : MonoBehaviour
     {
         interval = 0.1f;
         StartTimer();
-	}
+    }
 
     /// <summary>
     /// 启动计时器
@@ -117,3 +120,4 @@ public class TimerManager : MonoBehaviour
         }
     }
 }
+

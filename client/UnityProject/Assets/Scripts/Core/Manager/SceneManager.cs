@@ -20,7 +20,6 @@ public class SceneManager : MonoBehaviour
         onLoadComplete = rFunc;
         LoadScene();
     }
-
     void LoadScene()
     {
         StartCoroutine(LoadSceneBundle());

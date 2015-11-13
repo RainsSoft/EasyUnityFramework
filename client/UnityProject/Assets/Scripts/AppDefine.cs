@@ -82,6 +82,7 @@ public class TemplateName
     public const string DialogBox = "DialogBoxTemplate";
 }
 
+
 /// <summary>
 /// 场景名
 /// </summary>
@@ -90,4 +91,14 @@ public class SceneName
     public const string Launch = "LaunchScene";
     public const string Game = "GameScene";
     public const string Test = "TestScene";
+    public const string Fight = "fight";
 }
+
+/// <summary>
+/// General通知名
+/// </summary>
+public class NoticeName
+{
+    public const string Test = "General_Test";
+}
+

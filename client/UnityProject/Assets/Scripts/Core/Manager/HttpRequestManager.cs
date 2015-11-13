@@ -17,6 +17,7 @@ public class HttpRequestManager : MonoBehaviour
         req.CreateAccount(account, password);
         return req;
     }
+
     public HttpRequestSignin CreateRole(string account, string loginKey, UInt32 serverID, string roleName, UInt32 p)
     {
         var req = gate.RequestPool.gameObject.AddComponent<HttpRequestSignin>();

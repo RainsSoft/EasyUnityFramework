@@ -1,0 +1,42 @@
+ManifestFileVersion: 0
+CRC: 1105461156
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 6e13a101e2e3162b5e2e28f84f09c9de
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: b9d63fd01faa173b3e5473ceca65882f
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Effect/Mesh/zhijia_01.FBX
+- Assets/OriginalRes/Effect/Mesh/xuanfeng_2.FBX
+- Assets/OriginalRes/Effect/Mesh/bingci_01.fbx
+- Assets/OriginalRes/Effect/Mesh/xuanfeng_1.fbx
+- Assets/OriginalRes/Effect/Mesh/hanba_zhuaji.FBX
+- Assets/OriginalRes/Effect/Mesh/shitou.fbx
+- Assets/OriginalRes/Effect/Mesh/banquan_1.FBX
+- Assets/OriginalRes/Effect/Mesh/mesh_01.fbx
+- Assets/OriginalRes/Effect/Mesh/eff_5.FBX
+- Assets/OriginalRes/Effect/Mesh/mesh_05.fbx
+- Assets/OriginalRes/Effect/Mesh/huo_hengsao.FBX
+Dependencies: []

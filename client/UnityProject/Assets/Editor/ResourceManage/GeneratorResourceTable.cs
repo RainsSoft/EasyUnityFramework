@@ -6,8 +6,6 @@ using System.IO;
 
 public class GeneratorResourceTable
 {
-    static List<string> paths = new List<string>();
-    static List<string> files = new List<string>();
 
     [MenuItem("Tools/GeneratorResourceFileList")]
     public static void GeneratorResourceFileList()
@@ -15,9 +13,9 @@ public class GeneratorResourceTable
         var rAssetsPath = AppPlatform.AssetsPath;
         string newFilePath = rAssetsPath + "/files.txt";
         if (File.Exists(newFilePath)) File.Delete(newFilePath);
-
-        paths.Clear(); files.Clear();
-        RecursiveDir(rAssetsPath);
+        
+        List<string> files = new List<string>();
+        Util.RecursiveDir(rAssetsPath, ref files);
 
         FileStream fs = new FileStream(newFilePath, FileMode.CreateNew);
         StreamWriter sw = new StreamWriter(fs);
@@ -35,20 +33,4 @@ public class GeneratorResourceTable
         AssetDatabase.Refresh();
     }
 
-    static void RecursiveDir(string path)
-    {
-        string[] names = Directory.GetFiles(path);
-        string[] dirs = Directory.GetDirectories(path);
-        foreach (string filename in names)
-        {
-            string ext = Path.GetExtension(filename);
-            if (ext.Equals(".meta")) continue;
-            files.Add(filename.Replace('\\', '/'));
-        }
-        foreach (string dir in dirs)
-        {
-            paths.Add(dir.Replace('\\', '/'));
-            RecursiveDir(dir);
-        }
-    }
 }

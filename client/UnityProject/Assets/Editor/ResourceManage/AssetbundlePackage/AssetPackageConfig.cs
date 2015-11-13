@@ -16,10 +16,6 @@ public class BundleInfo
     /// </summary>
     public string assetPath;
     /// <summary>
-    /// 需要的资源类型，比如如果是预制件那么应该为 "t:Prefab"
-    /// </summary>
-    public string assetType;
-    /// <summary>
     /// 打包类型
     /// </summary>
     public string packageType;

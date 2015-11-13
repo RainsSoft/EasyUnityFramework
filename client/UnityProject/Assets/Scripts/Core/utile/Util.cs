@@ -20,6 +20,16 @@ public class Util : MonoBehaviour
     }
 
     /// <summary>
+    /// 对物体的tranform归零
+    /// </summary>
+    public static void ResetTransform(GameObject Obj)
+    {
+        Obj.transform.localPosition = Vector3.zero;
+        Obj.transform.localScale = Vector3.one;
+        Obj.transform.localRotation = Quaternion.identity;
+    }
+
+    /// <summary>
     /// 计算文件的MD5值
     /// </summary>
     public static string MD5File(string file)
@@ -44,6 +54,9 @@ public class Util : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 计算字符串的MD5值
+    /// </summary>
     public static string MD5String(string str)
     {
         System.Security.Cryptography.MD5 md5 = new System.Security.Cryptography.MD5CryptoServiceProvider();
@@ -348,4 +361,33 @@ public class Util : MonoBehaviour
         }
         return System.IO.File.ReadAllBytes(path);
     }
+
+    /// <summary>
+    /// 得到Path文件夹下所有文件 并放入allFilePath List中
+    /// </summary>
+    public static void RecursiveDir(string path, ref List<string> allFilePath, bool isFirstRun = true)
+    {
+        if (isFirstRun && allFilePath.Count > 0)
+        {
+            allFilePath.TrimExcess();
+            allFilePath.Clear();
+        }
+
+        string[] names = Directory.GetFiles(path);
+        string[] dirs = Directory.GetDirectories(path);
+
+        foreach (string filename in names)
+        {
+            string ext = Path.GetExtension(filename);
+            if (ext.Equals(".meta")) continue;
+
+            allFilePath.Add(filename.Replace('\\', '/'));
+        }
+        foreach (string dir in dirs)
+        {
+            RecursiveDir(dir, ref allFilePath, false);
+        }
+
+    }
+  
 }

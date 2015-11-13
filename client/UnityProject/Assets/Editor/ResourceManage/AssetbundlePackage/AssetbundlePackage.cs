@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using UnityEditor;
-using System.IO;
+﻿using JsonFx.Json;
 using System.Collections.Generic;
-using JsonFx.Json;
+using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 public class AssetbundlePackage : TSingleton<AssetbundlePackage>
 {
@@ -83,7 +83,7 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
        
         string path = Application.dataPath + "/" + ABConfigPath + ".txt";
         string str = File.ReadAllText(path);
-
+        
         Dict<string, ABEntry> abEntries = new Dict<string, ABEntry>();
         AssetPackageConfig apc = JsonReader.Deserialize<AssetPackageConfig>(str);
 
@@ -166,18 +166,21 @@ public class AssetbundlePackage : TSingleton<AssetbundlePackage>
             DirectoryInfo rDirInfo = new DirectoryInfo(bundleInfo.assetPath);
             if (!rDirInfo.Exists) return null;
 
-            List<AssetBundleBuild> rABBList = new List<AssetBundleBuild>();
-            string[] rGUIDS = AssetDatabase.FindAssets(bundleInfo.assetType, new string[] { bundleInfo.assetPath });
-            for (int i = 0; i < rGUIDS.Length; i++)
-            {
-                string rAssetPath = AssetDatabase.GUIDToAssetPath(rGUIDS[i]);
+            List<string> allABPaths = new List<string>();
+            Util.RecursiveDir(bundleInfo.assetPath, ref allABPaths);
 
+            List<AssetBundleBuild> rABBList = new List<AssetBundleBuild>();
+
+            for (int i = 0; i < allABPaths.Count; i++)
+            {
+                string rAssetPath = allABPaths[i];
                 AssetBundleBuild rABB = new AssetBundleBuild();
                 rABB.assetBundleName = bundleInfo.name + "/" + Path.GetFileNameWithoutExtension(rAssetPath);
                 rABB.assetBundleVariant = bundleInfo.variant;
                 rABB.assetNames = new string[] { rAssetPath };
                 rABBList.Add(rABB);
             }
+            
             return rABBList.ToArray();
 
         }

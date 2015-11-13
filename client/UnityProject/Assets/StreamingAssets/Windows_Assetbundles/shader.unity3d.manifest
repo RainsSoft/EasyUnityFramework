@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 3828413799
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fe23b35df28ce4f78cc8a0f02786d0c4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 32d0c14284e9af121a32c9f5a0cbed48
+HashAppended: 0
+ClassTypes:
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 109
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Shader/Common/Unlit-Transparent-NoFog.shader
+- Assets/OriginalRes/Shader/Character_shader/myUnityStandardInput.cginc
+- Assets/OriginalRes/Shader/Vegetation/atsVegetation-Unlit-Lightmap-Wind alpha blended.shader
+- Assets/OriginalRes/Shader/Character_shader/myownStandardSpecular.shader
+- Assets/OriginalRes/Shader/Character_shader/myUnityCGSimply.cginc
+- Assets/OriginalRes/Shader/Character_shader/Hair/Hair.shader
+- Assets/OriginalRes/Shader/Character_shader/LinLighting.cginc
+- Assets/OriginalRes/Shader/ImageEffects/BloomAndBlurShader.shader
+- Assets/OriginalRes/Shader/screenBlack.shader
+- Assets/OriginalRes/Shader/Character_shader/UnityStandardSurface.cginc
+- Assets/OriginalRes/Shader/Character_shader/myUnityStandardUtils.cginc
+- Assets/OriginalRes/Shader/Character_shader/myUnityGlobalIllumination.cginc
+- Assets/OriginalRes/Shader/Character_shader/wonderFlickJuese.shader
+- Assets/OriginalRes/Shader/Character_shader/Hair/Aniso_Circular_noalpha.shader
+- Assets/OriginalRes/Shader/BloomMatAlpha.shader
+- Assets/OriginalRes/Shader/Character_shader/myUnityStandardBRDF.cginc
+- Assets/OriginalRes/Shader/Character_shader/UnityPBSLighting.cginc
+- Assets/OriginalRes/Shader/Water/waterSurface.shader
+Dependencies: []

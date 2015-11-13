@@ -4,9 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 #if UNITY_EDITOR
-using DEBUG = UnityEngine.Debug;
+using Debug = UnityEngine.Debug;
 #else
-using DEBUG = DebugConsole;
+using Debug = DebugConsole;
 #endif
 
 public class LanguagesDataManager
@@ -99,7 +99,7 @@ public class LanguagesDataManager
 	{
 		if (!hashTable.ContainsKey(key))
 		{
-			DEBUG.LogError("LanguagesData : Key = " + key + " 未找到! "); 
+			Debug.LogError("LanguagesData : Key = " + key + " 未找到! "); 
 			return null;
 		}
 		return (LanguagesData)hashTable[key];

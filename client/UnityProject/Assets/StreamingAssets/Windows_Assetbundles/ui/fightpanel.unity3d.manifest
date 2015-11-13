@@ -1,0 +1,64 @@
+ManifestFileVersion: 0
+CRC: 23767000
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 53006750e0a88cd7dbe291e5d55eef97
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d6a4b2293f36fd9a9949164d6b55f6f6
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 224
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_AimBG_00.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_CenterTurnable_ActionForce.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_headbg_yellow.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_headbg_red.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_Gold.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_Turntable_Tip.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_FunctionBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_functionButton_x2.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_functionButton_x1.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_turntableBase.png
+- Assets/OriginalRes/UI/FightPanel/FightUI.prefab
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_SkillDiscBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_LevelBar.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_ConfirmLabel.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_functionButton_pause.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_EndTransfrom.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_HuoDeWuPin.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_EndTransfrom_1.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_AgainLabel.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_LevelBarBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_headbg_yellow_grey.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_Exp.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_TurnablePanelBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_BG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_AimBG_02.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_AimBG_03.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_ActionForceBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FinishWindow_AimBG.png
+- Assets/OriginalRes/UI/FightPanel/Texture/FightUI_TransformRoundButton.png
+Dependencies: []

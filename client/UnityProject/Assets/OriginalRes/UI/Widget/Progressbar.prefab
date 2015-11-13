@@ -11,7 +11,7 @@ GameObject:
   - 222: {fileID: 22281892}
   - 114: {fileID: 11481886}
   - 114: {fileID: 11481888}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Filler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 224: {fileID: 22481892}
   - 222: {fileID: 22281894}
   - 114: {fileID: 11425408}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Progressbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 224: {fileID: 22481896}
   - 222: {fileID: 22281898}
   - 114: {fileID: 11481894}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - 224: {fileID: 22481898}
   - 222: {fileID: 22281900}
   - 114: {fileID: 11481896}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Fillbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - 224: {fileID: 22481904}
   - 222: {fileID: 22281906}
   - 114: {fileID: 11481904}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: IndeterminateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - 222: {fileID: 22281910}
   - 114: {fileID: 11481908}
   - 114: {fileID: 11481910}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: IndeterminateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - 224: {fileID: 22481912}
   - 222: {fileID: 22281914}
   - 114: {fileID: 11481914}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - 224: {fileID: 22481914}
   - 222: {fileID: 22281916}
   - 114: {fileID: 11481916}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: FillSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22481916}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DeterminateBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -612,6 +612,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

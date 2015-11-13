@@ -85,6 +85,8 @@ public class GameController : MonoBehaviour
         //启动脚本系统
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Init");
         //inited = true;
+       // Util.CallScriptFunction(_scriptMainUpdate, "BattleManager", "Init");
+        
     }
 
     /// <summary>

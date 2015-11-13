@@ -1,0 +1,120 @@
+ManifestFileVersion: 0
+CRC: 337654082
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fe95e932e4b7a0785fdeff07b302423f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 73af0115d42d2ef1fb0ad789de6ebb9c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: deffd5719e5bf33418e795b60c94463d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fa8b43e9321f81b45bf6c7117b3564a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f75088c1b7acb1c44a8820564ddaabf0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2d46b6a10d6aa61428b2ed3d55a3a711, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c7d5f4ff4254e14409e3933dc57435c3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 206
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Character/hanba/Effect/hanba_combo0.prefab
+- Assets/OriginalRes/Character/hanba/Materials/monster_hanba.mat
+- Assets/OriginalRes/Character/hanba/Animation/dead.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/xuanfeng_001add.mat
+- Assets/OriginalRes/Character/hanba/Animation/hit.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/shitou_00039_b.mat
+- Assets/OriginalRes/Character/hanba/Animation/skill.anim
+- Assets/OriginalRes/Character/hanba/Animation/vertigo.anim
+- Assets/OriginalRes/Character/hanba/Animation/stand_y.anim
+- Assets/OriginalRes/Character/hanba/Animation/stand_q.anim
+- Assets/OriginalRes/Character/hanba/Animation/run.anim
+- Assets/OriginalRes/Character/hanba/Sound/hanbaHit.ogg
+- Assets/OriginalRes/Character/hanba/Animation/victory.anim
+- Assets/OriginalRes/Character/hanba/Animation/jifei.anim
+- Assets/OriginalRes/Character/hanba/Effect/hanba_jn1.prefab
+- Assets/OriginalRes/Character/hanba/Animation/Combe1.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/daoguang_00213add.mat
+- Assets/OriginalRes/Character/hanba/Sound/hanbaS.ogg
+- Assets/OriginalRes/Character/hanba/Effect/Materials/f_smoke222a.mat
+- Assets/OriginalRes/Character/hanba/Animation/Combe2.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/baodian_00357_b.mat
+- Assets/OriginalRes/Character/hanba/Effect/hanba_shouji.prefab
+- Assets/OriginalRes/Character/hanba/Mesh/monster_hanba.FBX
+- Assets/OriginalRes/Character/hanba/Animation/leisure.anim
+- Assets/OriginalRes/Character/hanba/Texture/haba_s.psd
+- Assets/OriginalRes/Character/hanba/Effect/hanba_combo1bj.prefab
+- Assets/OriginalRes/Character/hanba/Effect/Materials/glow_0001.mat
+- Assets/OriginalRes/Character/hanba/Texture/haba_d.psd
+- Assets/OriginalRes/Character/hanba/Animation/stand_h.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/hanba_zhuajia.mat
+- Assets/OriginalRes/Character/hanba/Effect/Animation/hanba_zhuaji.anim
+- Assets/OriginalRes/Character/hanba/Texture/haba_n.psd
+- Assets/OriginalRes/Character/hanba/Effect/Materials/guangbo_99999_a.mat
+- Assets/OriginalRes/Character/hanba/Animation/luodi.anim
+- Assets/OriginalRes/Character/hanba/Effect/hanba_combo1.prefab
+- Assets/OriginalRes/Character/hanba/Effect/Materials/zhijia_02.mat
+- Assets/OriginalRes/Character/hanba/Effect/Materials/c2bd23ccadd1.mat
+- Assets/OriginalRes/Character/hanba/Animation/Combe0.anim
+- Assets/OriginalRes/Character/hanba/Sound/hanba2.ogg
+- Assets/OriginalRes/Character/hanba/Animation/stand_z.anim
+- Assets/OriginalRes/Character/hanba/Effect/Materials/hanba_zhuajia1.mat
+- Assets/OriginalRes/Character/hanba/Animation/hanba.controller
+- Assets/OriginalRes/Character/hanba/Sound/hanba1.ogg
+- Assets/OriginalRes/Character/hanba/Effect/hanba_combo2.prefab
+- Assets/OriginalRes/Character/hanba/Effect/Materials/zhijia_01.mat
+- Assets/OriginalRes/Character/hanba/Effect/Materials/hanba_zhuajiadd.mat
+- Assets/OriginalRes/Character/hanba/Sound/hanbaDead.ogg
+- Assets/OriginalRes/Character/hanba/Effect/Animation/hanba_zhuaji.controller
+- Assets/OriginalRes/Character/hanba/Sound/hanba3.ogg
+- Assets/OriginalRes/Character/hanba/Effect/Materials/guangshu_99999_a.mat
+- Assets/OriginalRes/Character/hanba/Effect/hanba_jn.prefab
+- Assets/OriginalRes/Character/hanba/Effect/Materials/huoxing.mat
+- Assets/OriginalRes/Character/hanba/Chara_hanba.prefab
+- Assets/OriginalRes/Character/hanba/Effect/Materials/daoguang_00213.mat
+Dependencies:
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/common.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/pixiu.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/mesh.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/texture.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/shader.unity3d

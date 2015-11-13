@@ -204,8 +204,8 @@ public class DebugConsole : MonoBehaviour
     bool dirty;
 
     #region GUI position values
-    Rect scrollRect = new Rect(10, 20, 580, 200);
-    Rect inputRect = new Rect(10, 220, 580, 24);
+    Rect scrollRect = new Rect(10, 20, 380, 200);
+    Rect inputRect = new Rect(10, 220, 380, 24);
     Rect enterButtonRect = new Rect(465, 260, 100, 35);
     Rect messageLine = new Rect(4, 0, 564, 20);
     int lineOffset = -4;
@@ -238,7 +238,7 @@ public class DebugConsole : MonoBehaviour
         Message.inputColor = inputColor;
         Message.outputColor = outputColor;
 
-        _windowRect = new Rect(Screen.width / 2 - 300, 30, 600, 320);
+        _windowRect = new Rect(Screen.width / 2 - 200, 30, 400, 320);
 
 
         LogMessage(Message.System("输入 '/?' 显示帮助"));

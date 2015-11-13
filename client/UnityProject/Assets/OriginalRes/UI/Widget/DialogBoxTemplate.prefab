@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22455398}
   - 222: {fileID: 22206840}
   - 114: {fileID: 11422490}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - 114: {fileID: 11472794}
   - 114: {fileID: 11444436}
   - 114: {fileID: 11481032}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - 222: {fileID: 22256904}
   - 114: {fileID: 11413904}
   - 114: {fileID: 11467636}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 222: {fileID: 22230586}
   - 114: {fileID: 11445840}
   - 114: {fileID: 11457432}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - 222: {fileID: 22233402}
   - 114: {fileID: 11484304}
   - 114: {fileID: 11421272}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   - 114: {fileID: 11405388}
   - 114: {fileID: 11424672}
   - 114: {fileID: 11408352}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DefaultButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - 114: {fileID: 11454058}
   - 114: {fileID: 11477804}
   - 114: {fileID: 11424468}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: CloseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - 114: {fileID: 11410098}
   - 114: {fileID: 11403572}
   - 114: {fileID: 11491394}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - 224: {fileID: 22419834}
   - 222: {fileID: 22286100}
   - 114: {fileID: 11426866}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ContentText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - 114: {fileID: 11470350}
   - 114: {fileID: 11485982}
   - 114: {fileID: 11404244}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: DialogBoxTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - 224: {fileID: 22462614}
   - 222: {fileID: 22284116}
   - 114: {fileID: 11490110}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Texture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - 114: {fileID: 11430930}
   - 114: {fileID: 11441148}
   - 114: {fileID: 11456746}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - 222: {fileID: 22206282}
   - 114: {fileID: 11405798}
   - 114: {fileID: 11440604}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1269,7 +1269,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168806}

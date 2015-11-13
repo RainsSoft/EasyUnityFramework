@@ -1,0 +1,138 @@
+ManifestFileVersion: 0
+CRC: 3100715026
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2030398feb905d1ae572b48ac82ae4c3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 34951ddc32c6c690a9a819ae6ae4d3f6
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: deffd5719e5bf33418e795b60c94463d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fa8b43e9321f81b45bf6c7117b3564a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f75088c1b7acb1c44a8820564ddaabf0, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2d46b6a10d6aa61428b2ed3d55a3a711, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 206
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Character/pixiu/Animation/skill.anim
+- Assets/OriginalRes/Character/pixiu/Sound/pixiu3.ogg
+- Assets/OriginalRes/Character/pixiu/Sound/pixiu12.ogg
+- Assets/OriginalRes/Character/pixiu/Animation/stand_q.anim
+- Assets/OriginalRes/Character/pixiu/Animation/leisure.anim
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/ring_00001.mat
+- Assets/OriginalRes/Character/pixiu/Mesh/lead_pixiu.FBX
+- Assets/OriginalRes/Character/pixiu/Texture/lead_pixiu_changqiang_s.psd
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_combo2bj.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/No Name.mat
+- Assets/OriginalRes/Character/pixiu/Animation/stand_z.anim
+- Assets/OriginalRes/Character/pixiu/Sound/pixiuHit.ogg
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_skill_jn.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/ring_00001_add.mat
+- Assets/OriginalRes/Character/pixiu/Sound/pixiuS.ogg
+- Assets/OriginalRes/Character/pixiu/Texture/pixiu_s.psd
+- Assets/OriginalRes/Character/pixiu/Animation/Combe0.anim
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/zd_00001.mat
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_combo2.prefab
+- Assets/OriginalRes/Character/pixiu/Animation/Combe2.anim
+- Assets/OriginalRes/Character/pixiu/Sound/pixiuFight.ogg
+- Assets/OriginalRes/Character/pixiu/Sound/pixiuDead.ogg
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/yanhuo_00068_b.mat
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_combo1.prefab
+- Assets/OriginalRes/Character/pixiu/Texture/lead_pixiu_changqiang_ao.tga
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/baodian_00389_a.mat
+- Assets/OriginalRes/Character/pixiu/Animation/Combe1.anim
+- Assets/OriginalRes/Character/pixiu/Animation/vertigo.anim
+- Assets/OriginalRes/Character/pixiu/Animation/pixiu.controller
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/guangban001_b.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/circlewave02.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/02 - Default.mat
+- Assets/OriginalRes/Character/pixiu/Animation/victory.anim
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_combo0bj.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/fasheguang_00203add.mat
+- Assets/OriginalRes/Character/pixiu/Animation/hit.anim
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/fasheguang_00203.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/huoxing_hengsao.mat
+- Assets/OriginalRes/Character/pixiu/Animation/stand_h.anim
+- Assets/OriginalRes/Character/pixiu/Animation/stand_y.anim
+- Assets/OriginalRes/Character/pixiu/Texture/pixiu_d.psd
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/baodian_00074_a.mat
+- Assets/OriginalRes/Character/pixiu/Materials/lead_pixiu.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/qk_00001add.mat
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_skill_bj1.prefab
+- Assets/OriginalRes/Character/pixiu/Animation/run.anim
+- Assets/OriginalRes/Character/pixiu/Texture/lead_pixiu_changqiang_d.psd
+- Assets/OriginalRes/Character/pixiu/Texture/pixiu_n.psd
+- Assets/OriginalRes/Character/pixiu/Materials/lead_pixiu_changqiang.mat
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_skill_bj2.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/glow_1001.mat
+- Assets/OriginalRes/Character/pixiu/Materials/lead_pixiu_hair.mat
+- Assets/OriginalRes/Character/pixiu/Animation/stand.anim
+- Assets/OriginalRes/Character/pixiu/Texture/pixiu_ao.psd
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/yanchen_03add.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/yanchen_03.mat
+- Assets/OriginalRes/Character/pixiu/Animation/dead.anim
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/shoujiguang_001_a 1.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/shoujiguang_001_b.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/penshe_00001.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/fasheguang_00236.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/baodian_00048.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/guanghuan_005.mat
+- Assets/OriginalRes/Character/pixiu/Texture/lead_pixiu_changqiang_n.psd
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/baodian_99998_a1.mat
+- Assets/OriginalRes/Character/pixiu/Effect/pixiu_combo0.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/guangshu_00044_b.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/lizi_99999_a.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/qk_00001.mat
+- Assets/OriginalRes/Character/pixiu/Chara_pixiu.prefab
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/danke_00001.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/guangshu_00044_a.mat
+- Assets/OriginalRes/Character/pixiu/Effect/Materials/yanhuo_00370_b.mat
+Dependencies:
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/common.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/mesh.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/texture.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/shader.unity3d

@@ -9,6 +9,16 @@ using UnityEngine;
 
 namespace HotFixCode
 {
+    /// <summary>
+    /// 此抽象类中的方法， 子类必须全部重载!!!
+    /// 此抽象类中的方法， 子类必须全部重载!!!
+    /// 此抽象类中的方法， 子类必须全部重载!!!
+    /// 重要的事情说三遍
+    /// 
+    /// 
+    /// 且标记virtual的函数必须首先调用基类
+    /// 否则宿主程序无法 Get到子类的继承方法
+    /// </summary>
     public abstract class UILogic
     {
         protected GameObject gameObject;

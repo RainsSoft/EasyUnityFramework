@@ -31,6 +31,11 @@ public class ByteBuffer :IDisposable
         }
     }
 
+    ~ByteBuffer()
+    {
+        Dispose();
+    }
+
     public override string ToString()
     {
         string rStr = string.Empty;

@@ -55,23 +55,11 @@ public class AssetLoadManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 调用接口 [UIPanel]
+    /// 调用接口 [GUI]
     /// </summary>
     public void LoadUIPanel(string assetname, Action<GameObject> func)
     {
         this.LoadAsset<GameObject>("ui/"+assetname, assetname, func);
-    }
-
-    /// <summary>
-    /// 调用接口 [Sprite]
-    /// </summary>
-    public void LoadSprite(string assetname, Action<Sprite> func)
-    {
-        if (assetname.Contains(".png"))
-            assetname = assetname.Replace(".png", string.Empty);
-        if (assetname.Contains(".tga"))
-            assetname = assetname.Replace(".tga", string.Empty);
-        this.LoadAsset<Sprite>("textures", assetname, func);
     }
 
     /// <summary>
@@ -109,7 +97,7 @@ public class AssetLoadManager : MonoBehaviour
         AssetBundleOperation request = this.LoadAssetAsync(abName, assetName, typeof(T));
         if (request == null) yield break;
         yield return StartCoroutine(request);
-        
+
         // Get asset
         T prefab = request.GetAsset<T>();
         if (func != null)

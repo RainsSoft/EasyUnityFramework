@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 2295671041
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 419cc09d4a8cf2f45e0145f93ca75abb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ac4ad4a9b4e5b2e0ba08f3ecef76be3c
+HashAppended: 0
+ClassTypes:
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Character/common/Texture/FresnelSpecular.png
+- Assets/OriginalRes/Character/common/Texture/hair_diffuse_sample.tga
+- Assets/OriginalRes/Character/common/Materials/shadow.mat
+- Assets/OriginalRes/Character/common/Texture/Hair.png
+- Assets/OriginalRes/Character/common/Texture/FresnelRim.psd
+- Assets/OriginalRes/Character/common/Texture/shadow.png
+- Assets/OriginalRes/Character/common/Texture/DiffuseWarper2.psd
+- Assets/OriginalRes/Character/common/Texture/hair_spec_sgm_sample.png
+Dependencies: []

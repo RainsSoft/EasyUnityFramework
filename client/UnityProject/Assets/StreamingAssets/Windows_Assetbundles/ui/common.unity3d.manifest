@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 444484342
+CRC: 4071244045
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2f87b8211fad416bbb418aefda8c5393
+    Hash: c6e9b540896f8552e21014418f8fdad8
   TypeTreeHash:
     serializedVersion: 2
     Hash: 00ffc586b3c4c12c72c7fed589b81235
@@ -21,6 +21,7 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/spinner_up.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/notify_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/fr.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/scrollbar_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/SP_BG.PNG
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_border.png
@@ -31,6 +32,7 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_mask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/scrollbar_handle.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/spinner_down.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/de.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_icon.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_border.png
@@ -46,13 +48,17 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/button_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/ch.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_selected.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_02.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/uk.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/ko.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_hover.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_mask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_01.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/Flags/jp.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/canvas_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/button_mask.png
 Dependencies: []

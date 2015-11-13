@@ -1,0 +1,126 @@
+ManifestFileVersion: 0
+CRC: 208107343
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 562d5966c5039ebbb2c981f694194e97
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 21b05d46f5a093e527dfba31c8c8637c
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 96
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: deffd5719e5bf33418e795b60c94463d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fa8b43e9321f81b45bf6c7117b3564a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a9462ada9a181e6438d96ed945aa3530, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2d46b6a10d6aa61428b2ed3d55a3a711, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: d5ceb339997c8304e9354d4ce5ddc9da, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 206
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_Combe1.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/baodian_00044_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Texture/qilinzhanshi_NRM.png
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/jump.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/daoguang_00095_00_b.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/daoguang_00077_b.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/daoguang_00430_00_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilinFight.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/dead.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/Combe0.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/Combe1.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Mesh/Materials/02 - Default.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Texture/qilinzhanshi_S.psd
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/victory.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/leisure.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/stand.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Mesh/qilinzhanshi.FBX
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilinS.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilin12.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Chara_qilinzhanshi.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilinDead.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/stand_y.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_skill_fumo.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/run.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/Fire03_UV_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/hit.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilin3.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/qilinzhanshi.controller
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/yanhuo_9999_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_skill_daoguang.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/yanhuo_00194_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/stand_h.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_skill_xuanzhuan.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/Combe2.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/dilie_99998_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Animation/qilinzhanshi_skill_xuanzhuan.controller
+- Assets/OriginalRes/Character/qilinzhanshi/Materials/qilinzhanshi.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/qilinzhanshi_jianGlow_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/dilie_99998_b.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Texture/qilinzhanshi.psd
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/guangbo_00171_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/stand_q.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/daoguang_99999_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/skill.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/Trajectory_Flame_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/water_00017_b.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Animation/qilinzhanshi_skill_xuanzhuan.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/yanhuo_99999_a.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/Materials/daoguang_99998_b.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_Combe0.prefab
+- Assets/OriginalRes/Character/qilinzhanshi/Sound/qilinHit.ogg
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/stand_z.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Materials/qilinzhanshi_hair.mat
+- Assets/OriginalRes/Character/qilinzhanshi/Animation/vertigo.anim
+- Assets/OriginalRes/Character/qilinzhanshi/Texture/qilinzhanshi_AO.psd
+- Assets/OriginalRes/Character/qilinzhanshi/Effect/qilinzhanshi_Combe2.prefab
+Dependencies:
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/common.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/hanba.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/pixiu.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/character/taotie.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/mesh.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/effect/texture.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/shader.unity3d

@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22445006}
   - 222: {fileID: 22237450}
   - 114: {fileID: 11478008}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,7 +28,7 @@ GameObject:
   - 222: {fileID: 22257358}
   - 114: {fileID: 11421298}
   - 114: {fileID: 11496834}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonWaiting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22489934}
   - 222: {fileID: 22243248}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: PopupsTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 224: {fileID: 22414910}
   - 222: {fileID: 22228750}
   - 114: {fileID: 11446556}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 224: {fileID: 22425694}
   - 222: {fileID: 22274842}
   - 114: {fileID: 11474886}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - 224: {fileID: 22483908}
   - 222: {fileID: 22214394}
   - 114: {fileID: 11445132}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - 222: {fileID: 22267236}
   - 114: {fileID: 11495018}
   - 114: {fileID: 11444552}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - 222: {fileID: 22265722}
   - 114: {fileID: 11405822}
   - 114: {fileID: 11448118}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonCreateRole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - 224: {fileID: 22486594}
   - 222: {fileID: 22245104}
   - 114: {fileID: 11433960}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - 224: {fileID: 22429014}
   - 222: {fileID: 22231300}
   - 114: {fileID: 11460492}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - 224: {fileID: 22483568}
   - 222: {fileID: 22256188}
   - 114: {fileID: 11497760}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - 222: {fileID: 22264018}
   - 114: {fileID: 11421964}
   - 114: {fileID: 11428838}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonCreateAccount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - 222: {fileID: 22215594}
   - 114: {fileID: 11467304}
   - 114: {fileID: 11426426}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonReadData
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 22483902}
   - 222: {fileID: 22273670}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SamplePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - 222: {fileID: 22234346}
   - 114: {fileID: 11405054}
   - 114: {fileID: 11413540}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - 224: {fileID: 22423422}
   - 222: {fileID: 22238870}
   - 114: {fileID: 11457984}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,7 @@ GameObject:
   - 222: {fileID: 22259110}
   - 114: {fileID: 11400310}
   - 114: {fileID: 11458278}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   - 224: {fileID: 22421074}
   - 222: {fileID: 22212042}
   - 114: {fileID: 11486654}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - 222: {fileID: 22234926}
   - 114: {fileID: 11450112}
   - 114: {fileID: 11496122}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonPopups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   - 224: {fileID: 22477998}
   - 222: {fileID: 22206528}
   - 114: {fileID: 11400342}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - 224: {fileID: 22414396}
   - 222: {fileID: 22231276}
   - 114: {fileID: 11410744}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - 222: {fileID: 22219770}
   - 114: {fileID: 11445112}
   - 114: {fileID: 11432718}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonDialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - 224: {fileID: 22468336}
   - 222: {fileID: 22295928}
   - 114: {fileID: 11416082}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   - 222: {fileID: 22202648}
   - 114: {fileID: 11428446}
   - 114: {fileID: 11417016}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonCroutine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,7 +427,7 @@ GameObject:
   - 222: {fileID: 22204246}
   - 114: {fileID: 11427098}
   - 114: {fileID: 11441706}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - 224: {fileID: 22423732}
   - 222: {fileID: 22231184}
   - 114: {fileID: 11466050}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +461,7 @@ GameObject:
   - 224: {fileID: 22413596}
   - 222: {fileID: 22233038}
   - 114: {fileID: 11482690}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: SamplePopupsTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +478,7 @@ GameObject:
   - 224: {fileID: 22433500}
   - 222: {fileID: 22288196}
   - 114: {fileID: 11406198}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   - 222: {fileID: 22267244}
   - 114: {fileID: 11408954}
   - 114: {fileID: 11499778}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: ButtonTween
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - 224: {fileID: 22468882}
   - 222: {fileID: 22269570}
   - 114: {fileID: 11421792}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2658,7 +2658,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 146500}

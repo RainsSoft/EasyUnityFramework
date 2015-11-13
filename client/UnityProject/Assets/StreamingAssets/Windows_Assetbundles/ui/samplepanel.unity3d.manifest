@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 486762421
+CRC: 1191822875
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f66e5a80d8acd0144f7c3ae73d0ec2ec
+    Hash: 70b0a4a20b17db84658782917188838f
   TypeTreeHash:
     serializedVersion: 2
     Hash: a3517b368293a73fb30c8488b5b6bcad
@@ -38,4 +38,4 @@ ClassTypes:
 Assets:
 - Assets/OriginalRes/UI/SamplePanel/SamplePanel.prefab
 Dependencies:
-- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d
+- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d

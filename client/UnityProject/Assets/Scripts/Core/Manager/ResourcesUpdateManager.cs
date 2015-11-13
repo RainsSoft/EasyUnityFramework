@@ -33,7 +33,7 @@ public class ResourcesUpdateManager : MonoBehaviour
         if (rNoExtract || AppConst.IsDebugMode)
         {
 
-            DebugConsole.Log("[extracted] or [debug mode] is open");
+            DebugConsole.Log("[extracted] or [Debug mode] is open");
             StartCoroutine(OnUpdateResource());
             return;
         }
