@@ -160,11 +160,11 @@ public static class gate
         }
     }
 
-    public static Transform RequestPool
+    public static Transform HttpRequestPool
     {
         get
         {
-            GameObject go = GameObject.FindWithTag("RequestPool");
+            GameObject go = GameObject.FindWithTag("HttpRequestPool");
             if (go != null) return go.transform;
             return null;
         }

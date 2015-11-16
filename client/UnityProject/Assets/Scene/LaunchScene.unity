@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 818716924}
   m_Layer: 0
-  m_Name: RequestPool
+  m_Name: HttpRequestPool
   m_TagString: RequestPool
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

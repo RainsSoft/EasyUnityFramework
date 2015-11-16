@@ -10,7 +10,7 @@ TagManager:
   - PopupsWindow
   - PanelCamera
   - EffectCamera
-  - RequestPool
+  - HttpRequestPool
   - Templates
   - GUIRoot
   - MainUpdate
