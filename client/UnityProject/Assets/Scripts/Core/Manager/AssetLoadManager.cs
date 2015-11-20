@@ -62,6 +62,10 @@ public class AssetLoadManager : MonoBehaviour
         this.LoadAsset<GameObject>("ui/"+assetname, assetname, func);
     }
 
+    public void UnloadUIPanel(string assetname)
+    {
+        UnloadAssetBundle("ui/" + assetname.ToLower() + AppConst.BundleExtName);
+    }
 
     /// <summary>
     /// 调用接口 [Scene]
@@ -69,6 +73,11 @@ public class AssetLoadManager : MonoBehaviour
     public void LoadScene(string assetname, Action<UnityEngine.Object> func)
     {
         this.LoadAsset<UnityEngine.Object>("scene/" + assetname, assetname, func);
+    }
+
+    public void UnoadScene(string assetname)
+    {
+        UnloadAssetBundle("scene/" + assetname.ToLower() + AppConst.BundleExtName);
     }
 
     /// <summary>
@@ -250,6 +259,8 @@ public class AssetLoadManager : MonoBehaviour
         {
            item.Value.m_AssetBundle.Unload(false);
         });
+        _downloadedAssetBundles.Clear();
+        _dependencies.Clear();
     }
 
     /// <summary>

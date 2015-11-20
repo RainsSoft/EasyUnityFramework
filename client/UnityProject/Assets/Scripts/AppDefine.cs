@@ -5,17 +5,17 @@
 /// </summary>
 public static class AppConst
 {
-    public static string HttpServerHost = "http://0.0.0.0:0000/";
+    public static string HttpServerHost = "http://192.168.1.232:8888/";
 
     /// <summary>
     /// 服务器IP
     /// </summary>
-    public static string TcpServerIp = "0.0.0.0";
+    public static string TcpServerIp = "192.168.1.232";
 
     /// <summary>
     /// 服务器端口
     /// </summary>
-    public static int TcpServerPort = 0000;
+    public static int TcpServerPort = 8080;
 
     /// <summary>
     /// 限帧（-1： 不限制）
@@ -42,13 +42,15 @@ public static class AppConst
     /// </summary>
     public static string AssetDirName = "StreamingAssets";
 
+    public static string BundleExtName = ".unity3d";
+
     /// <summary>
     /// 约定分辨率
     /// </summary>
     public static Vector2 ReferenceResolution = new Vector2(640, 1136);
 
     public static string UserId = string.Empty;
-    public static string AppName = "Milu";
+    public static string AppName = "HDXX";
     public static string AppPrefix = AppName + "_";
 }
 
@@ -99,5 +101,7 @@ public class SceneName
 public class NoticeName
 {
     public const string Test = "General_Test";
+	public const string SkillEnable = "SkillEnable";
+	public const string BindEvent = "BindEvent";
 }
 
