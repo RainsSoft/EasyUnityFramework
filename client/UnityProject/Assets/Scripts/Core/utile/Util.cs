@@ -22,11 +22,29 @@ public class Util : MonoBehaviour
     /// <summary>
     /// 对物体的tranform归零
     /// </summary>
-    public static void ResetTransform(GameObject Obj)
+    public static void ResetTransform(GameObject obj)
     {
-        Obj.transform.localPosition = Vector3.zero;
-        Obj.transform.localScale = Vector3.one;
-        Obj.transform.localRotation = Quaternion.identity;
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localScale = Vector3.one;
+        obj.transform.localRotation = Quaternion.identity;
+       
+    }
+
+    /// <summary>
+    /// 延时功能
+    /// </summary>
+    public static void DelayCall(float rTime, UnityEngine.Events.UnityAction rFunc)
+    {
+        gate.CroutineManager.StartTask(OnDelayCall(rTime, rFunc));
+
+    }
+    /// <summary>
+    /// 回调协程
+    /// </summary>
+    private static System.Collections.IEnumerator OnDelayCall(float time, UnityEngine.Events.UnityAction rFunc)
+    {
+        yield return new WaitForSeconds(time);
+        if (rFunc != null) rFunc();
     }
 
     /// <summary>

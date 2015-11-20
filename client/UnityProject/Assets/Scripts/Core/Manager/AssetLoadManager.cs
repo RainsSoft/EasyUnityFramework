@@ -62,6 +62,7 @@ public class AssetLoadManager : MonoBehaviour
         this.LoadAsset<GameObject>("ui/"+assetname, assetname, func);
     }
 
+
     /// <summary>
     /// 调用接口 [Scene]
     /// </summary>

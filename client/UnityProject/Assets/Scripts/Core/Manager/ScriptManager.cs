@@ -63,7 +63,7 @@ public class ScriptManager : TSingleton<ScriptManager>
         }
         else
         {
-            Debug.LogError("Get CLRType failed, check full type name");
+            Debug.LogError("Get CLRType failed, check full type name:>" + rName);
             return false;
         }
     }
@@ -88,7 +88,7 @@ public class ScriptManager : TSingleton<ScriptManager>
         }
         else
         {
-            Debug.LogError("Get CLRMethod failed, check full type name and args");
+            Debug.LogError("Get CLRMethod failed, check full type name and args:>" + rTypeName);
             return false;
         }
     }
@@ -127,7 +127,7 @@ public class ScriptManager : TSingleton<ScriptManager>
 
         if (rCtor == null)
         {
-            Debug.LogError("Create Script Object failed, check full type name and param list");
+            Debug.LogError("Create Script Object failed, check full type name and param list:>" + rName);
             return null;
         }
 

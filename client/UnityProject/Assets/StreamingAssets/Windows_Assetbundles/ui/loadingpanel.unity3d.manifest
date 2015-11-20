@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 51223240
+CRC: 1012987973
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f81a6774f32bfa8a36f1ec7feeae2b01
+    Hash: 677bf8d956cef2d9c176814b54c3d1e8
   TypeTreeHash:
     serializedVersion: 2
     Hash: f1754f0e6efcb1450acc5b54102e8edc
@@ -40,4 +40,4 @@ ClassTypes:
 Assets:
 - Assets/OriginalRes/UI/LoadingPanel/LoadingPanel.prefab
 Dependencies:
-- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d
+- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d

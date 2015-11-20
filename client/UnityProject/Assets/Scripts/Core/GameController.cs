@@ -82,11 +82,11 @@ public class GameController : MonoBehaviour
     /// </summary>
     void GameStart()
     {
+
+        _scriptMainUpdate = Util.CreateScriptObject("MainUpdate");
         //启动脚本系统
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "Init");
         //inited = true;
-       // Util.CallScriptFunction(_scriptMainUpdate, "BattleManager", "Init");
-        
     }
 
     /// <summary>

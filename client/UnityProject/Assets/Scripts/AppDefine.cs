@@ -5,22 +5,22 @@
 /// </summary>
 public static class AppConst
 {
-    public static string HttpServerHost = "http://192.168.1.232:8888/";
+    public static string HttpServerHost = "http://0.0.0.0:0000/";
 
     /// <summary>
     /// 服务器IP
     /// </summary>
-    public static string TcpServerIp = "192.168.1.232";
+    public static string TcpServerIp = "0.0.0.0";
 
     /// <summary>
     /// 服务器端口
     /// </summary>
-    public static int TcpServerPort = 8080;
+    public static int TcpServerPort = 0000;
 
     /// <summary>
     /// 限帧（-1： 不限制）
     /// </summary>
-    public static int FrameRate = 30;
+    public static int FrameRate = 40;
     
     /// <summary>
     /// 垂直同步
@@ -47,9 +47,8 @@ public static class AppConst
     /// </summary>
     public static Vector2 ReferenceResolution = new Vector2(640, 1136);
 
-
     public static string UserId = string.Empty;
-    public static string AppName = "HDXX";
+    public static string AppName = "Milu";
     public static string AppPrefix = AppName + "_";
 }
 
@@ -91,7 +90,7 @@ public class SceneName
     public const string Launch = "LaunchScene";
     public const string Game = "GameScene";
     public const string Test = "TestScene";
-    public const string Fight = "fight";
+    public const string Battle = "BattleScene";
 }
 
 /// <summary>

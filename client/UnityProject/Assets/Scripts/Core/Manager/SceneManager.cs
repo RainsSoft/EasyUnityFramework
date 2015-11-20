@@ -11,7 +11,9 @@ public class SceneManager : MonoBehaviour
     public bool IsLoading { get; set; }
 
     const string logicName = "LoadingLogic";
-    const string callFuncName = "SetProgressbar";
+    const string callSetTips = "SetProgressbarTips";
+    const string callSetValue = "SetProgressbarValue";
+
 
     public void EnterScene(string sceneName, UnityEngine.Events.UnityAction rFunc)
     {
@@ -42,15 +44,17 @@ public class SceneManager : MonoBehaviour
         }
 
         if (String.IsNullOrEmpty(loadSceneName)) yield break;
-
+        this.StartCoroutine(LoadSceneInternal(rPanel));
+        /*
         gate.AssetLoadManager.LoadScene(loadSceneName, (scene) =>
         {
             var temp = scene;
             this.StartCoroutine(LoadSceneInternal(rPanel));
         });
+        */
     }
 
-    IEnumerator LoadSceneInternal(UIPanel rPanel)
+    IEnumerator InitSceneInternal(UIPanel rPanel)
     {
         //加载场景
         int rDisplayProgress = 0;
@@ -64,7 +68,7 @@ public class SceneManager : MonoBehaviour
             while (rDisplayProgress < progress)
             {
                 ++rDisplayProgress;
-                Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callFuncName, rDisplayProgress);
+                Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
                 yield return new WaitForEndOfFrame();
             }
             yield return null;
@@ -76,7 +80,44 @@ public class SceneManager : MonoBehaviour
         {
 
             ++rDisplayProgress;
-            Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callFuncName, rDisplayProgress);
+            Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
+            yield return new WaitForEndOfFrame();
+
+        }
+        async.allowSceneActivation = true;
+        LoadSceneComplete();
+        IsLoading = false;
+    }
+
+
+    IEnumerator LoadSceneInternal(UIPanel rPanel)
+    {
+        //加载场景
+        int rDisplayProgress = 0;
+        Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetTips, "Loading Scene ...");
+        async = Application.LoadLevelAsync(loadSceneName);
+        IsLoading = true;
+        async.allowSceneActivation = false;
+
+        while (async.progress < 0.9f)
+        {
+            progress = (int)async.progress * 100;
+            while (rDisplayProgress < progress)
+            {
+                ++rDisplayProgress;
+                Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
+                yield return new WaitForEndOfFrame();
+            }
+            yield return null;
+        }
+
+        progress = 100;
+
+        while (rDisplayProgress < progress)
+        {
+
+            ++rDisplayProgress;
+            Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
             yield return new WaitForEndOfFrame();
 
         }

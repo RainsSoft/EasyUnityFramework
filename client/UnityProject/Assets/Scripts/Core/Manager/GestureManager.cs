@@ -81,7 +81,6 @@ public class GestureManager : MonoBehaviour
         if (Input.touchCount <= 0) return;
         var touch = Input.GetTouch(0);
         var pos = new Vector2(touch.position.x, touch.position.y);
-        DebugConsole.Log(pos);
         switch (touch.phase)
         {
             case TouchPhase.Began:

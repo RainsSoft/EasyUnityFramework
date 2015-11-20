@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4071244045
+CRC: 3072991322
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c6e9b540896f8552e21014418f8fdad8
+    Hash: 7c540625f69d5191d588767b2c77131b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 00ffc586b3c4c12c72c7fed589b81235
@@ -27,20 +27,30 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/mask0.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/Turnable_baize.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/Turnable_deathFire.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/FightUI_SkillDisc_canUse.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_mask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tooltip.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_qilinzhanshi_1.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_mask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/scrollbar_handle.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/FightUI_SkillDisc_NoCan.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/spinner_down.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/Flags/de.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_icon.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/input_input.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/Turnable_qilinzhanshi.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/button_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/ui_wating.tga
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_qilinzhanshi_0.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/input_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_baize_1.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_baize_0.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_mask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_input.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_background.png
@@ -48,9 +58,12 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/button_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_pixiu_1.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/Flags/ch.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_selected.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/Turnable_pixiu.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_02.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/SkillDisc_pixiu_0.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/Flags/uk.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/Flags/ko.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/listview_hover.png
@@ -58,6 +71,7 @@ Assets:
 - Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_texture.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/dialog_border.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_01.png
+- Assets/OriginalRes/UI/Common/Texture/Icon/HeadMask.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/Flags/jp.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/canvas_background.png
 - Assets/OriginalRes/UI/Common/Texture/Sample/button_mask.png

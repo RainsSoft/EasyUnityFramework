@@ -7,10 +7,15 @@ namespace HotFixCode
     {
         LoadingPanel panel;
 
-        void SetProgressbar(int progress)
+        void SetProgressbarValue(int rProgress)
         {
             if (panel.progressbar == null) return;
-            panel.progressbar.Value = progress;
+            panel.progressbar.Value = rProgress;
+        }
+        void SetProgressbarTips(string rText)
+        {
+            if (panel.textTips == null) return;
+            panel.textTips.text = rText;
         }
 
         protected override void Startup(RectTransform parent)
