@@ -17,6 +17,75 @@ public class AssetBundleInfo
 
 public class AssetLoadManager : MonoBehaviour
 {
+
+    #region 调用接口
+    /// <summary>
+    /// 调用接口 [Manifest]
+    /// </summary>
+    public void LoadManifest(string manifestName, Action func)
+    {
+        this.StartCoroutine(OnLoadManifest(manifestName, func));
+    }
+
+    /// <summary>
+    /// 调用接口 [GUI]
+    /// </summary>
+    public void LoadUIPanel(string assetname, Action<GameObject> func)
+    {
+        this.LoadAsset<GameObject>("ui/" + assetname, assetname, func);
+    }
+    public void UnloadUIPanel(string assetname)
+    {
+        UnloadAssetBundle("ui/" + assetname.ToLower() + AppConst.BundleExtName);
+    }
+
+    /// <summary>
+    /// 调用角色 [Character]
+    /// </summary>
+    public void LoadCharacter(string rCharaName, Action<GameObject> func)
+    {
+        this.LoadAsset<GameObject>(string.Format("Character/{0}", rCharaName), string.Format("Chara_{0}", rCharaName), func);
+    }
+    public void UnloadCharacter(string rCharaName)
+    {
+        if (!rCharaName.StartsWith("Chara_"))
+        {
+            return;
+        }
+
+        if (rCharaName.Contains("_"))
+        {
+            rCharaName = rCharaName.Split('_')[1];
+        }
+        UnloadAssetBundle("Character/" + rCharaName.ToLower() + AppConst.BundleExtName);
+    }
+
+    /// <summary>
+    /// 调用角色特效 [CharacterEffect] //TODO
+    /// </summary>
+    public void LoadCharacterEffect(string rCharaName, string rEffectName, Action<GameObject> func)
+    {
+        this.LoadAsset<GameObject>("Character/" + rCharaName, rEffectName, func);
+    }
+    public void UnloadCharacterEffect(string rCharaName)
+    {
+        UnloadAssetBundle("Character/" + rCharaName.ToLower() + AppConst.BundleExtName);
+    }
+
+    /// <summary>
+    /// 调用接口 [Scene]
+    /// </summary>
+    public void LoadScene(string assetname, Action<UnityEngine.Object> func)
+    {
+        this.LoadAsset<UnityEngine.Object>("scene/" + assetname, assetname, func);
+    }
+    public void UnoadScene(string assetname)
+    {
+        UnloadAssetBundle("scene/" + assetname.ToLower() + AppConst.BundleExtName);
+    }
+    #endregion 
+
+
     string _downloadingURL = "";
     string[] _variants = { };
     AssetBundleManifest _assetBundleManifest = null;
@@ -41,44 +110,11 @@ public class AssetLoadManager : MonoBehaviour
 
     public AssetBundleManifest AssetBundleManifest
     {
+
         set { _assetBundleManifest = value; }
     }
 
     public void Initialize() { }
-
-    /// <summary>
-    /// 调用接口 [Manifest]
-    /// </summary>
-    public void LoadManifest(string manifestName, Action func)
-    {
-        this.StartCoroutine(OnLoadManifest(manifestName, func));
-    }
-
-    /// <summary>
-    /// 调用接口 [GUI]
-    /// </summary>
-    public void LoadUIPanel(string assetname, Action<GameObject> func)
-    {
-        this.LoadAsset<GameObject>("ui/"+assetname, assetname, func);
-    }
-
-    public void UnloadUIPanel(string assetname)
-    {
-        UnloadAssetBundle("ui/" + assetname.ToLower() + AppConst.BundleExtName);
-    }
-
-    /// <summary>
-    /// 调用接口 [Scene]
-    /// </summary>
-    public void LoadScene(string assetname, Action<UnityEngine.Object> func)
-    {
-        this.LoadAsset<UnityEngine.Object>("scene/" + assetname, assetname, func);
-    }
-
-    public void UnoadScene(string assetname)
-    {
-        UnloadAssetBundle("scene/" + assetname.ToLower() + AppConst.BundleExtName);
-    }
 
     /// <summary>
     /// 调用接口 [泛型]
@@ -319,8 +355,11 @@ public class AssetLoadManager : MonoBehaviour
 
             if (download.error != null)
             {
-                _downloadingErrors.Add(keyValue.Key, download.error);
-                keysToRemove.Add(keyValue.Key);
+                if (!_downloadingErrors.ContainsKey(keyValue.Key))
+                {
+                    _downloadingErrors.Add(keyValue.Key, download.error);
+                    keysToRemove.Add(keyValue.Key);
+                }
                 continue;
             }
 

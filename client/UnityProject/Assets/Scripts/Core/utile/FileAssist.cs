@@ -17,7 +17,7 @@ public static class FileAssist
         }
         else
         {
-            DebugConsole.LogError("CreateFolder failed: folder is exists");
+            Debug.LogError("CreateFolder failed: folder is exists");
             return null;
         }
     }
@@ -33,7 +33,7 @@ public static class FileAssist
         }
         else
         {
-            DebugConsole.LogError("CreateFile failed: File is exists");
+            Debug.LogError("CreateFile failed: File is exists");
             return null;
         }
     }
@@ -67,15 +67,15 @@ public static class FileAssist
     /// <summary>
     /// 读文件
     /// </summary>
-    public static string ReadFile(string pathName,string filenme)
+    public static string ReadFile(string pathName, string filenme)
     {
         if (!Directory.Exists(pathName + filenme))
         {
-            DebugConsole.LogError("this Path is not exists");
+            Debug.LogError("this Path is not exists");
         }
         if (!File.Exists(pathName + filenme))
         {
-            DebugConsole.LogError("ReadFile failed: File is not exists:" + pathName + filenme);            
+            Debug.LogError("ReadFile failed: File is not exists:" + pathName + filenme);            
             return null;
         }  
         using (StreamReader sr = File.OpenText(pathName + filenme))
@@ -92,11 +92,11 @@ public static class FileAssist
     {
         if (!Directory.Exists(pathName))
         {
-            DebugConsole.LogError("this Path is not exists");
+            Debug.LogError("this Path is not exists");
         }
         if (!File.Exists(pathName))
         {
-            DebugConsole.LogError("ReadFile failed: File is not exists:" + pathName);
+            Debug.LogError("ReadFile failed: File is not exists:" + pathName);
             return null;
         }
         using (StreamReader sr = File.OpenText(pathName))
@@ -163,7 +163,7 @@ public static class FileAssist
         }
         else
         {
-            DebugConsole.LogError("DeleteFile failed: File is not exists");
+            Debug.LogError("DeleteFile failed: File is not exists");
             return false;
         }
     }

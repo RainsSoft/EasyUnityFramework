@@ -89,7 +89,7 @@ public static class AppPlatform
         }
     }
 
-    public static string GetBundleDirName()
+    public static string GetAssetBundleDirName()
     {
         string str = string.Empty;
         int index = (int)AppPlatform.PlatformCurrent;
@@ -97,10 +97,24 @@ public static class AppPlatform
         return str;
     }
 
-    public static string GetBundleDirUrl()
+    public static string GetAssetBundleDirUrl()
     {
         int index = (int)AppPlatform.PlatformCurrent;
-        return AppPlatform.PlatformPathPrefixs[index] + RuntimeAssetsPath + GetBundleDirName() + "/";
+        return AppPlatform.PlatformPathPrefixs[index] + RuntimeAssetsPath + GetAssetBundleDirName() + "/";
+    }
+
+    public static string GetSceneBundleDirName()
+    {
+        string str = string.Empty;
+        int index = (int)AppPlatform.PlatformCurrent;
+        str = string.Format("{0}{1}", AppPlatform.PlatformNames[index], "_Scenebundles");
+        return str;
+    }
+
+    public static string GetSceneBundleDirUrl()
+    {
+        int index = (int)AppPlatform.PlatformCurrent;
+        return AppPlatform.PlatformPathPrefixs[index] + RuntimeAssetsPath + GetSceneBundleDirName() + "/";
     }
 
     public static void Initialize()

@@ -24,5 +24,5 @@ public class BundleInfo
 [System.Serializable] 
 public class AssetPackageConfig
 {
-    public BundleInfo[] bundlesInfo;
+    public BundleInfo[] bundles;
 }

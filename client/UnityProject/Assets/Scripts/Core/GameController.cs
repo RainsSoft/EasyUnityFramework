@@ -66,9 +66,9 @@ public class GameController : MonoBehaviour
     public void LoadAssetbundleManifest()
     {
         var tempManager = gate.AssetLoadManager;
-        string bundlName = AppPlatform.GetBundleDirName();
+        string bundlName = AppPlatform.GetAssetBundleDirName();
 
-        tempManager.DownloadingURL = AppPlatform.GetBundleDirUrl();
+        tempManager.DownloadingURL = AppPlatform.GetAssetBundleDirUrl();
         Debug.Log("[AssetBundleDictionaryUrl]:" + tempManager.DownloadingURL);
         tempManager.LoadManifest(bundlName, () =>
         {

@@ -8,6 +8,8 @@ public class SceneManager : MonoBehaviour
     UnityEngine.Events.UnityAction onLoadComplete = null;
     AsyncOperation async = null;
 
+    AssetBundle sceneBundle = null;
+
     public bool IsLoading { get; set; }
 
     const string logicName = "LoadingLogic";
@@ -22,6 +24,7 @@ public class SceneManager : MonoBehaviour
         onLoadComplete = rFunc;
         LoadScene();
     }
+
     void LoadScene()
     {
         StartCoroutine(LoadSceneBundle());
@@ -34,7 +37,6 @@ public class SceneManager : MonoBehaviour
         //检查Loading UI 
         while (true)
         {
-
             if (rPanel != null &&
                 rPanel.LogicName == logicName &&
                 rPanel.IsCreated == true)
@@ -44,57 +46,31 @@ public class SceneManager : MonoBehaviour
         }
 
         if (String.IsNullOrEmpty(loadSceneName)) yield break;
+
+        var rUrl = AppPlatform.GetSceneBundleDirUrl() + loadSceneName.ToLower() + ".unity3d";
+        Debug.Log("[[DownloadSceneBundle]:>]" + rUrl);
+
+        var download = WWW.LoadFromCacheOrDownload(rUrl, 0);
+        yield return download;
+
+        if (download.error != null)
+        {
+            Debug.LogError(download.error);
+            yield break;
+        }
+
+        sceneBundle = download.assetBundle;
+
         this.StartCoroutine(LoadSceneInternal(rPanel));
-        /*
-        gate.AssetLoadManager.LoadScene(loadSceneName, (scene) =>
-        {
-            var temp = scene;
-            this.StartCoroutine(LoadSceneInternal(rPanel));
-        });
-        */
     }
-
-    IEnumerator InitSceneInternal(UIPanel rPanel)
-    {
-        //加载场景
-        int rDisplayProgress = 0;
-        async = Application.LoadLevelAsync(loadSceneName);
-        IsLoading = true;
-
-        async.allowSceneActivation = false;
-        while (async.progress < 0.9f)
-        {
-            progress = (int)async.progress * 100;
-            while (rDisplayProgress < progress)
-            {
-                ++rDisplayProgress;
-                Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
-                yield return new WaitForEndOfFrame();
-            }
-            yield return null;
-        }
-
-        progress = 100;
-
-        while (rDisplayProgress < progress)
-        {
-
-            ++rDisplayProgress;
-            Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
-            yield return new WaitForEndOfFrame();
-
-        }
-        async.allowSceneActivation = true;
-        LoadSceneComplete();
-        IsLoading = false;
-    }
-
 
     IEnumerator LoadSceneInternal(UIPanel rPanel)
     {
-        //加载场景
         int rDisplayProgress = 0;
+        //加载场景
         Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetTips, "Loading Scene ...");
+        Util.CallScriptFunction(rPanel.LogicObject, rPanel.LogicName, callSetValue, rDisplayProgress);
+
         async = Application.LoadLevelAsync(loadSceneName);
         IsLoading = true;
         async.allowSceneActivation = false;
@@ -130,6 +106,7 @@ public class SceneManager : MonoBehaviour
     {
         Util.ClearUICache();
         Util.ClearMemory();
+        sceneBundle.Unload(false);
 
         // 加载完成
         if (onLoadComplete != null)

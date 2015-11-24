@@ -38,4 +38,4 @@ ClassTypes:
 Assets:
 - Assets/OriginalRes/UI/SampleTwoPanel/SampleTwoPanel.prefab
 Dependencies:
-- D:/hdxx_main/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d
+- D:/Milu/client/UnityProject/Assets/StreamingAssets/Windows_Assetbundles/ui/common.unity3d

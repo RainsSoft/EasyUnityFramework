@@ -1,5 +1,5 @@
 {
-	"bundlesInfo": [
+	"bundles": [
 	{
 		"name": "character",
 		"variant": "unity3d",
@@ -17,18 +17,6 @@
 		"variant": "unity3d",
 		"assetPath": "Assets/OriginalRes/Front",
 		"packageType": "Dir"
-	},
-	{
-		"name": "mappart",
-		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/MapPart",
-		"packageType": "Dir_Dir"
-	},
-	{
-		"name": "scene",
-		"variant": "unity3d",
-		"assetPath": "Assets/OriginalRes/Scene",
-		"packageType": "Dir_File"
 	},
 	{
 		"name": "shader",

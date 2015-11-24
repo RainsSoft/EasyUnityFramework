@@ -23,8 +23,6 @@ using System;
 ///     例如: list<object> 正常使用
 ///           List<自定义类>尽量不要使用
 ///           如果实在有需求 就在原生代码里自行装箱一个object传到脚本中再自己拆箱，
-/// 
-/// (没有说三遍，不要以为这些不重要啊...魂淡)
 /// </summary>
 
 public class ScriptBehaviour : MonoBehaviour

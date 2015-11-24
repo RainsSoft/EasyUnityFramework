@@ -7,7 +7,7 @@ using System.IO;
 public class GeneratorResourceTable
 {
 
-    [MenuItem("Tools/GeneratorResourceFileList")]
+    [MenuItem("Tools/PackageTool/GeneratorResourceFileList", priority = 0)]
     public static void GeneratorResourceFileList()
     {
         var rAssetsPath = AppPlatform.AssetsPath;

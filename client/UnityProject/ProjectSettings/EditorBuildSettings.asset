@@ -8,4 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/LaunchScene.unity
   - enabled: 1
-    path: Assets/OriginalRes/Scene/TestScene.unity
+    path: Assets/Art/Scene/TestScene.unity

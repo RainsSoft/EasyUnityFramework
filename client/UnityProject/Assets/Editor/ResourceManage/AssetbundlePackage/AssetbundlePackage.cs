@@ -4,90 +4,50 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-public class AssetbundlePackage : TSingleton<AssetbundlePackage>
+public class AssetbundlePackage 
 {
-
-    string ABConfigPath = "Editor/ResourceManage/AssetbundlePackage/AssetPackageConfig";
-
-    private enum BuildPlatform
-    {
-        Windows = BuildTarget.StandaloneWindows,        //Windows
-        OSX     = BuildTarget.StandaloneOSXIntel,       //OSX
-        IOS     = BuildTarget.iOS,                      //IOS
-        Android = BuildTarget.Android,                  //Android
-    };
-
-    private BuildPlatform packagePlatform = BuildPlatform.Windows;
-
-    private AssetbundlePackage()
-    {
-        packagePlatform = (BuildPlatform)EditorUserBuildSettings.activeBuildTarget;
-    }
-
-    [MenuItem("Tools/BuildAssetbundleWindows")]
+    [MenuItem("Tools/PackageTool/BuildAssetWindows")]
     public static void BuildAssetbundleWindows()
     {
-        AssetbundlePackage.Instance.BuildAssetbundlesSpecify(BuildPlatform.Windows);
+        BuildAssetbundlesSpecify(PackagePlatform.BuildPlatform.Windows);
     }
 
-    [MenuItem("Tools/BuildAssetbundleIphone")]
-    public static void BuildAssetbundleIphone()
+    [MenuItem("Tools/PackageTool/BuildAssetIOS")]
+    public static void BuildAssetbundleIOS()
     {
-        AssetbundlePackage.Instance.BuildAssetbundlesSpecify(BuildPlatform.IOS);
+        BuildAssetbundlesSpecify(PackagePlatform.BuildPlatform.IOS);
     }
 
-    [MenuItem("Tools/BuildAssetbundleAndroid")]
+    [MenuItem("Tools/PackageTool/BuildAssetAndroid")]
     public static void BuildAssetbundleAndroid()
     {
-        AssetbundlePackage.Instance.BuildAssetbundlesSpecify(BuildPlatform.Android);
+        BuildAssetbundlesSpecify(PackagePlatform.BuildPlatform.Android);
     }
 
-    private void BuildAssetbundlesSpecify(BuildPlatform platform)
+    static void BuildAssetbundlesSpecify(PackagePlatform.BuildPlatform rBuildPlatform)
     {
-        packagePlatform = platform;
+
+        PackagePlatform.Instance.platformCurrent = rBuildPlatform;
+
         List<AssetBundleBuild> abbList = GeneratorAssetbundleEntry();
 
-        string abPath = GetAssetbundlesPath();
-        DirectoryInfo dirInfo = new DirectoryInfo(abPath);
-        if (!dirInfo.Exists) dirInfo.Create();
+        string rPath = PackagePlatform.Instance.GetAssetBundlesPath();
+        if (Directory.Exists(rPath) == false)
+            Directory.CreateDirectory(rPath);
 
-        BuildPipeline.BuildAssetBundles(abPath, abbList.ToArray(), BuildAssetBundleOptions.None, GetBuildTarget());
+        BuildPipeline.BuildAssetBundles(rPath, abbList.ToArray(), BuildAssetBundleOptions.None, PackagePlatform.Instance.GetBuildTarget());
     }
 
-    private BuildTarget GetBuildTarget()
-    {
-        switch (packagePlatform)
-        {
-            case BuildPlatform.IOS:
-            return BuildTarget.iOS;
-
-            case BuildPlatform.Android:
-            return BuildTarget.Android;
-
-            case BuildPlatform.Windows:
-            return BuildTarget.StandaloneWindows64;
-
-            case BuildPlatform.OSX:
-            return BuildTarget.StandaloneOSXIntel64;
-        }
-        return BuildTarget.StandaloneWindows64;
-    }
-
-    private string GetAssetbundlesPath()
-    {
-        return Path.Combine(Application.dataPath + "/" + AppConst.AssetDirName + "/", packagePlatform.ToString()) + "_Assetbundles";
-    }
-
-    private List<AssetBundleBuild> GeneratorAssetbundleEntry()
+    static List<AssetBundleBuild> GeneratorAssetbundleEntry()
     {
        
-        string path = Application.dataPath + "/" + ABConfigPath + ".txt";
+        string path = Application.dataPath + "/" + PackagePlatform.ABConfigPath + ".txt";
         string str = File.ReadAllText(path);
         
         Dict<string, ABEntry> abEntries = new Dict<string, ABEntry>();
         AssetPackageConfig apc = JsonReader.Deserialize<AssetPackageConfig>(str);
 
-        BundleInfo[] bundlesInfo = apc.bundlesInfo;
+        BundleInfo[] bundlesInfo = apc.bundles;
 
         for (int i = 0; i < bundlesInfo.Length; i++)
         {
