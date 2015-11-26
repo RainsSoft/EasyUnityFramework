@@ -4,27 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 
-/// <summary>
-/// <脚本程序重要备注>
-/// 1.请勿在脚本程序中直接继承宿主程序的类, 除非被注册为CrossBind
-/// 2.脚本程序专门处理UI层的逻辑，不参与游戏底层编写
-/// 3.脚本程序中不可使用类型System.Action。
-///     问题进展：目前此问题无解..  如需使用, 请用其他类型代替，如 UnityAction
-///     原因：无法获取到System.Core.dll下的 System.Action, System.Action类型与泛型版本不在一个程序集，编译dll的引用和unity实际的不同
-/// 4.在脚本中使用协程，请使用 gate.CroutineManager.StartTask（）函数
-/// 5.如在宿主程序中需要与脚本程序通信， 所有字符串形式的方法名，类型名等，记得存为常量（const string）使用，不要直接使用字符串
-/// 6.脚本程序的类型不是真正的C#类型
-/// 7.TryGetValue 之类的 out 关键字可能不能使用
-/// 8.序列化与反序列化不行
-/// 9.不要在L#中定义模板代码
-/// 10.基类方法，字段，如果未覆盖在子类，则获取不到
-/// 11.Lambda慎用， Delegate 慎用
-/// 12.脚本里尽量不要使用有复杂泛型参数的类，简单的object没事
-///     例如: list<object> 正常使用
-///           List<自定义类>尽量不要使用
-///           如果实在有需求 就在原生代码里自行装箱一个object传到脚本中再自己拆箱，
-/// </summary>
-
 public class ScriptBehaviour : MonoBehaviour
 {
     public object _scriptObject;

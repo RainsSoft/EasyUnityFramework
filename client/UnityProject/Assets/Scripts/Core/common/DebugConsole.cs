@@ -268,9 +268,6 @@ public class DebugConsole : MonoBehaviour
             isOpenLogView = false;
         }
 
-        if (Input.touchCount > 0)
-        Debug.Log(Input.touchCount);
-
         labelStyle = GUI.skin.label;
         GUI.skin.label.fontSize = 20;
 
