@@ -8,7 +8,7 @@ using System;
 /// <脚本程序重要备注>
 /// 1.请勿在脚本程序中直接继承宿主程序的类, 除非被注册为CrossBind
 /// 2.脚本程序专门处理UI层的逻辑，不参与游戏底层编写
-/// 3.脚本程序中不可使用类型System.Action。 But 泛型版本可以使用。
+/// 3.脚本程序中不可使用类型System.Action。
 ///     问题进展：目前此问题无解..  如需使用, 请用其他类型代替，如 UnityAction
 ///     原因：无法获取到System.Core.dll下的 System.Action, System.Action类型与泛型版本不在一个程序集，编译dll的引用和unity实际的不同
 /// 4.在脚本中使用协程，请使用 gate.CroutineManager.StartTask（）函数

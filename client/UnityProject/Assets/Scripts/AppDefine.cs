@@ -5,17 +5,17 @@
 /// </summary>
 public static class AppConst
 {
-    public static string HttpServerHost = "http://192.168.1.232:8888/";
+    public static string HttpServerHost = "http://000.000.0.000:0000/";
 
     /// <summary>
     /// 服务器IP
     /// </summary>
-    public static string TcpServerIp = "192.168.1.232";
+    public static string TcpServerIp = "000.000.0.000";
 
     /// <summary>
     /// 服务器端口
     /// </summary>
-    public static int TcpServerPort = 8080;
+    public static int TcpServerPort = 0000;
 
     /// <summary>
     /// 限帧（-1： 不限制）
@@ -50,7 +50,7 @@ public static class AppConst
     public static Vector2 ReferenceResolution = new Vector2(640, 1136);
 
     public static string UserId = string.Empty;
-    public static string AppName = "HDXX";
+    public static string AppName = "EasyUnityFramework";
     public static string AppPrefix = AppName + "_";
 }
 
@@ -90,9 +90,7 @@ public class TemplateName
 public class SceneName
 {
     public const string Launch = "LaunchScene";
-    public const string Game = "GameScene";
     public const string Test = "TestScene";
-    public const string Battle = "BattleScene";
 }
 
 /// <summary>
@@ -101,7 +99,5 @@ public class SceneName
 public class NoticeName
 {
     public const string Test = "General_Test";
-	public const string SkillEnable = "SkillEnable";
-	public const string BindEvent = "BindEvent";
 }
 
