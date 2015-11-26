@@ -94,10 +94,10 @@ public class GameController : MonoBehaviour
     /// </summary>
     void GameEnd()
     {
-
         Util.CallScriptFunction(_scriptMainUpdate, "MainUpdate", "End");
         _scriptMainUpdate = null;
         gate.AssetLoadManager.UnloadAssetBundles();
+        //Caching.CleanCache();
         Util.ClearMemory();
         DebugConsole.Log("[APP UnloadAssetBundles complete]");
     }

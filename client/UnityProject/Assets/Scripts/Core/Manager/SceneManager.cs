@@ -48,9 +48,9 @@ public class SceneManager : MonoBehaviour
         if (String.IsNullOrEmpty(loadSceneName)) yield break;
 
         var rUrl = AppPlatform.GetSceneBundleDirUrl() + loadSceneName.ToLower() + ".unity3d";
-        Debug.Log("[[DownloadSceneBundle]:>]" + rUrl);
+        Debug.Log("[DownloadSceneBundle]:>" + rUrl);
 
-        var download = WWW.LoadFromCacheOrDownload(rUrl, 0);
+        var download = new WWW(rUrl);
         yield return download;
 
         if (download.error != null)

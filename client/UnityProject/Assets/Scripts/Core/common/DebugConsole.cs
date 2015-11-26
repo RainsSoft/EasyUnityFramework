@@ -179,13 +179,6 @@ public class DebugConsole : MonoBehaviour
     public static KeyCode toggleKey = KeyCode.Tab;
     public bool IsDebug = true;
 
-    public static bool IsOpen
-    {
-        get { return DebugConsole.Instance._isOpen; }
-        set { DebugConsole.Instance._isOpen = value; }
-    }
-
-
     Dict<string, DebugCommand> _cmdTable = new Dict<string, DebugCommand>();
     Dict<string, string> _cmdTableDiscribes = new Dict<string, string>(); //cmd的注释
     string _inputString = string.Empty;
@@ -195,7 +188,12 @@ public class DebugConsole : MonoBehaviour
 
     Vector2 _logScrollPos = Vector2.zero;
     Vector2 _rawLogScrollPos = Vector2.zero;
-    public bool _isOpen;
+
+
+
+    bool isOpenLogView;
+    public bool isOpenBriefView;
+
 
     StringBuilder _displayString = new StringBuilder();
 
@@ -204,10 +202,10 @@ public class DebugConsole : MonoBehaviour
     bool dirty;
 
     #region GUI position values
-    Rect scrollRect = new Rect(10, 20, 380, 200);
-    Rect inputRect = new Rect(10, 220, 380, 24);
-    Rect enterButtonRect = new Rect(465, 260, 100, 35);
-    Rect messageLine = new Rect(4, 0, 564, 20);
+    Rect logViewRect = new Rect(0, 0, Screen.width, Screen.height);
+    Rect cmdViewRect = new Rect(10, Screen.height - 40, 330, 30);
+    Rect enterButtonRect = new Rect(350, Screen.height - 40, 50, 30);
+    Rect messageLine = new Rect(10, 0, Screen.width - 20, 20);
     int lineOffset = -4;
 
     Rect innerRect = new Rect(0, 0, 0, 0);
@@ -243,10 +241,9 @@ public class DebugConsole : MonoBehaviour
 
         LogMessage(Message.System("输入 '/?' 显示帮助"));
 
-        this.RegisterCommandCallback("close", CMDClose, "关闭调试窗口");
-        this.RegisterCommandCallback("clear", CMDClear, "清除调试信息");
-        this.RegisterCommandCallback("sys", CMDSystemInfo, "显示系统信息");
-        this.RegisterCommandCallback("/?", CMDHelp, "显示可用命令");
+        this.RegisterCommandCallback("clear", CMD_Clear, "清除调试信息");
+        this.RegisterCommandCallback("sys", CMD_SystemInfo, "显示系统信息");
+        this.RegisterCommandCallback("/?", CMD_Help, "显示可用命令");
     }
 
     void OnGUI()
@@ -258,22 +255,32 @@ public class DebugConsole : MonoBehaviour
 
         if (Event.current.keyCode == toggleKey && Event.current.type == EventType.KeyUp)
         {
-            _isOpen = !_isOpen;
+            isOpenLogView = !isOpenLogView;
         }
-         
+
+        if (Input.touchCount == 2)
+        {
+            isOpenLogView = true;
+        }
+
         if (Input.touchCount == 3)
-            _isOpen = !_isOpen;
+        {
+            isOpenLogView = false;
+        }
 
-
-        if (!_isOpen)
-            return;
+        if (Input.touchCount > 0)
+        Debug.Log(Input.touchCount);
 
         labelStyle = GUI.skin.label;
+        GUI.skin.label.fontSize = 20;
 
         innerRect.width = messageLine.width;
 
-        _windowRect = GUI.Window(-1111, _windowRect, LogWindow, string.Format("Debug Console /t fps: {0:00.0}", fps.current));
-        GUI.BringWindowToFront(-1111);
+        if(isOpenBriefView)
+            OnBriefView();
+
+        if(isOpenLogView)
+            OnLogView();
     }
 
     void OnDestroy()
@@ -339,21 +346,14 @@ public class DebugConsole : MonoBehaviour
 
     #region Console commands
 
-    object CMDClose(params string[] args)
-    {
-        _isOpen = false;
-
-        return "closed";
-    }
-
-    object CMDClear(params string[] args)
+    object CMD_Clear(params string[] args)
     {
         this.ClearLog();
 
         return "clear";
     }
 
-    object CMDHelp(params string[] args)
+    object CMD_Help(params string[] args)
     {
         var output = new StringBuilder();
 
@@ -369,10 +369,11 @@ public class DebugConsole : MonoBehaviour
         return output.ToString();
     }
 
-    object CMDSystemInfo(params string[] args)
+    object CMD_SystemInfo(params string[] args)
     {
         var info = new StringBuilder();
 
+        info.AppendLine("[Base Info]");
         info.AppendLine("Unity Ver: " + Application.unityVersion);
         info.AppendLine("Platform: " + Application.platform);
         info.AppendLine("Language: " + Application.systemLanguage);
@@ -380,15 +381,20 @@ public class DebugConsole : MonoBehaviour
         info.AppendLine("Data Path: " + Application.dataPath); 
         info.AppendLine("Persistent Path: " + Application.persistentDataPath);
 
-        info.AppendLine("SystemMemorySize: " + SystemInfo.systemMemorySize);
+        info.AppendLine("[Application Info]");
+        info.AppendLine("RuntimeData Path: " + AppPlatform.RuntimeAssetsPath);
+
+        info.AppendLine("[System Info]");
+        info.AppendLine("SystemMemorySize(MB): " + SystemInfo.systemMemorySize);
         info.AppendLine("DeviceModel: " + SystemInfo.deviceModel);
         info.AppendLine("DeviceType: " + SystemInfo.deviceType);
         info.AppendLine("GraphicsDeviceName: " + SystemInfo.graphicsDeviceName);
-        info.AppendLine("GraphicsMemorySize: " + SystemInfo.graphicsMemorySize);
+        info.AppendLine("GraphicsMemorySize(MB): " + SystemInfo.graphicsMemorySize);
         info.AppendLine("GraphicsShaderLevel: " + SystemInfo.graphicsShaderLevel);
         info.AppendLine("MaxTextureSize: " + SystemInfo.maxTextureSize);
         info.AppendLine("OperatingSystem: " + SystemInfo.operatingSystem);
         info.AppendLine("ProcessorCount: " + SystemInfo.processorCount); 
+
 
         info.AppendLine("Profiler.enabled = : " + Profiler.enabled.ToString());
  
@@ -403,9 +409,9 @@ public class DebugConsole : MonoBehaviour
 
     #region GUI Window Methods
 
-    void DrawBottomControls()
+    void OnCMDView()
     {
-        _inputString = GUI.TextField(inputRect, _inputString);
+        _inputString = GUI.TextField(cmdViewRect, _inputString);
 
         if (GUI.Button(enterButtonRect, "Enter"))
         {
@@ -414,12 +420,13 @@ public class DebugConsole : MonoBehaviour
         }
     }
 
-    void LogWindow(int windowID)
+    void OnLogView()
     {
-        GUI.Box(scrollRect, string.Empty);
-        innerRect.height = innerHeight < scrollRect.height ? scrollRect.height : innerHeight;
-        _logScrollPos = GUI.BeginScrollView(scrollRect, _logScrollPos, innerRect, false, true);
-
+        GUI.backgroundColor = Color.black;
+        GUI.Box(logViewRect, "Console");
+        innerRect.height = innerHeight < logViewRect.height ? logViewRect.height : innerHeight;
+        _logScrollPos = GUI.BeginScrollView(logViewRect, _logScrollPos, innerRect, false, false);
+       
         if (_messages != null || _messages.Count > 0)
         {
             Color oldColor = GUI.contentColor;
@@ -437,15 +444,37 @@ public class DebugConsole : MonoBehaviour
 
                 messageLine.y += (messageLine.height + lineOffset);
 
-                innerHeight = messageLine.y > scrollRect.height ? (int)messageLine.y : (int)scrollRect.height;
+                innerHeight = messageLine.y > logViewRect.height ? (int)messageLine.y : (int)logViewRect.height;
             }
             GUI.contentColor = oldColor;
         }
-
         GUI.EndScrollView();
+        OnCMDView();
+    }
 
-        DrawBottomControls();
-        GUI.DragWindow();
+    void OnBriefView()
+    {
+        if (isOpenLogView) return;
+        var lineRect = new Rect(4, 0, 300, 30);
+
+        var rTemp = GUI.contentColor;
+        GUI.contentColor = systemColor;
+
+        GUI.Label(lineRect, "[Runtime Brief]");
+        lineRect.y += (lineRect.height + lineOffset);
+
+        GUI.Label(lineRect, string.Format("FPS : {0:00.0}", fps.current));
+        lineRect.y += (lineRect.height + lineOffset);
+
+        GUI.Label(lineRect, string.Format("Used Memory : {0}", Util.GetReadableByteSize((double)Profiler.usedHeapSize)));
+        lineRect.y += (lineRect.height + lineOffset);
+
+        GUI.Label(lineRect, string.Format("Managed Used Size : {0}", Util.GetReadableByteSize((double)Profiler.GetMonoUsedSize())));
+        lineRect.y += (lineRect.height + lineOffset);
+
+        GUI.Label(lineRect, string.Format("Managed Heap Size : {0}", Util.GetReadableByteSize((double)Profiler.GetMonoHeapSize())));
+        lineRect.y += (lineRect.height + lineOffset);
+        GUI.contentColor = rTemp;
     }
 
     string BuildDisplayString()
@@ -551,46 +580,4 @@ public class DebugConsole : MonoBehaviour
     }
 
     #endregion
-}
-
-public class FPSCounter
-{
-    public float current = 0.0f;
-
-    public float updateInterval = 0.5f;
-
-    float accum = 0; // FPS accumulated over the interval
-    int frames = 100; // Frames drawn over the interval
-    float timeleft; // Left time for current interval
-
-    float delta;
-
-    public FPSCounter()
-    {
-        timeleft = updateInterval;
-    }
-
-    public IEnumerator Update()
-    {
-        while (true)
-        {
-            delta = Time.deltaTime;
-
-            timeleft -= delta;
-            accum += Time.timeScale / delta;
-            ++frames;
-
-            // Interval ended - update GUI text and start new interval
-            if (timeleft <= 0.0f)
-            {
-                // display two fractional digits (f2 format)
-                current = accum / frames;
-                timeleft = updateInterval;
-                accum = 0.0f;
-                frames = 0;
-            }
-
-            yield return null;
-        }
-    }
 }

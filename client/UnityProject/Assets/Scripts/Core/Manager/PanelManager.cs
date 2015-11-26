@@ -181,6 +181,17 @@ public class PanelManager : TSingleton<PanelManager>
         _panelStack.TrimExcess();
     }
 
+    public void ClearStackUnlessFocus()
+    {
+        _panelStack.ForEach((item) =>
+        {
+            if(item.LogicName == panelCur.LogicName) return;
+            Util.CallScriptFunction(item.LogicObject, item.LogicName, freeName);
+            item = null;
+        });
+        _panelStack.Clear();
+        _panelStack.TrimExcess();
+    }
 
     void StickElement(UIPanel element)
     {

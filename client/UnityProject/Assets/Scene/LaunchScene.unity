@@ -264,7 +264,7 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  _isOpen: 0
+  isOpenBriefView: 1
 --- !u!4 &1015474755
 Transform:
   m_ObjectHideFlags: 0

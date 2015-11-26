@@ -6,6 +6,20 @@ using System.Text.RegularExpressions;
 using System.Text;
 public class Util : MonoBehaviour
 {
+    public static String GetReadableByteSize(double size)
+    {
+        String[] units = new String[] { "B", "KB", "MB", "GB", "TB", "PB" };
+        double mod = 1024.0;
+        int i = 0;
+        while (size >= mod)
+        {
+            size /= mod;
+            i++;
+        }
+        return Math.Round(size) + units[i];
+
+    }
+
     /// <summary>
     /// new 一个新对象
     /// </summary>

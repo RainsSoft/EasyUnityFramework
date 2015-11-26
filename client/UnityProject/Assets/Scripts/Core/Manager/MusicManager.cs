@@ -85,11 +85,11 @@ public class MusicManager : MonoBehaviour
     /// <summary>
     /// ≤•∑≈“Ù∆µºÙº≠
     /// </summary>
-    public void Play(AudioClip clip, Vector3 position)
+    public void Play(AudioClip clip, Vector3 position,float strenth = 1)
     {
         if (!CanPlaySoundEffect())
             return;
-        AudioSource.PlayClipAtPoint(clip, position);
+        AudioSource.PlayClipAtPoint(clip, position, strenth);
     }
 
     /// <summary>
