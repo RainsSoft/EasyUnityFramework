@@ -243,3 +243,6 @@ sysinfo.txt
 #############
 ## Custom
 #############
+
+# 不忽略HotFixCode.csproj文件
+!HotFixCode.csproj
