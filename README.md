@@ -1,8 +1,7 @@
 # EasyUnityFramework
-***
 
 ## 简述
-EasyUnityFramework是基于Unity的一套开源游戏架构
+EasyUnityFramework是基于Unity实现的一套简单的开源游戏架构，用途是个人学习
 
 * Unity版本 : 5.2.0f3  
 * UI : UGUI
