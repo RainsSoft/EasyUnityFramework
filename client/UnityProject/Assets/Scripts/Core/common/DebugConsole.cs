@@ -269,7 +269,7 @@ public class DebugConsole : MonoBehaviour
         }
 
         labelStyle = GUI.skin.label;
-        GUI.skin.label.fontSize = 20;
+        GUI.skin.label.fontSize = 18;
 
         innerRect.width = messageLine.width;
 
@@ -452,7 +452,7 @@ public class DebugConsole : MonoBehaviour
     void OnBriefView()
     {
         if (isOpenLogView) return;
-        var lineRect = new Rect(4, 0, 300, 30);
+        var lineRect = new Rect(4, 0, 300, 25);
 
         var rTemp = GUI.contentColor;
         GUI.contentColor = systemColor;

@@ -16,7 +16,7 @@ EasyUnityFramework或参考设计思路，或直接代码引用了以下开源�
 
 * L#
 * SimpleFramework
-* jsonFX
+* JsonFX
 * UIWidget
 * DOTween
 * TsiU
@@ -30,17 +30,19 @@ EasyUnityFramework或参考设计思路，或直接代码引用了以下开源�
 * Assetbundle打包与加载系统
 * 手势消息分发（Tap, Move, Drag, Swipe）
 * 简洁的行为树实现
-* 跨平台的路径管理
+* 多平台管理
 * 可用于脚本代码与原生代码之间通信的消息机制
-* 控制台
-* 常用函数封装
 
 ## 使用说明
 
-待补充
+### 目录结构
+1. HotFixCode: 热更新代码工程文件夹
+2. UnityProject: Unity工程文件夹
+3. HotFixExport: 热更新代码导出的DLL文件夹
 
 ## 版本记录
 
 V0.0.1_alpha[2015.11.26]  
 
 1. 测试版本
+ 
