@@ -1,7 +1,7 @@
 # EasyUnityFramework
 
 ## 简述
-EasyUnityFramework是基于Unity实现的一套简单的开源游戏架构，用途是个人学习
+EasyUnityFramework是基于Unity实现的一套简单的开源游戏架构
 
 * Unity版本 : 5.2.0f3  
 * UI : UGUI
@@ -35,10 +35,15 @@ EasyUnityFramework或参考设计思路，或直接代码引用了以下开源�
 
 ## 使用说明
 
-### 目录结构
+**目录结构** 
+
 1. HotFixCode: 热更新代码工程文件夹
 2. UnityProject: Unity工程文件夹
-3. HotFixExport: 热更新代码导出的DLL文件夹
+3. HotFixExport: 热更新代码导出的DLL文件夹(生成热更新工程时产生，开发期间会Copy至UnityProject的Resources目录下，方便开发)
+
+## 联系方式
+QQ: 648398613  
+Email: 648398613@qq.com
 
 ## 版本记录
 

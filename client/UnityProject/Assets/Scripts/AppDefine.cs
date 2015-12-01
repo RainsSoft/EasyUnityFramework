@@ -30,7 +30,7 @@ public static class AppConst
     /// <summary>
     /// 研发模式-用于内部开发,   资源文件会走流文件目录
     /// </summary>
-    public static bool IsDebugMode = true;
+    public static bool IsDebugMode = false;
 
     /// <summary>
     /// 更新模式

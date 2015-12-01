@@ -1,0 +1,58 @@
+ManifestFileVersion: 0
+CRC: 2769020276
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b96acebd594dda02a9963c1e49431ef3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 00ffc586b3c4c12c72c7fed589b81235
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_delimiter.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/BG.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/notify_close.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/spinner_up.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/notify_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/scrollbar_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/SP_BG.PNG
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/listview_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tooltip.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/scrollbar_handle.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/spinner_down.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_icon.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_inactive_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/input_input.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/button_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/ui_wating.tga
+- Assets/OriginalRes/UI/Common/Texture/Sample/input_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/listview_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_input.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/button_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/listview_selected.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_02.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/listview_hover.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/tab_active_mask.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/iprogressbar_texture.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/dialog_border.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/progressbar_background_01.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/canvas_background.png
+- Assets/OriginalRes/UI/Common/Texture/Sample/button_mask.png
+Dependencies: []

@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: ui/common.unity3d
+      Dependencies: {}
+    Info_1:
+      Name: ui/loadingpanel.unity3d
+      Dependencies:
+        Dependency_0: ui/common.unity3d
+    Info_2:
+      Name: ui/samplepanel.unity3d
+      Dependencies:
+        Dependency_0: ui/common.unity3d
+    Info_3:
+      Name: ui/sampletwopanel.unity3d
+      Dependencies:
+        Dependency_0: ui/common.unity3d
+    Info_4:
+      Name: ui/widget.unity3d
+      Dependencies:
+        Dependency_0: ui/common.unity3d
