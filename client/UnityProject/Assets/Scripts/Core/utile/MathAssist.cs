@@ -133,8 +133,77 @@ public class MathAssist
         return dest;
     }
 
+
     public static double RadianToDegree(double radian)
     {
         return radian * (180 / Math.PI);
+    }
+
+    //一阶曲线求值[0<=t <= 1]
+    //公式：B(t) = p0 + (p1 - p0) * t 
+    public static float LinearBezierEvaluate(float p0, float p1, float t)
+    {
+        t = Mathf.Clamp01(t);
+        return p0 + (p1-p0) * t;
+    }
+
+    //二阶曲线求值
+    //公式：B(t) = (1 - t) ^2 * p0 + 2 * (1 - t) * t * p1 + t^2 * p2
+    public static float QuadBezierEvaluate(float p0, float p1, float p2, float t)
+    {
+        t = Mathf.Clamp01(t);
+        float current = 0;  
+        float InvT = 1 - t;  
+        float InvT_2 = InvT * InvT;  
+        float T2 = t * t;  
+        current = InvT_2 * p0;  
+        current += 2 * InvT * t * p1;  
+        current += T2* p2;  
+        return current;  
+    }
+
+    //三阶曲线求值
+    //公式： B(t) = (1 - t)^3 * p0 + 3 * (1 - t) ^2 * t * p1 + 3 * (1 - t ) * t^2 * p2 + t^3 * p3
+    public static float CubicBezierEvaluate(float p0, float p1, float p2, float p3, float t)  
+    {
+        t = Mathf.Clamp01(t);
+        float current = 0;  
+        float InvT = 1 - t;  
+        float InvT_2 = InvT * InvT;  
+        float InvT_3 = InvT_2 * InvT;  
+        float T2 = t * t;  
+        float T3 = T2 * t;  
+        current += InvT_3 * p0;  
+        current += 3 * InvT_2 *t * p1;  
+        current += 3 * InvT * T2 * p2;  
+        current += T3 * p3;  
+        return current;  
+    }
+
+    //一阶曲线求值
+    //公式： (1-t) * p0 + t * p1
+    public static Vector3 LinearBezierEvaluate(Vector3 p0, Vector3 p1, float t)
+    {
+        t = Mathf.Clamp01(t);
+        return (1-t) * p0 + t * p1;
+    }
+
+    //通用曲线求值
+    //points数组的第一个和最后一个point为曲线的起始点和终点，中间可以插入任意多个控制点
+    public static Vector3 GeneralBezierEvaluate(Vector3[] points, float t)
+    {
+        t = Mathf.Clamp01(t);
+        var n = points.Length - 1;
+
+        for( int i = n; i >= 0; i-- )
+        {
+            for (int j = 0; j <= i - 1; j++)
+            {
+                var p0 = points[j];
+                var p1 = points[j+1];
+                points[j] = LinearBezierEvaluate(p0, p1, t);
+            }
+        }
+        return points[0];
     }
 }
